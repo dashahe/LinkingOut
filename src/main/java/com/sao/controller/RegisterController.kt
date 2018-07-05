@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/register")
 class RegisterController{
 
     @Autowired
@@ -18,19 +18,19 @@ class RegisterController{
         this.userService = userRepository
     }
 
-    @GetMapping(path= arrayOf("all"))
-    @ResponseBody
-    fun getAllUsers(): Iterable<User> {
-        return userService.findAllUsers()
-    }
+//    @GetMapping
+//    @ResponseBody
+//    fun getAllUsers(): Iterable<User> {
+//        return userService.findAllUsers()
+//    }
 
     //todo return value and error code
     //test procedure 1.apply error handing -> 2.add some user info ->3.test customized sql
-    @RequestMapping(path= arrayOf("register"))
-    fun register(@RequestParam email:String, @RequestParam username:String,
-                 @RequestParam password:String,@RequestParam tel:String):String {
+    @RequestMapping
+    fun register(@RequestParam username:String,
+                 @RequestParam password:String,
+                 @RequestParam tel:String):String {
         var user = User()
-        user.email = email
         user.username = username
         user.tel = tel
         user.password = password
@@ -41,8 +41,7 @@ class RegisterController{
 
     //todo add response code
     @PostMapping("register")
-
-    fun register(@RequestBody user:User):String{
+    fun register(@RequestBody user:User):String {
         userService.insert(user)
         return "saved"
     }
@@ -51,7 +50,7 @@ class RegisterController{
     //result in the different id
     @GetMapping("{id}")
     @ResponseBody
-    fun getUser(@PathVariable  id:Long):User{
+    fun getUser(@PathVariable  id:Long):User {
         return userService.findByUid(id)
     }
 }

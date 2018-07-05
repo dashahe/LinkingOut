@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam
 
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/login")
 class LoginController{
 
 
@@ -23,7 +23,7 @@ class LoginController{
     }
 
     //todo required static resources
-    @PostMapping(value = "login")
+    @PostMapping
     fun login(@RequestBody user : User):String{
         if(userService.findByUsername(user.username!!).password.equals(
                         user.password)){

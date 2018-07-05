@@ -21,9 +21,6 @@ class User: BasicModel() {
     @NotEmpty(message = "Username is required.")
     var username: String? = null
 
-    @NotEmpty(message = "Email is required.")
-    var email: String? = null
-
     @NotEmpty(message = "Password is required")
     var password: String?= null
 
