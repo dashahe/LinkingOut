@@ -27,7 +27,7 @@ public class Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 
-		SMSUtil util = new SMSUtil("13385275715");
-		util.exec();
+//		SMSUtil util = new SMSUtil("13385275715");
+//		util.exec();
 	}
 }

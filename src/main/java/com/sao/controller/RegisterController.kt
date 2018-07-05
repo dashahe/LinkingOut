@@ -1,10 +1,8 @@
 package com.sao.controller
 
-import com.sao.domain.Auth
 import com.sao.domain.User
 import com.sao.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -40,7 +38,7 @@ class RegisterController{
     }
 
     //todo add response code
-    @PostMapping("register")
+    @PostMapping()
     fun register(@RequestBody user:User):String {
         userService.insert(user)
         return "saved"

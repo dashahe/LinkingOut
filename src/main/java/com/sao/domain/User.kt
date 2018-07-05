@@ -1,9 +1,7 @@
 package com.sao.domain
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import org.hibernate.validator.constraints.UniqueElements
+import javax.persistence.*
 import javax.validation.constraints.NotEmpty
 
 
@@ -15,8 +13,8 @@ class User: BasicModel() {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    override  var id: Long? = null
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    override  var uid: Long? = null
 
     @NotEmpty(message = "Username is required.")
     var username: String? = null
@@ -24,6 +22,7 @@ class User: BasicModel() {
     @NotEmpty(message = "Password is required")
     var password: String?= null
 
+    @Column(unique = true)
     @NotEmpty(message ="tel is required")
     var tel :String?= null
 
