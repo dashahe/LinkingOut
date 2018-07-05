@@ -15,6 +15,7 @@ class RegisterController {
     @Autowired
     lateinit var userService: UserService
 
+
     constructor(userService: UserService) {
         this.userService = userService
     }

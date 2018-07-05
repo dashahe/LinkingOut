@@ -24,6 +24,5 @@ class SkipFilter : Filter {
 
 
     override fun init(filterConfig: FilterConfig?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

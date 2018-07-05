@@ -10,7 +10,7 @@ class FollowRelation{
     @Id
     var fid :Long = 0
 
-    @Id
+//    @Id
     var bfid:Long = 0
 
 
