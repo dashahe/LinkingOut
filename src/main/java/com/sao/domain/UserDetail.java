@@ -2,6 +2,7 @@ package com.sao.domain;
 
 import org.hibernate.validator.constraints.UniqueElements;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
@@ -24,7 +25,6 @@ public class UserDetail {
     /**
      * Email address of user and it should be unique.
      */
-    @UniqueElements
     @Email
     private String email;
 
