@@ -5,14 +5,15 @@ import com.sao.domain.UserDetailRepository;
 import com.sao.service.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
-public class UserDetailServiceImp implements UserDetailService {
+@Service
+public class UserDetailServiceImp1 implements UserDetailService {
 
     private UserDetailRepository userDetailRepository;
 
     @Autowired
-    public UserDetailServiceImp(UserDetailRepository userDetailRepository) {
+    public UserDetailServiceImp1(UserDetailRepository userDetailRepository) {
         this.userDetailRepository = userDetailRepository;
     }
 
@@ -39,10 +40,10 @@ public class UserDetailServiceImp implements UserDetailService {
     }
 
     @Override
-    public void updateCidByUid(Long uid, Long cid) {
+    public void updateUniversityByUid(Long uid, String university) {
         UserDetail userDetail = findByUid(uid);
         if (userDetail != null) {
-            userDetail.setCid(cid);
+            userDetail.setUniversity(university);
         }
     }
 
