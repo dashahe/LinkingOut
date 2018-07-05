@@ -1,6 +1,6 @@
 package com.sao.controller
 
-import com.sao.CookieGenerator
+import com.sao.utils.CookieGenerator
 import com.sao.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller

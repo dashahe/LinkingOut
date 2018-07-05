@@ -1,5 +1,6 @@
-package com.sao
+package com.sao.utils
 
+import com.sao.CheckSumBuilder
 import org.apache.http.NameValuePair
 import org.apache.http.client.entity.UrlEncodedFormEntity
 import org.apache.http.client.methods.HttpPost
@@ -30,7 +31,7 @@ class SMSUtil(var mobileNumber:String){
 
         var current = (Date().time/1000).toString()
 
-        var checkSum = CheckSumBuilder.getCheckSum(APP_SECRET,NONCE,current)
+        var checkSum = CheckSumBuilder.getCheckSum(APP_SECRET, NONCE, current)
 
 
         httpPost.addHeader("AppKey", APP_KEY);
