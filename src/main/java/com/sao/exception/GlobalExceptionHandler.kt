@@ -1,4 +1,4 @@
-package com.sao
+package com.sao.exception
 
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest
 
 @ControllerAdvice
 class GlobalExceptionHandler{
-
 
     @ExceptionHandler(value = Exception::class)
     fun defaultErrorHandler( request: HttpServletRequest,e:Exception)
