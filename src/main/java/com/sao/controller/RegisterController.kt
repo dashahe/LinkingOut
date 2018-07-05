@@ -15,8 +15,8 @@ class RegisterController {
     @Autowired
     lateinit var userService: UserService
 
-    constructor(userRepository: UserService) {
-        this.userService = userRepository
+    constructor(userService: UserService) {
+        this.userService = userService
     }
 
 //    @GetMapping
