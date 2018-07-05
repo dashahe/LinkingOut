@@ -16,4 +16,5 @@ open interface UserService {
     //find all Users
     fun findAllUsers() : Iterable<User>
 
+    fun findByTel(tel:String):User
 }

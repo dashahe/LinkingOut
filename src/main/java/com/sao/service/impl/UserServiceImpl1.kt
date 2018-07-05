@@ -39,4 +39,17 @@ class UserServiceImpl : UserService {
     override fun insert(user: User) {
         repository!!.save(user)
     }
+
+    override fun findByTel(tel: String): User {
+        var iterable = repository!!.findAll()
+        var userR = User()
+        for(user in iterable){
+            if(user.tel.equals(tel)){
+                userR = user
+            }
+        }
+        return userR
+    }
+
+
 }

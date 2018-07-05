@@ -4,10 +4,7 @@ import com.sao.domain.User
 import com.sao.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.*
 
 
 @Controller
@@ -22,14 +19,22 @@ class LoginController{
         this.userService = userService
     }
 
+
+    @GetMapping
+    fun getLoginPage():String{
+        return "login"
+    }
+
+
     //todo required static resources
     @PostMapping
-    fun login(@RequestBody user : User):String{
-        if(userService.findByUsername(user.username!!).password.equals(
-                        user.password)){
-            return "saved";
+    fun login(@RequestParam(name="tel") tel:String,
+              @RequestParam(name="password") password:String):String{
+        var user = userService.findByTel(tel)
+        if(user.password.equals(password)){
+            return "save"
         }else{
-            return "not saved!"
+            return "false"
         }
     }
 
