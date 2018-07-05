@@ -11,5 +11,5 @@ abstract class BasicModel{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    open var id: Long? = null
+    open var uid: Long? = null
 }
