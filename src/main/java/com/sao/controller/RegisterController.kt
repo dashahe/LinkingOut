@@ -43,16 +43,9 @@ class RegisterController {
         //user id new user() or save user???
         userService.insert(user)
 
-
         return "login"
     }
 
-//    //todo add response code
-//    @PostMapping()
-//    fun register(@RequestBody user:User):String {
-//        userService.insert(user)
-//        return "login"
-//    }
 
     @GetMapping
     fun getRegisterPage(): String {
