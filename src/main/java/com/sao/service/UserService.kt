@@ -2,7 +2,7 @@ package com.sao.service
 
 import com.sao.domain.User
 
-open interface UserService {
+interface UserService {
 
     //register insert User table
     fun insert(user : User)
