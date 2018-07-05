@@ -30,7 +30,6 @@ class RegisterController{
     fun register(@RequestParam email:String, @RequestParam username:String,
                  @RequestParam password:String,@RequestParam tel:String):String {
         var user = User()
-        user.email = email
         user.username = username
         user.tel = tel
         user.password = password
