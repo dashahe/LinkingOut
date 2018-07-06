@@ -18,12 +18,12 @@
 <body>
 <div class="top-panel"></div>
 <div class="container">
-    <form id="form" action="./" method="post">
+    <form id="form" action="./edit" method="post">
         <div>
             <img name="image" src="http://static.runoob.com/images/mix/img_mountains_wide.jpg">
         </div>
         <div>
-            <img name="photo" src="../static/favicon.ico">
+            <img name="photo" src="/favicon.ico">
         </div>
     <table>
         <tr>
@@ -50,8 +50,6 @@
             <th>major</th>
             <th><input name="major" class="profile" th:value="${UserDetail.major}" </th>
         </tr>
-
-
 
     </table>
         <button>submit</button>
