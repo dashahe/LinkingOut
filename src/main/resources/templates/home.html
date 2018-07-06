@@ -5,12 +5,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="../static/css/home.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
-    <script src="/js/url.js"></script>
+    <script src="../static/js/url.js"></script>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
@@ -20,10 +20,7 @@
 </head>
 
 <body>
-<div class="top-panel">
-
-
-</div>
+<div class="top-panel"></div>
 <div class="container">
 
     <!--轮播-->
@@ -99,23 +96,7 @@
     <!--people-->
     <div class="activity-push">
         <div class="card bg-secondary text-white">
-            <table>
-                <tr>
-                    <th>email</th>
-                    <th>major</th>
-                    <th>hobby</th>
-                    <th>image</th>
-                </tr>
-                <form id="form" th:action="@{./edit}" method="post">
-                    <tr>
-                        <th><input type="email" class="profile" th:value="${UserDetail.email}"></th>
-                        <th><input type="text" class="profile" th:value="${UserDetail.major}"></th>
-                        <th><input type="text" class="profile" th:value="${UserDetail.hobby}"></th>
-                        <th><input type="text" class="profile" th:text="${UserDetail.image}"></th>
-                    </tr>
-                    <button>submit</button>
-                </form>
-            </table>    
+
         </div>
 
     </div>
