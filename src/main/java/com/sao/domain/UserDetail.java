@@ -13,7 +13,7 @@ import javax.validation.constraints.NotEmpty;
  * @author xvvx
  */
 @Entity
-public class UserDetail extends BasicModel {
+public class UserDetail {
 
     /**
      * User id.
@@ -24,7 +24,6 @@ public class UserDetail extends BasicModel {
     /**
      * Email address of user and it should be unique.
      */
-    @UniqueElements
     @Email
     private String email;
 
@@ -46,7 +45,6 @@ public class UserDetail extends BasicModel {
     /**
      * The String of user's photo. The picture is stored in a cloud disk.
      */
-    @NotEmpty(message = "photo of user is needed.")
     private String image;
 
     public Long getUid() {

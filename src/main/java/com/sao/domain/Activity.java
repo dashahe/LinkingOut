@@ -1,9 +1,10 @@
 package com.sao.domain;
 
+import org.hibernate.validator.constraints.Length;
+import org.springframework.stereotype.Controller;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.io.Serializable;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 @Entity
@@ -14,12 +15,13 @@ public class Activity {
     private Long aid;
 
     @NotEmpty
+    @Column(unique = true)
     private Long uid;
 
-    @NotEmpty
-    private Timestamp created;
+//    @NotEmpty
+//    private SimpleDateFormat created;
 
-    @Column(length = 300)
+    @Column(length = 300, unique = true)
     private String content;
 
     @NotEmpty
@@ -31,6 +33,14 @@ public class Activity {
 
     public void setAid(Long aid) {
         this.aid = aid;
+    }
+
+    public Long getUid() {
+        return uid;
+    }
+
+    public void setUid(Long uid) {
+        this.uid = uid;
     }
 
 //    public SimpleDateFormat getCreated() {
@@ -49,19 +59,11 @@ public class Activity {
         this.content = content;
     }
 
-    public Long getLike() {
+    public Long getLikes() {
         return likes;
     }
 
-    public void setLike(Long likes) {
-        this.likes = likes;
-    }
-
-    public Long getUid() {
-        return uid;
-    }
-
-    public void setUid(Long uid) {
-        this.uid = uid;
+    public void setLikes(Long like) {
+        this.likes = like;
     }
 }

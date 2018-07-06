@@ -32,10 +32,11 @@ public class UserDetailServiceImp1 implements UserDetailService {
     }
 
     @Override
-    public void updateEmailByUid(Long uid, String String) {
+    public void updateEmailByUid(Long uid, String email) {
         UserDetail userDetail = findByUid(uid);
         if (userDetail != null) {
-            userDetail.setEmail(String);
+            userDetail.setEmail(email);
+            userDetailRepository.save(userDetail);
         }
     }
 
@@ -44,6 +45,7 @@ public class UserDetailServiceImp1 implements UserDetailService {
         UserDetail userDetail = findByUid(uid);
         if (userDetail != null) {
             userDetail.setUniversity(university);
+            userDetailRepository.save(userDetail);
         }
     }
 
@@ -52,6 +54,7 @@ public class UserDetailServiceImp1 implements UserDetailService {
         UserDetail userDetail = findByUid(uid);
         if (userDetail != null) {
             userDetail.setMajor(major);
+            userDetailRepository.save(userDetail);
         }
     }
 
@@ -60,6 +63,7 @@ public class UserDetailServiceImp1 implements UserDetailService {
         UserDetail userDetail = findByUid(uid);
         if (userDetail != null) {
             userDetail.setHobby(hobby);
+            userDetailRepository.save(userDetail);
         }
     }
 
@@ -68,6 +72,7 @@ public class UserDetailServiceImp1 implements UserDetailService {
         UserDetail userDetail = findByUid(uid);
         if (userDetail != null) {
             userDetail.setImage(image);
+            userDetailRepository.save(userDetail);
         }
     }
 }
