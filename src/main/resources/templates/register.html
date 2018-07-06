@@ -23,19 +23,21 @@
     <div>
         <p class="word">REGISTER</p>
     </div>
-    <form action="register" method="post">
+    <form action="/register" method="post">
         <div class="register">
             <input name="tel" type="tel" class="a b" placeholder="Telephone" required="">
             <br>
             <input name="username" type="text" class="a b" placeholder="Username" required="">
             <br>
-            <input id="password" type="password" class="a b" placeholder="Password" required="">
+            <input name="password" type="password" class="a b" placeholder="Password" required="">
             <br>
-            <button type="button" class="btn font-weight-bold c">NEXT</button>
+            <button type = "submit" class="btn font-weight-bold c">NEXT</button>
             <br>
-            <button type="button" class="btn font-weight-bold c">登录已有账号</button>
         </div>
     </form>
+    <a href="/login">
+        <button class="btn font-weight-bold c">登录已有账号</button>
+    </a>
 </div>
 </body>
 
