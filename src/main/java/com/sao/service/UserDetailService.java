@@ -4,17 +4,17 @@ import com.sao.domain.model.UserDetail;
 
 public interface UserDetailService {
 
-    public UserDetail findByUid(Long uid);
+    UserDetail findByUid(Long uid);
 
-    public Iterable<UserDetail> findAll();
+    Iterable<UserDetail> findAll();
 
-    public void updateEmailByUid(Long uid, String email);
+    void updateEmailByUid(Long uid, String email);
 
-    public void updateCidByUid(Long uid, Long cid);
+    void updateUniversityByUid(Long uid, String university);
 
-    public void updateMajorByUid(Long uid, String major);
+    void updateMajorByUid(Long uid, String major);
 
-    public void updateHobbyByUid(Long uid, String hobby);
+    void updateHobbyByUid(Long uid, String hobby);
 
-    public void updateImageByUid(Long uid, String image);
+    void updateImageByUid(Long uid, String image);
 }
