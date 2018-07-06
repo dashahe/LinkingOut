@@ -15,6 +15,7 @@ class UserServiceImpl : UserService {
     internal var userDetailRepository :UserDetailRepository? = null
 
 
+
     @Autowired
     constructor(repository: UserRepository,userDetailRepository: UserDetailRepository){
         this.userRepository = repository
@@ -46,7 +47,7 @@ class UserServiceImpl : UserService {
         userRepository!!.save(user)
         var userDetail = UserDetail()
         userDetail.uid = user.uid
-      
+
         userDetail.init()
         userDetailRepository!!.save(userDetail)
     }
@@ -71,5 +72,14 @@ class UserServiceImpl : UserService {
         return userR
     }
 
-
+    override fun existByTel(tel: String): Boolean {
+        var flag = false
+        val iterable = userRepository!!.findAll()
+        for(user in iterable){
+            if(user.tel.equals(tel)){
+                flag = true
+            }
+        }
+        return flag
+    }
 }

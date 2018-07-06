@@ -1,7 +1,7 @@
 package com.sao.controller
 
-import com.sao.utils.CookieGenerator
 import com.sao.service.UserService
+import com.sao.utils.CookieGenerator
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.ModelAndView
-import javax.servlet.http.Cookie
 import javax.servlet.http.HttpServletResponse
 
 
@@ -43,8 +42,8 @@ class LoginController{
 
         val date = System.currentTimeMillis()
         var modelAndView  = ModelAndView("register")
-        var cookieValue:String? = CookieGenerator.makeCookie(user.uid!!,date.toString())
-        val cookie = Cookie("loginCookie",cookieValue)
+        val cookie = CookieGenerator(name="login_cookie").makeCookie(user)
+
 
         //the time is 30 minutes
         var expire = 30*3600

@@ -1,7 +1,6 @@
 package com.sao.controller
 
 
-import com.sao.domain.FollowRelation
 import com.sao.service.FollowSerice
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -23,11 +22,7 @@ class FollowController {
 
     @PostMapping
     fun createFollowRelation( fid :Long ,bfid:Long):String {
-        var followRelation  = FollowRelation()
-        followRelation.bfid = bfid
-        followRelation.fid = fid
-
-        followService.createFollower(followRelation = followRelation)
+        followService.createFollower(bfid = bfid,fid = fid)
 
         return "follow relation created"
     }

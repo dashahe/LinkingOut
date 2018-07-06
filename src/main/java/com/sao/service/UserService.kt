@@ -2,7 +2,7 @@ package com.sao.service
 
 import com.sao.domain.User
 
-interface UserService {
+interface   UserService {
 
     //register insert User table
     fun insert(user : User)
@@ -17,4 +17,6 @@ interface UserService {
     fun findAllUsers() : Iterable<User>
 
     fun findByTel(tel:String):User
+
+    fun existByTel(tel:String):Boolean
 }
