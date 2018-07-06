@@ -1,81 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="utf-8">
-    <title>personal page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../static/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/css/people.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <title>myspace</title>
 </head>
+
 <body>
-
+<div class="top-panel"></div>
 <div class="container">
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
-        <legend>个人动态</legend>
-    </fieldset>
-    <ul class="layui-timeline">
-        <li th:each="a:${activities}" class="layui-timeline-item">
-            <i class="layui-icon layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <h3 class="layui-timeline-title" th:text="${a.createdDate}"></h3>
-                <h3 class="layui-timeline-title" th:text="${a.createdTime}"></h3>
-                <p th:text="${a.content}"></p>
-                <p th:text="${a.likes}"></p>
+
+    <div class="naa">
+        <div>
+            <img class="image" src="../static/2.jpg">
+            <div class="btnconrainer">
+                <a href="#" class="btn btn-info" role="button">编辑信息</a>
             </div>
-        </li>
-        <li class="layui-timeline-item">
-            <i class="layui-icon layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <div class="layui-timeline-title">过去</div>
-            </div>
-        </li>
-    </ul>
+        </div>
+        <div class="navv">
+            <u1 class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="myfollow.html">我的关注</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="follow.html">关注我的</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="star.html">我的收藏</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="hands.html">我的二手</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="job.html">我的兼职</a>
+                </li>
+            </u1>
+        </div>
+    </div>
 
 
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
-        <legend>简约时间线：大事记</legend>
-    </fieldset>
-    <ul class="layui-timeline">
-        <li class="layui-timeline-item">
-            <i class="layui-icon layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <div class="layui-timeline-title">2018年，layui 5.0 发布。并发展成为中国最受欢迎的前端UI框架（期望）</div>
-            </div>
-        </li>
-        <li class="layui-timeline-item">
-            <i class="layui-icon layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <div class="layui-timeline-title">2017年，layui 里程碑版本 2.0 发布</div>
-            </div>
-        </li>
-        <li class="layui-timeline-item">
-            <i class="layui-icon layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <div class="layui-timeline-title">2016年，layui 首个版本发布</div>
-            </div>
-        </li>
-        <li class="layui-timeline-item">
-            <i class="layui-icon layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <div class="layui-timeline-title">2015年，layui 孵化</div>
-            </div>
-        </li>
-        <li class="layui-timeline-item">
-            <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <div class="layui-timeline-title">更久前，轮子时代。维护几个独立组件：layer等</div>
-            </div>
-        </li>
-    </ul>
+    <div class="action">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>个人动态</legend>
+        </fieldset>
+        <ul class="layui-timeline">
 
-
-    <script src="../static/layui/css/layui.css" charset="utf-8"></script>
-    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-    <script>
-    </script>
-
-
+            <li th:each="a:${activities}" class="layui-timeline-item">
+                <i class="layui-icon layui-timeline-axis"></i>
+                <div class="layui-timeline-content layui-text">
+                    <h3 class="layui-timeline-title" th:text="${a.created}"></h3>
+                    <div class="card  bg-light text-dark">
+                        <div class="card-body">
+                            <p th:text="${a.content}"></p>
+                            <p th:text="${a.likes}"></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="layui-timeline-item">
+                <i class="layui-icon layui-timeline-axis"></i>
+                <div class="layui-timeline-content layui-text">
+                    <div class="layui-timeline-title"><End></End></div>
+                </div>
+            </li>
+        </ul>
+        <script src="../static/layui/css/layui.css" charset="utf-8"></script>
+        <script>
+        </script>
+    </div>
 </div>
 </body>
+
 </html>
