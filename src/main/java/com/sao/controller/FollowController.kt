@@ -22,9 +22,12 @@ class FollowController {
 
     @PostMapping
     fun createFollowRelation( fid :Long ,bfid:Long):String {
-        followService.createFollower(bfid = bfid,fid = fid)
-
-        return "follow relation created"
+        if(followService.ifUserExist(fid = fid, bfid =  bfid)) {
+            followService.createFollower(bfid = bfid, fid = fid)
+            return "follow relation created"
+        }else{
+            return "not exist"
+        }
     }
 
 
