@@ -42,12 +42,10 @@ class LoginController{
 
         val date = System.currentTimeMillis()
         var modelAndView  = ModelAndView("register")
-        val cookie = CookieGenerator(name="login_cookie").makeCookie(user)
+        val cookieGenerator = CookieGenerator(name="login_cookie")
+        val cookie = cookieGenerator.makeCookie(user)
 
-
-        //the time is 30 minutes
-        var expire = 30*3600
-        if(user.password.equals(password)&&System.currentTimeMillis()<expire+date){
+        if(user.password.equals(password)&&cookieGenerator.isExpired()){
                 response.addCookie(cookie)
                 return modelAndView
         }else{

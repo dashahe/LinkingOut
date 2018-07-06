@@ -1,4 +1,4 @@
-package com.sao.domain
+package com.sao.domain.model
 
 import java.io.Serializable
 import javax.persistence.Embeddable

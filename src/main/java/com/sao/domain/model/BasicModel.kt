@@ -1,4 +1,4 @@
-package com.sao.domain
+package com.sao.domain.model
 
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType

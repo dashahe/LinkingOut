@@ -20,13 +20,14 @@ class FollowController {
         this.followService = followSerive
     }
 
+    //todo static resources
     @PostMapping
     fun createFollowRelation( fid :Long ,bfid:Long):String {
         if(followService.ifUserExist(fid = fid, bfid =  bfid)) {
             followService.createFollower(bfid = bfid, fid = fid)
-            return "follow relation created"
+            return "login"
         }else{
-            return "not exist"
+            return "login"
         }
     }
 

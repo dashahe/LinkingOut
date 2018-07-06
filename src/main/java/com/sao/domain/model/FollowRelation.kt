@@ -1,4 +1,4 @@
-package com.sao.domain
+package com.sao.domain.model
 
 import javax.persistence.EmbeddedId
 import javax.persistence.Entity
@@ -9,6 +9,6 @@ class FollowRelation{
 
 
     @EmbeddedId
-    lateinit var followIdentity :FollowIdentity
+    lateinit var followIdentity : FollowIdentity
 
 }

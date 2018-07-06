@@ -1,6 +1,6 @@
 package com.sao.utils
 
-import com.sao.domain.User
+import com.sao.domain.model.User
 import javax.servlet.http.Cookie
 
 class CookieGenerator(var name:String){
@@ -8,6 +8,9 @@ class CookieGenerator(var name:String){
      var created :Long = 0
 
 
+    /**
+     * pass user
+     */
     fun makeCookie(user: User): Cookie {
         created = (System.currentTimeMillis())
         var value = this.name + "-${created.toString()}-${user.uid}"
@@ -15,12 +18,9 @@ class CookieGenerator(var name:String){
         return cookie
     }
 
-    fun isExpired() =  {
+    fun isExpired() :Boolean{
         var currentTime = System.currentTimeMillis()
-        if(currentTime<=created+30*36000)
-            false
-        else
-            true
+        return currentTime > created+30*36000
     }
 
 }
