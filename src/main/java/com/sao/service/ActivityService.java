@@ -14,5 +14,6 @@ public interface ActivityService {
 
     void addActivity(Activity activity);
 
+    Iterable<Activity> findAll();
 //    Page<Activity> findActivity(Integer page, Integer size);
 }
