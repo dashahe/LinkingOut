@@ -1,8 +1,10 @@
 package com.sao.service
 
-import com.sao.domain.FollowRelation
-
 interface FollowSerice {
 
-    fun createFollower(followRelation:FollowRelation);
+    /**
+     * check if both users exist
+     */
+    fun ifUserExist(fid:Long , bfid: Long) : Boolean
+    fun createFollower(fid:Long, bfid:Long);
 }

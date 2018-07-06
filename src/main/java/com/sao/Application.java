@@ -18,16 +18,47 @@
  */
 package com.sao;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 
 @SpringBootApplication
-public class Application {
+public class Application extends SpringBootServletInitializer {
+
+	private static final Logger logger = LoggerFactory.getLogger(Application.class);
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return builder.sources(this.getClass());
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 
 //		SMSUtil util = new SMSUtil("13385275715");
 //		util.exec();
+
 	}
+
+	/**
+	 * 编码设置
+	 * @return
+	 */
+	@Bean
+	public FilterRegistrationBean filterRegistrationBean() {
+		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+		characterEncodingFilter.setEncoding("UTF-8");
+		registrationBean.setFilter(characterEncodingFilter);
+		return registrationBean;
+	}
+
+
 }

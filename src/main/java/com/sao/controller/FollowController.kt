@@ -1,7 +1,6 @@
 package com.sao.controller
 
 
-import com.sao.domain.FollowRelation
 import com.sao.service.FollowSerice
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -21,15 +20,15 @@ class FollowController {
         this.followService = followSerive
     }
 
+    //todo static resources
     @PostMapping
     fun createFollowRelation( fid :Long ,bfid:Long):String {
-        var followRelation  = FollowRelation()
-        followRelation.bfid = bfid
-        followRelation.fid = fid
-
-        followService.createFollower(followRelation = followRelation)
-
-        return "follow relation created"
+        if(followService.ifUserExist(fid = fid, bfid =  bfid)) {
+            followService.createFollower(bfid = bfid, fid = fid)
+            return "login"
+        }else{
+            return "login"
+        }
     }
 
 

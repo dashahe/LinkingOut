@@ -1,4 +1,4 @@
-package com.sao.domain;
+package com.sao.domain.model;
 
 import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.stereotype.Controller;

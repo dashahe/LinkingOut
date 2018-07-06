@@ -1,12 +1,26 @@
 package com.sao.utils
 
-class CookieGenerator{
+import com.sao.domain.model.User
+import javax.servlet.http.Cookie
 
-    companion object {
+class CookieGenerator(var name:String){
 
-         fun makeCookie(uid :Long,date:String ):String{
-            var cookie :String = "cookie-${date}-${uid}"
-            return cookie
-        }
+     var created :Long = 0
+
+
+    /**
+     * pass user
+     */
+    fun makeCookie(user: User): Cookie {
+        created = (System.currentTimeMillis())
+        var value = this.name + "-${created.toString()}-${user.uid}"
+        var cookie = Cookie(name,value)
+        return cookie
     }
+
+    fun isExpired() :Boolean{
+        var currentTime = System.currentTimeMillis()
+        return currentTime > created+30*36000
+    }
+
 }

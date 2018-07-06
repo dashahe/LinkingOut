@@ -1,9 +1,9 @@
 package com.sao.service.impl
 
-import com.sao.domain.User
-import com.sao.domain.UserDetail
-import com.sao.domain.UserDetailRepository
-import com.sao.domain.UserRepository
+import com.sao.domain.model.User
+import com.sao.domain.model.UserDetail
+import com.sao.domain.repository.UserDetailRepository
+import com.sao.domain.repository.UserRepository
 import com.sao.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -12,11 +12,12 @@ import org.springframework.stereotype.Service
 class UserServiceImpl : UserService {
 
     internal var userRepository: UserRepository? = null
-    internal var userDetailRepository :UserDetailRepository? = null
+    internal var userDetailRepository : UserDetailRepository? = null
+
 
 
     @Autowired
-    constructor(repository: UserRepository,userDetailRepository: UserDetailRepository){
+    constructor(repository: UserRepository, userDetailRepository: UserDetailRepository){
         this.userRepository = repository
         this.userDetailRepository = userDetailRepository
     }
@@ -33,7 +34,7 @@ class UserServiceImpl : UserService {
 
     }
 
-    override fun findByUid(uid: Long) :User{
+    override fun findByUid(uid: Long) : User {
         return    userRepository!!.findById(uid).get()
     }
 
@@ -46,7 +47,7 @@ class UserServiceImpl : UserService {
         userRepository!!.save(user)
         var userDetail = UserDetail()
         userDetail.uid = user.uid
-      
+
         userDetail.init()
         userDetailRepository!!.save(userDetail)
     }
@@ -71,5 +72,14 @@ class UserServiceImpl : UserService {
         return userR
     }
 
-
+    override fun existByTel(tel: String): Boolean {
+        var flag = false
+        val iterable = userRepository!!.findAll()
+        for(user in iterable){
+            if(user.tel.equals(tel)){
+                flag = true
+            }
+        }
+        return flag
+    }
 }

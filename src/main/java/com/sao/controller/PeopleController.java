@@ -1,7 +1,8 @@
 package com.sao.controller;
 
+
 import com.sao.domain.Activity;
-import com.sao.domain.UserDetail;
+import com.sao.domain.model.UserDetail;
 import com.sao.service.ActivityService;
 import com.sao.service.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 
 
 @Controller
