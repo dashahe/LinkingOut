@@ -1,11 +1,15 @@
 package com.sao.domain;
 
+import com.sao.utils.SaoDateTime;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 @Entity
 public class Activity {
@@ -14,17 +18,13 @@ public class Activity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long aid;
 
-    @NotEmpty
-    @Column(unique = true)
     private Long uid;
 
-//    @NotEmpty
-//    private SimpleDateFormat created;
+    private Date created;
 
-    @Column(length = 300, unique = true)
+    @Column(length = 300)
     private String content;
 
-    @NotEmpty
     private Long likes;
 
     public Long getAid() {
@@ -43,14 +43,6 @@ public class Activity {
         this.uid = uid;
     }
 
-//    public SimpleDateFormat getCreated() {
-//        return created;
-//    }
-//
-//    public void setCreated(SimpleDateFormat created) {
-//        this.created = created;
-//    }
-
     public String getContent() {
         return content;
     }
@@ -66,4 +58,13 @@ public class Activity {
     public void setLikes(Long like) {
         this.likes = like;
     }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
 }

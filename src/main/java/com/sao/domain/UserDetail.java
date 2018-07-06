@@ -1,7 +1,9 @@
 package com.sao.domain;
 
 import org.hibernate.validator.constraints.UniqueElements;
+import org.springframework.stereotype.Controller;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
@@ -46,6 +48,10 @@ public class UserDetail {
      * The String of user's photo. The picture is stored in a cloud disk.
      */
     private String image;
+
+    private String sex;
+
+    private String introduction;
 
     public Long getUid() {
         return uid;
@@ -93,5 +99,21 @@ public class UserDetail {
 
     public void setUniversity(String university) {
         this.university = university;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 }

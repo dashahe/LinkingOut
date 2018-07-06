@@ -17,4 +17,8 @@ public interface UserDetailService {
     void updateHobbyByUid(Long uid, String hobby);
 
     void updateImageByUid(Long uid, String image);
+
+    void updateSexByUid(Long uid, String sex);
+
+    void updateIntroductionByUid(Long uid, String introduction);
 }
