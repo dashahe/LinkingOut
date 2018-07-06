@@ -31,6 +31,11 @@ public class ActivityServiceImpl1 implements ActivityService {
         return result;
     }
 
+    @Override
+    public void addActivity(Activity activity) {
+        activityRepository.save(activity);
+    }
+
 //    @Override
 //    public Page<Activity> findActivity(Integer page, Integer size) {
 //        Pageable pageable = PageRequest.of(page, size, Sort.Direction.DESC, "aid");

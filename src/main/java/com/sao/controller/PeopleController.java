@@ -9,12 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.LinkedList;
 import java.util.List;
 
 
 @Controller
-@RequestMapping(value = "/people", produces="text/plain;charset=UTF-8")
+@RequestMapping("/people")
 public class PeopleController {
 
     @Autowired
@@ -38,9 +40,9 @@ public class PeopleController {
     @GetMapping("/{uid}/activities")
     public String getActivities(Model model,
                                @PathVariable(name = "uid") Long uid) {
-        if (userDetailService.findByUid(uid) == null) {
-            return "error";
-        }
+//        if (userDetailService.findByUid(uid) == null) {
+//            return "error";
+//        }
         LinkedList<Activity> activities = activityService.findAllByUid(uid);
         UserDetail userDetail = userDetailService.findByUid(uid);
         model.addAttribute( "activities", activities);

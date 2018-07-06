@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/edit.css">
+    <link rel="stylesheet" href="../static/css/edit.css">
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
@@ -18,24 +18,38 @@
 <body>
 <div class="top-panel"></div>
 <div class="container">
-    <form id="form" action="./edit" method="post">
-        <p>image</p>
-        <th><input class="profile" th:text="${UserDetail.image}"></th>
-
+    <form id="form" action="./" method="post">
+        <div>
+            <img name="image" src="http://static.runoob.com/images/mix/img_mountains_wide.jpg">
+        </div>
+        <div>
+            <img name="photo" src="../static/favicon.ico">
+        </div>
     <table>
         <tr>
-            <th>email</th>
-            <th>university</th>
-            <th>major</th>
-            <th>hobby</th>
+            <th>sex</th>
+            <th><input name="sex" class="profile" th:value="${UserDetail.email}"></th>
         </tr>
-            <tr>
-                <th><input name="email" class="profile" th:value="${UserDetail.email}"></th>
-                <th><input name="university" class="profile" th:value="${UserDetail.university}"></th>
-                <th><input name="major" class="profile" th:value="${UserDetail.major}"></th>
-                <th><input name="hobby" class="profile" th:value="${UserDetail.hobby}"></th>
-            </tr>
-
+        <tr>
+            <th>introduction</th>
+            <th><input name="introduction" class="profile" th:value="${UserDetail.introduction}"></th>
+        </tr>
+        <tr>
+            <th>email</th>
+            <th><input name="email" class="profile" th:value="${UserDetail.email}"></th>
+        </tr>
+        <tr>
+            <th>hobby</th>
+            <th><input name="hobby" class="profile" th:value="${UserDetail.hobby}" </th>
+        </tr>
+        <tr>
+            <th>university</th>
+            <th><input name="university" class="profile" th:value="${UserDetail.university}"> </th>
+        </tr>
+        <tr>
+            <th>major</th>
+            <th><input name="major" class="profile" th:value="${UserDetail.major}" </th>
+        </tr>
 
 
 

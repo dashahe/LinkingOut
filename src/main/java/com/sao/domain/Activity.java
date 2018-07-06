@@ -18,20 +18,13 @@ public class Activity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long aid;
 
-    @NotEmpty
-    @Column(unique = true)
     private Long uid;
 
-    @NotEmpty
-    private Date createdDate;
+    private Date created;
 
-    @NotEmpty
-    private Time createdTime;
-
-    @Column(length = 300, unique = true)
+    @Column(length = 300)
     private String content;
 
-    @NotEmpty
     private Long likes;
 
     public Long getAid() {
@@ -66,19 +59,12 @@ public class Activity {
         this.likes = like;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
+    public Date getCreated() {
+        return created;
     }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    public void setCreated(Date created) {
+        this.created = created;
     }
 
-    public Time getCreatedTime() {
-        return createdTime;
-    }
-
-    public void setCreatedTime(Time createdTime) {
-        this.createdTime = createdTime;
-    }
 }
