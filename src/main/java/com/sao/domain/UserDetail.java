@@ -13,7 +13,7 @@ import javax.validation.constraints.NotEmpty;
  * @author xvvx
  */
 @Entity
-public class UserDetail {
+public class UserDetail extends BasicModel {
 
     /**
      * User id.
@@ -31,7 +31,7 @@ public class UserDetail {
     /**
      * Collage id of user's university. Optional.
      */
-    private Long cid;
+    private String university;
 
     /**
      * The major of user. Optional.
@@ -65,14 +65,6 @@ public class UserDetail {
         this.email = email;
     }
 
-    public Long getCid() {
-        return cid;
-    }
-
-    public void setCid(Long cid) {
-        this.cid = cid;
-    }
-
     public String getMajor() {
         return major;
     }
@@ -95,5 +87,13 @@ public class UserDetail {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(String university) {
+        this.university = university;
     }
 }

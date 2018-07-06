@@ -1,105 +1,130 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../static/css/home.css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <script src="../static/js/url.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <title>Hello, world!</title>
+
+
 </head>
 
 <body>
+<div class="top-panel">
 
-    <div class="container">
-        <!--轮播1 上方-->
-        <div id="top" class="carousel slide" data-ride="carousel">
 
-            <!-- 指示符 -->
-            <ul class="carousel-indicators">
-                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                <li data-target="#demo" data-slide-to="1"></li>
-                <li data-target="#demo" data-slide-to="2"></li>
-            </ul>
+</div>
+<div class="container">
 
-            <!-- 轮播图片 -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="http://static.runoob.com/images/mix/img_fjords_wide.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img src="http://static.runoob.com/images/mix/img_nature_wide.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img src="http://static.runoob.com/images/mix/img_mountains_wide.jpg">
-                </div>
+    <!--轮播-->
+    <div id="top" class="carousel slide" data-ride="carousel">
+
+        <!-- 指示符 -->
+        <ul class="carousel-indicators">
+            <li data-target="#top" data-slide-to="0" class="active"></li>
+            <li data-target="#top" data-slide-to="1"></li>
+            <li data-target="#top" data-slide-to="2"></li>
+        </ul>
+
+        <!-- 轮播图片 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="http://static.runoob.com/images/mix/img_fjords_wide.jpg">
             </div>
-
-            <!-- 左右切换按钮 -->
-            <a class="carousel-control-prev" href="#top" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#top" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-
-        </div>
-        <!--轮播2 右方-->
-        <div id="right" class="carousel slide" data-ride="carousel">
-
-            <!-- 指示符 -->
-            <ul class="carousel-indicators">
-                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                <li data-target="#demo" data-slide-to="1"></li>
-                <li data-target="#demo" data-slide-to="2"></li>
-            </ul>
-
-            <!-- 轮播图片 -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="http://static.runoob.com/images/mix/img_fjords_wide.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img src="http://static.runoob.com/images/mix/img_nature_wide.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img src="http://static.runoob.com/images/mix/img_mountains_wide.jpg">
-                </div>
+            <div class="carousel-item">
+                <img src="http://static.runoob.com/images/mix/img_nature_wide.jpg">
             </div>
-
-            <!-- 左右切换按钮 -->
-            <a class="carousel-control-prev" href="#right" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#right" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-
+            <div class="carousel-item">
+                <img src="http://static.runoob.com/images/mix/img_mountains_wide.jpg">
+            </div>
         </div>
 
-        <!--个人信息面板-->
-        <div class="user_info_panel">
-            <img src=" ">
-
-        </div>
-
+        <!-- 左右切换按钮 -->
+        <a class="carousel-control-prev" href="#top" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#top" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
 
     </div>
 
+    <!-- 动态发布 -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#home">日常</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu1">二手</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu2">求职</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu3">招聘</a>
+        </li>
+    </ul>
+    <form action="" method="post">
+        <div class="tab-content">
+            <div id="home" class="container tab-pane active"><br>
+                <div>
+                    <input class="updating" name="updating" type="text" required="" placeholder="">
+                </div>
+            </div>
+            <div id="menu1" class="container tab-pane fade"><br>
+                <input class="updating" name="updating" type="text" required="" placeholder="">
+            </div>
+            <div id="menu2" class="container tab-pane fade"><br>
+                <input class="updating" name="updating" type="text" required="" placeholder="">
+            </div>
+            <div id="menu3" class="container tab-pane fade"><br>
+                <input class="updating" name="updating" type="text" required="" placeholder="">
+            </div>
+        </div>
+        <div id="s_button_d">
+            <button id="s_button">submit</button>
+        </div>
+    </form>
 
+    <!--people-->
+    <div class="activity-push">
+        <div class="card bg-secondary text-white">
+            <table>
+                <tr>
+                    <th>uid</th>
+                    <th>email</th>
+                    <th>university</th>
+                    <th>major</th>
+                    <th>hobby</th>
+                    <th>image</th>
+                </tr>
+                <form id="form" action="" method="post">
+                    <tr>
+                        <th><input id="uid" class="profile" th:value="${userDetail.uid}"></th>
+                        <th><input class="profile" th:value="${UserDetail.email}"></th>
+                        <th><input class="profile" th:value="${UserDetail.university}"></th>
+                        <th><input class="profile" th:value="${UserDetail.major}"></th>
+                        <th><input class="profile" th:value="${UserDetail.hobby}"></th>
+                        <th><input class="profile" th:text="${UserDetail.image}"></th>
+                    </tr>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+                </form>
+            </table>    
+            <button onclick="getUrl()">submit</button>
+        </div>
+
+    </div>
+</div>
 </body>
 
 </html>
