@@ -24,14 +24,13 @@ public class UserDetail {
     /**
      * Email address of user and it should be unique.
      */
-    @UniqueElements
     @Email
     private String email;
 
     /**
      * Collage id of user's university. Optional.
      */
-    private Long cid;
+    private String university;
 
     /**
      * The major of user. Optional.
@@ -46,7 +45,6 @@ public class UserDetail {
     /**
      * The String of user's photo. The picture is stored in a cloud disk.
      */
-    @NotEmpty(message = "photo of user is needed.")
     private String image;
 
     public Long getUid() {
@@ -63,14 +61,6 @@ public class UserDetail {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Long getCid() {
-        return cid;
-    }
-
-    public void setCid(Long cid) {
-        this.cid = cid;
     }
 
     public String getMajor() {
@@ -95,5 +85,13 @@ public class UserDetail {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(String university) {
+        this.university = university;
     }
 }

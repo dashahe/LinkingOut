@@ -14,7 +14,7 @@ body {
     height: 100%;
 }
 .bg {
-    background-image: url("/bg.jpg");
+    background-image: url("bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
@@ -54,7 +54,6 @@ p.title {
 .a {
     width: 280px;
     text-align: center;
-    border: 0；
 }
 .b {
     width: 250px;

@@ -5,14 +5,15 @@ import com.sao.domain.UserDetailRepository;
 import com.sao.service.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
-public class UserDetailServiceImp implements UserDetailService {
+@Service
+public class UserDetailServiceImp1 implements UserDetailService {
 
     private UserDetailRepository userDetailRepository;
 
     @Autowired
-    public UserDetailServiceImp(UserDetailRepository userDetailRepository) {
+    public UserDetailServiceImp1(UserDetailRepository userDetailRepository) {
         this.userDetailRepository = userDetailRepository;
     }
 
@@ -31,18 +32,20 @@ public class UserDetailServiceImp implements UserDetailService {
     }
 
     @Override
-    public void updateEmailByUid(Long uid, String String) {
+    public void updateEmailByUid(Long uid, String email) {
         UserDetail userDetail = findByUid(uid);
         if (userDetail != null) {
-            userDetail.setEmail(String);
+            userDetail.setEmail(email);
+            userDetailRepository.save(userDetail);
         }
     }
 
     @Override
-    public void updateCidByUid(Long uid, Long cid) {
+    public void updateUniversityByUid(Long uid, String university) {
         UserDetail userDetail = findByUid(uid);
         if (userDetail != null) {
-            userDetail.setCid(cid);
+            userDetail.setUniversity(university);
+            userDetailRepository.save(userDetail);
         }
     }
 
@@ -51,6 +54,7 @@ public class UserDetailServiceImp implements UserDetailService {
         UserDetail userDetail = findByUid(uid);
         if (userDetail != null) {
             userDetail.setMajor(major);
+            userDetailRepository.save(userDetail);
         }
     }
 
@@ -59,6 +63,7 @@ public class UserDetailServiceImp implements UserDetailService {
         UserDetail userDetail = findByUid(uid);
         if (userDetail != null) {
             userDetail.setHobby(hobby);
+            userDetailRepository.save(userDetail);
         }
     }
 
@@ -67,6 +72,7 @@ public class UserDetailServiceImp implements UserDetailService {
         UserDetail userDetail = findByUid(uid);
         if (userDetail != null) {
             userDetail.setImage(image);
+            userDetailRepository.save(userDetail);
         }
     }
 }
