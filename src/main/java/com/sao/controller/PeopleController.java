@@ -56,29 +56,27 @@ public class PeopleController {
     @GetMapping("/{uid}/edit")
     public String getEdit(Model model, @PathVariable(name = "uid") Long uid) {
         UserDetail userDetail = userDetailService.findByUid(uid);
-        model.addAttribute("userDetail", userDetail);
-        return "edit";
+        model.addAttribute("UserDetail", userDetail);
+        return "home";
     }
 
+    //balabal.com/people/1
     @PostMapping("/{uid}/edit")
-    public String postEdit(Model model,
+    @ResponseBody
+    public UserDetail postEdit(Model model,
                            @PathVariable(name = "uid") Long uid,
                            @RequestParam(name = "email", required = false) String email,
-                           @RequestParam(name = "university", required = false) String university,
+//                           @RequestParam(name = "university", required = false) String university,
                            @RequestParam(name = "major", required = false) String major,
                            @RequestParam(name = "hobby", required = false) String hobby,
                            @RequestParam(name = "image", required = false) String image) {
         userDetailService.updateEmailByUid(uid, email);
-        userDetailService.updateUniversityByUid(uid, university);
+//        userDetailService.updateUniversityByUid(uid, university);
         userDetailService.updateMajorByUid(uid, major);
         userDetailService.updateHobbyByUid(uid, hobby);
         userDetailService.updateImageByUid(uid, image);
         UserDetail userDetail = userDetailService.findByUid(uid);
-        model.addAttribute("email", userDetail.getEmail());
-        model.addAttribute("university", userDetail.getUniversity());
-        model.addAttribute("major", userDetail.getMajor());
-        model.addAttribute("hobby", userDetail.getHobby());
-        model.addAttribute("image", userDetail.getImage());
-        return "edit";
+        model.addAttribute("UserDetail", userDetail);
+        return userDetail;
     }
 }

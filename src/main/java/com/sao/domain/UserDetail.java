@@ -24,7 +24,6 @@ public class UserDetail {
     /**
      * Email address of user and it should be unique.
      */
-    @UniqueElements
     @Email
     private String email;
 
@@ -46,7 +45,6 @@ public class UserDetail {
     /**
      * The String of user's photo. The picture is stored in a cloud disk.
      */
-    @NotEmpty(message = "photo of user is needed.")
     private String image;
 
     public Long getUid() {
