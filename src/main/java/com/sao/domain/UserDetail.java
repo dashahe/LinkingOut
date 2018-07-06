@@ -13,7 +13,7 @@ import javax.validation.constraints.NotEmpty;
  * @author xvvx
  */
 @Entity
-public class UserDetail extends BasicModel {
+public class UserDetail {
 
     /**
      * User id.
