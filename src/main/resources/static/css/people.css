@@ -23,7 +23,7 @@ body {
     top:60px;
     left: 10px;
     z-index: 1;
-    filter: brightness(70%);
+    filter: brightness(90%);
     border-radius: 30%;
 }
 .naa {
@@ -33,15 +33,16 @@ body {
     font-size: 25px;
 }
 .navv{
-    top: 100px;
     color: darkgrey;
+    position: relative;
+    top: 20%;
 }
 
 .btnconrainer{
     left:40px;
     top: 220px;
-    width: 100px;
-    height: 50px;
+    width: 50px;
+    height: 30px;
     position: absolute;
     z-index: 1;
 }
@@ -54,7 +55,7 @@ body {
     overflow: scroll;
 }
 .action{
-    top: 50%;
+    top: 40%;
     width: 70%;
     height: 500px;
     background-repeat: no-repeat;
