@@ -75,4 +75,22 @@ public class UserDetailServiceImp1 implements UserDetailService {
             userDetailRepository.save(userDetail);
         }
     }
+
+    @Override
+    public void updateSexByUid(Long uid, String sex) {
+        UserDetail userDetail = findByUid(uid);
+        if (userDetail != null) {
+            userDetail.setImage(sex);
+            userDetailRepository.save(userDetail);
+        }
+    }
+
+    @Override
+    public void updateIntroductionByUid(Long uid, String introduction) {
+        UserDetail userDetail = findByUid(uid);
+        if (userDetail != null) {
+            userDetail.setImage(introduction);
+            userDetailRepository.save(userDetail);
+        }
+    }
 }
