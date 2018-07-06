@@ -20,10 +20,7 @@
 </head>
 
 <body>
-<div class="top-panel">
-
-
-</div>
+<div class="top-panel"></div>
 <div class="container">
 
     <!--轮播-->
@@ -99,28 +96,7 @@
     <!--people-->
     <div class="activity-push">
         <div class="card bg-secondary text-white">
-            <table>
-                <tr>
-                    <th>uid</th>
-                    <th>email</th>
-                    <th>university</th>
-                    <th>major</th>
-                    <th>hobby</th>
-                    <th>image</th>
-                </tr>
-                <form id="form" action="" method="post">
-                    <tr>
-                        <th><input id="uid" class="profile" th:value="${userDetail.uid}"></th>
-                        <th><input class="profile" th:value="${UserDetail.email}"></th>
-                        <th><input class="profile" th:value="${UserDetail.university}"></th>
-                        <th><input class="profile" th:value="${UserDetail.major}"></th>
-                        <th><input class="profile" th:value="${UserDetail.hobby}"></th>
-                        <th><input class="profile" th:text="${UserDetail.image}"></th>
-                    </tr>
 
-                </form>
-            </table>    
-            <button onclick="getUrl()">submit</button>
         </div>
 
     </div>

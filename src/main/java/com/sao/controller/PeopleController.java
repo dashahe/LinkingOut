@@ -5,16 +5,16 @@ import com.sao.domain.UserDetail;
 import com.sao.service.ActivityService;
 import com.sao.service.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedList;
 import java.util.List;
 
 
 @Controller
-@75("/people")
+@RequestMapping("/people")
 public class PeopleController {
 
     @Autowired
@@ -41,11 +41,16 @@ public class PeopleController {
         if (userDetailService.findByUid(uid) == null) {
             return "error";
         }
-        Iterable<Activity> activities = activityService.findAllByUid(uid);
+        LinkedList<Activity> activities = activityService.findAllByUid(uid);
         UserDetail userDetail = userDetailService.findByUid(uid);
         model.addAttribute( "activities", activities);
-        model.addAttribute("userDetail", userDetail);
-        return "activities";
+        model.addAttribute("UserDetail", userDetail);
+        return "people";
+    }
+
+    @GetMapping("/{uid}/a")
+    public @ResponseBody int getall(@PathVariable(name = "uid") Long uid) {
+        return activityService.findAllByUid(uid).size();
     }
 
     @GetMapping("/{uid}/edit")

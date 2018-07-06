@@ -1,10 +1,9 @@
 package com.sao.domain;
 
-import org.hibernate.validator.constraints.Length;
-import org.springframework.stereotype.Controller;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 @Entity
@@ -15,17 +14,18 @@ public class Activity {
     private Long aid;
 
     @NotEmpty
-    @Column(unique = true)
     private Long uid;
 
     @NotEmpty
-    private SimpleDateFormat created;
+    private Timestamp created;
 
-    @Column(length = 300, unique = true)
+    @Column(length = 300)
     private String content;
 
     @NotEmpty
-    private Long like;    public Long getAid() {
+    private Long likes;
+
+    public Long getAid() {
         return aid;
     }
 
@@ -33,21 +33,13 @@ public class Activity {
         this.aid = aid;
     }
 
-    public Long getUid() {
-        return uid;
-    }
-
-    public void setUid(Long uid) {
-        this.uid = uid;
-    }
-
-    public SimpleDateFormat getCreated() {
-        return created;
-    }
-
-    public void setCreated(SimpleDateFormat created) {
-        this.created = created;
-    }
+//    public SimpleDateFormat getCreated() {
+//        return created;
+//    }
+//
+//    public void setCreated(SimpleDateFormat created) {
+//        this.created = created;
+//    }
 
     public String getContent() {
         return content;
@@ -58,10 +50,18 @@ public class Activity {
     }
 
     public Long getLike() {
-        return like;
+        return likes;
     }
 
-    public void setLike(Long like) {
-        this.like = like;
+    public void setLike(Long likes) {
+        this.likes = likes;
+    }
+
+    public Long getUid() {
+        return uid;
+    }
+
+    public void setUid(Long uid) {
+        this.uid = uid;
     }
 }

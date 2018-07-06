@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>personal page</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<tr th:each="Activity: ${activities}">
+<div class="panel panel-default">
+
+    <div class="panel-body">
+        <p th:text="${UserDetail.hobby}"></p>
+        <p th:text="${UserDetail.major}"></p>
+    </div>
+
+    <div class="panel-body">
+            <p th:text="${Activity.aid}"></p>
+            <p th:text="${Activity.content}"></p>
+    </div>
+
+</div>
+</tr>
+
+</body>
+</html>

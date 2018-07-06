@@ -1,13 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<p th:text="${email}"/>
-<p th:text="${uid}"/>
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<p th:text="${hobby}"/>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/edit.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <title>Hello, world!</title>
+</head>
+
+
+<body>
+<div class="top-panel"></div>
+<div class="container">
+    <form id="form" action="./" method="post">
+        <p>image</p>
+        <th><input class="profile" th:text="${UserDetail.image}"></th>
+
+    <table>
+        <tr>
+            <th>email</th>
+            <th>university</th>
+            <th>major</th>
+            <th>hobby</th>
+        </tr>
+            <tr>
+                <th><input name="email" class="profile" th:value="${UserDetail.email}"></th>
+                <th><input name="university" class="profile" th:value="${UserDetail.university}"></th>
+                <th><input name="major" class="profile" th:value="${UserDetail.major}"></th>
+                <th><input name="hobby" class="profile" th:value="${UserDetail.hobby}"></th>
+            </tr>
+
+
+
+
+    </table>
+        <button>submit</button>
+    </form>
+</div>
+
 </body>
 </html>
