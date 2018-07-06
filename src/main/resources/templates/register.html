@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="../static/css/register.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
@@ -23,13 +23,13 @@
     <div>
         <p class="word">REGISTER</p>
     </div>
-    <form action="register" method="post">
+    <form action="/register" method="post">
         <div class="register">
             <input name="tel" type="tel" class="a b" placeholder="Telephone" required="">
             <br>
             <input name="username" type="text" class="a b" placeholder="Username" required="">
             <br>
-            <input id="password" type="password" class="a b" placeholder="Password" required="">
+            <input name="password" type="password" class="a b" placeholder="Password" required="">
             <br>
             <button type="button" class="btn font-weight-bold c">NEXT</button>
             <br>
