@@ -25,7 +25,7 @@ public class NewsCrawler {
 
         String responseBody = new String();
         OkHttpClient client = new OkHttpClient();
-        Request request  = new Request.Builder().url("http://www.ccnu.com.cn/").build();
+        Request request  = new Request.Builder().url("http://w  ww.ccnu.com.cn/").build();
         try {
             Response response = client.newCall(request).execute();
             responseBody = response.body().string();

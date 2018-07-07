@@ -11,7 +11,6 @@ import javax.validation.constraints.NotEmpty
 class User: BasicModel() {
 
     @Id
-
     @GeneratedValue(strategy = GenerationType.AUTO)
     override var uid: Long? = null
 

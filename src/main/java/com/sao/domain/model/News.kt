@@ -4,7 +4,6 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
-import javax.validation.constraints.NotNull
 
 //the entity of news table
 //news are divided into two kinds : plain without imageUrl and banner news with imageUrl
@@ -12,22 +11,18 @@ import javax.validation.constraints.NotNull
 
 @Entity
 class News {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    var nid :Long = 0
+    var nid :Long ? = null
 
-    @NotNull
-    var imageUrl :String = ""
+    var imageUrl :String? = null
 
-    @NotNull
-    var contentUrl :String = ""
+    var contentUrl :String?= null
 
-    @NotNull
-    var newsContentTitle :String = ""
+    var newsContentTitle :String? =null
 
-    @NotNull
-    var  newsType : Long = 0
+    var  newsType : Long?= null
 
-    @NotNull
-    var newsColumn :String = ""
+    var newsColumn :String? = null
 }

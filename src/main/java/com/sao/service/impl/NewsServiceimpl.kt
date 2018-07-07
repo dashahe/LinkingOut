@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class NewsServiceimpl : NewsService{
+class NewsServiceimpl:NewsService {
 
 
     lateinit var newsRepository: NewsRepository
@@ -33,12 +33,15 @@ class NewsServiceimpl : NewsService{
                 //if newsContent.imageUrl not null
                 val temp :String? = newsContent.imageUrl
 
+                println("XXXX==="+temp)
                 if(temp.equals("")){
-                    news.newsType = 0
+                    news.newsType = 0L
                     news.imageUrl = ""
+                    println("XXX=="+news.newsType)
                 }else{
                     news.imageUrl  = "http://www.ccnu.com.cn${newsContent.imageUrl!!}"
-                    news.newsType = 1
+                    news.newsType = 1L
+                    println("XXX=="+news.newsType)
                 }
 
                 news.contentUrl = "http://www.ccnu.com.cn/${newsContent.contentUrl}"
@@ -53,26 +56,27 @@ class NewsServiceimpl : NewsService{
     }
 
     override fun findBannerNews(): Iterable<News> {
-        val iterable = newsRepository.findAll()
+        val iterable = newsRepository.findAllNews()
+        println("ffdf"+iterable)
         var news = News()
         var bannerNews  =ArrayList<News>()
         var counter = 0
+
+        var a :Long = 1
         for(new in iterable){
-            if(news.newsType == 1L&& !news.newsContentTitle.equals("abcd")
-            && counter<3) {
+            println("ffdf"+new.newsType)
+            if(compare(a,new.newsType)&&counter<3&&!new.newsColumn.equals("abcd")) {
                 counter ++
-                bannerNews.add(news)
+                bannerNews.add(new)
             }
         }
+        println("ffdfd"+bannerNews.asIterable())
         return bannerNews.asIterable()
     }
 
-    override fun findAllNews(): Iterable<News> {
-        return newsRepository.findAll()
-    }
 
     override fun findPlainNews(): Iterable<News> {
-        val iterable = newsRepository.findAll()
+        val iterable = newsRepository.findAllNews()
         var news = News()
         var plainNews  =ArrayList<News>()
         for(new in iterable){
@@ -81,4 +85,6 @@ class NewsServiceimpl : NewsService{
         }
         return plainNews.asIterable()
     }
+
+
 }
