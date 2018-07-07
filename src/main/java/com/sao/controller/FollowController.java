@@ -8,10 +8,10 @@ import com.sao.service.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 @Controller
@@ -56,5 +56,27 @@ public class FollowController {
         }
         model.addAttribute("userDetailList", userDetailLinkedList);
         return "follow";
+    }
+
+    /**
+     * 处理加关注功能，前端发送过来POST请求，表单格式带上name为staruid的参数（待关注人的uid）
+     * 返回JSON格式数据，只有一个name为"result"的value。success/fail表示处理结果。
+     * @param httpSession
+     * @param staruid
+     * @return
+     */
+    @PostMapping("/process")
+    @ResponseBody
+    public HashMap<String, String> processFollow(HttpSession httpSession,
+                                                 @RequestParam(name = "staruid") Long staruid) {
+        Long fansuid = Long.valueOf(httpSession.getAttribute("uid").toString());
+        followRelationshipService.addFollowRelationship(fansuid, staruid);
+        HashMap<String, String> result = new HashMap<>();
+        if (followRelationshipService.existRelationship(fansuid, staruid)) {
+            result.put("result", "success");
+        } else {
+            result.put("result", "fail");
+        }
+        return result;
     }
 }
