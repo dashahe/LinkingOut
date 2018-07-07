@@ -57,7 +57,7 @@ class NewsServiceimpl : NewsService{
         var news = News()
         var bannerNews  =ArrayList<News>()
         for(new in iterable){
-            if(news.newsType == 1L)
+            if(news.newsType == 1L&&!new.contentUrl.equals("http://www.ccnu.com.cn/"))
                 bannerNews.add(news)
         }
         return bannerNews.asIterable()

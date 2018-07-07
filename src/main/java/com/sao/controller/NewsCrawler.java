@@ -116,7 +116,7 @@ public class NewsCrawler {
 
     private String getTranslation(String src){
         String url = TextUtil.Companion.formatUrl(src);
-        System.out.println(TextUtil.Companion.formatUrl("中国"));
+        System.out.println(url);
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .get()
@@ -130,7 +130,13 @@ public class NewsCrawler {
             TranslateObject object = new TranslateObject();
 
             object = gson.fromJson(json,TranslateObject.class);
-            result = object.getTrans_result().get(0).dst;
+
+            try {
+                result = object.getTrans_result().get(0).dst;
+            }catch (Exception e){
+                e.printStackTrace();
+                result = "abcd";
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
