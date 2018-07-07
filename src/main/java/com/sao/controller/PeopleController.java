@@ -9,10 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
-import java.sql.Time;
 import java.util.LinkedList;
-import java.util.List;
 
 
 @Controller
@@ -59,7 +56,7 @@ public class PeopleController {
     public String getEdit(Model model, @PathVariable(name = "uid") Long uid) {
         UserDetail userDetail = userDetailService.findByUid(uid);
         model.addAttribute("UserDetail", userDetail);
-        return "edit";
+        return "edit1";
     }
 
     //balabal.com/people/1
@@ -78,6 +75,6 @@ public class PeopleController {
         userDetailService.updateImageByUid(uid, image);
         UserDetail userDetail = userDetailService.findByUid(uid);
         model.addAttribute("UserDetail", userDetail);
-        return "edit";
+        return "edit1";
     }
 }

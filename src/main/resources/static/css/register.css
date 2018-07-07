@@ -56,7 +56,7 @@ p.word{
 .a {
     width: 280px;
     text-align: center;
-    border: 0；
+    border: 0;
 }
 .b {
     width: 250px;
@@ -79,6 +79,10 @@ p.word{
 }
 .c:hover {
     background-color: rgb(255, 78, 78);
+}
+
+.loginbtn {
+
 }
 .register {
     margin-top: 45px;
