@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      lang="en">
 
 <head>
     <!-- Required meta tags -->
@@ -7,9 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="myspace.css">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/css/myspace.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
     <script>
         function backhome() {
             window.location.href = "myspace.html";
@@ -19,117 +21,66 @@
 </head>
 
 <body>
-    <div class="container">
-        <div>顶部栏</div>
-        <di class="naa">
-            <div>
-                <img class="image" src="2.jpg" onclick="backhome()">
-            </div>
-            <div class="navv">
-                <u1 class="nav nav-pills justify-content-center">
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="myfollow.html">我的关注</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="follow.html">关注我的</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="star.html">我的收藏</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="hands.html">我的二手</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="job.html">我的兼职</a>
-                    </li>
-                </u1>
-            </div>
-
-    <div class="btnconrainer">
-        <a href="show3.html" class="btn btn-info" role="button">编辑信息</a>
-    </div>
-
-
-    <div class="action1">
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                头像
-            </div>
+<div class="container">
+    <div>顶部栏</div>
+    <di class="naa">
+        <div>
+            <img class="image" src="2.jpg" onclick="backhome()">
         </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                头像
-            </div>
-        </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                头像
-            </div>
-        </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                头像
-            </div>
-        </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                头像
-            </div>
-        </div>
-    </div>
-
-    <div class="action2">
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
+        <div class="navv">
+            <u1 class="nav nav-pills justify-content-center">
                 <li class="nav-item">
-                    <a class="username" data-toggle="pill" href="">username</a>
-                    <p>好友个人简介</p>
+                    <a class="nav-link" data-toggle="pill" href="myfollow.html">我的关注</a>
                 </li>
-            </div>
-        </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
                 <li class="nav-item">
-                    <a class="username" data-toggle="pill" href="">username</a>
-                    <p>好友个人简介</p>
+                    <a class="nav-link" data-toggle="pill" href="follow.html">关注我的</a>
                 </li>
-            </div>
-        </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-               <li class="nav-item">
-                    <a class="username" data-toggle="pill" href="">username</a>
-                    <p>好友个人简介</p>
-               </li>
-            </div>
-        </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
                 <li class="nav-item">
-                    <a class="username" data-toggle="pill" href="">username</a>
-                    <p>好友个人简介</p>
+                    <a class="nav-link" data-toggle="pill" href="star.html">我的收藏</a>
                 </li>
-            </div>
-        </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
                 <li class="nav-item">
-                    <a class="username" data-toggle="pill" href="">username</a>
-                    <p>好友个人简介</p>
+                    <a class="nav-link" data-toggle="pill" href="hands.html">我的二手</a>
                 </li>
-            </div>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="job.html">我的兼职</a>
+                </li>
+            </u1>
         </div>
-    </div>
+
+        <div class="btnconrainer">
+            <a href="show3.html" class="btn btn-info" role="button">编辑信息</a>
+        </div>
+
+
+        <!--粉丝列表头像-->
+        <li th:each="userDetail:${userDetailList}">
+            <div class="action1">
+                <div class="card  bg-light text-dark">
+                    <div class="card-body">
+                        <a>
+                            <img th:src="${userDetail.image}">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <!--&lt;!&ndash;粉丝列表&ndash;&gt;-->
+        <!--<div class="action2">-->
+            <!--<div class="card  bg-light text-dark">-->
+                <!--<div class="card-body">-->
+                    <!--<li class="nav-item">-->
+                        <!--<a class="username" data-toggle="pill">-->
+                            <!--&lt;!&ndash;th:text="${b.username}"></a>&ndash;&gt;-->
+                            <!--<p th:text="${userDetail.introduction}"></p>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<br>-->
+        <!--</div>-->
     </di>
-    </div>
+</div>
 </body>
 
 </html>

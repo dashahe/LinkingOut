@@ -55,11 +55,13 @@ class UserServiceImpl : UserService {
 
     fun UserDetail.init(){
 
-        this.university = null
-        this.email = null
-        this.image = "https://static.zhihu.com/heifetz/guide-cover-2.4c5018526e42872a056b.jpg"
-        this.hobby = null
-        this.major = null
+        this.university = "Peking University"
+        this.email = "test@test.com"
+        this.image = "https://n1image.hjfile.cn/mh/2017/09/16/159e71b005c449a40470fd07c9dd56fe.jpg"
+        this.hobby = "default: coding"
+        this.major = "computer science"
+        this.introduction = "xvvx is so cool"
+        this.sex = "gay"
     }
 
     override fun findByTel(tel: String): User {
