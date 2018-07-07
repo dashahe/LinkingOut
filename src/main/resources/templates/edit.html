@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/edit.css">
+    <link rel="stylesheet" href="../../static/css/edit.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
@@ -21,9 +21,8 @@
             }
 
         }
-        xmlhttp.open("POST", "./edit", true);
+        xmlhttp.open("GET", "./edit", true);
         xmlhttp.send();
-        Response.Write(response());
     }</script>
     <title>edit</title>
 </head>
@@ -37,8 +36,9 @@
             <img name="image" src="http://static.runoob.com/images/mix/img_mountains_wide.jpg">
         </div>
         <br>
+        <!--头像-->
         <div class="hp">
-            <img src="../static/hp.jpg" class="nowhp">
+            <img th:src="${UserDetail.image}" class="nowhp">
         </div>
 
     </form>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="subbutton">
                     <br>
-                    <button type="submit" onclick="updateUserDetail()" class="btn">submit</button>
+                    <button type="submit" class="btn">submit</button>
                 </div>
             </form>
         </div>

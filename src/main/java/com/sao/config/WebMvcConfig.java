@@ -17,7 +17,6 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
-@EnableWebMvc
 @ComponentScan
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
@@ -30,9 +29,9 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**")
-                .addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
-        registry.addResourceHandler("/templates/**")
-                .addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/templates/");
+                .addResourceLocations("classpath:/static/");
+//        registry.addResourceHandler("/templates/**")
+//                .addResourceLocations("classpath:/templates/");
         super.addResourceHandlers(registry);
     }
 
@@ -49,6 +48,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
                 .excludePathPatterns("/**/*.jpg")
                 .excludePathPatterns("/**/*.jpeg")
                 .excludePathPatterns("/**/*.png");
+
+
         super.addInterceptors(registry);
     }
 }

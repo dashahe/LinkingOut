@@ -21,6 +21,7 @@ class UserServiceImpl : UserService {
         this.userRepository = repository
         this.userDetailRepository = userDetailRepository
     }
+
     override fun findByUsername(userName: String): User {
         val iterable = userRepository!!.findAll()
         var userResult = User()
