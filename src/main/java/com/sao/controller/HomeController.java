@@ -37,11 +37,10 @@ public class HomeController {
     private NewsService newsService;
 
     @GetMapping
-    @ResponseBody
-    public Iterable<News> home(Model model) {
+    public String home(Model model) {
         Iterable<News> news = newsService.findBannerNews();
         model.addAttribute("news", news);
-        return news;
+        return "home";
     }
 
 //    @PostMapping

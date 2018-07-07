@@ -54,9 +54,8 @@ class NewsServiceimpl : NewsService{
 
     override fun findBannerNews(): Iterable<News> {
         val iterable = newsRepository.findAll()
-        var news = News()
-        var bannerNews  =ArrayList<News>()
-        for(new in iterable){
+        var bannerNews  = ArrayList<News>()
+        for(news in iterable){
             if(news.newsType == 1L)
                 bannerNews.add(news)
         }
@@ -69,9 +68,8 @@ class NewsServiceimpl : NewsService{
 
     override fun findPlainNews(): Iterable<News> {
         val iterable = newsRepository.findAll()
-        var news = News()
         var plainNews  =ArrayList<News>()
-        for(new in iterable){
+        for(news in iterable){
             if(news.newsType == 0L)
                 plainNews.add(news)
         }

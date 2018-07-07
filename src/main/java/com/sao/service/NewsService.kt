@@ -9,7 +9,7 @@ interface NewsService{
     fun saveNews()
 
     //fun news for banner with imageUrl
-    fun findBannerNews():Iterable<News>
+    fun     findBannerNews():Iterable<News>
 
     //find all news
     fun findAllNews():Iterable<News>

@@ -61,7 +61,7 @@
         <!-- 轮播图片 -->
         <div class="carousel-inner">
             <div th:each="a:${news}" class="carousel-item active">
-                <a th:href="@{a.contentUrl}"> <img class="news-image" th:src="@{a.imageUrl}"></a>
+                <a th:href="${a.contentUrl}"> <img class="news-image" th:src="${a.imageUrl}"></a>
                 <div class="carousel-caption">
                     <h2 class="topic" th:text="${a.newsContentTitle}"></h2>
                 </div>
