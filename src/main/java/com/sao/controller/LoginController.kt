@@ -82,24 +82,21 @@ class LoginController {
     fun login(@RequestParam(name="tel") tel:String,
               @RequestParam(name="password") password:String,
               response: HttpServletResponse,
-              session: HttpSession):ModelAndView{
+              session: HttpSession):String{
         val user = userService.findByTel(tel)
 
         val date = System.currentTimeMillis()
         //val cookieGenerator = CookieGenerator(name="login_cookie")
         //val cookie = cookieGenerator.makeCookie(user)
-        var modelAndView  = ModelAndView("home")
-
 
 
 //        System.out.print("-------------------login function  ");
 //        System.out.print("----- " + tel + password);
         if (user.password.equals(password)) {
             session.setAttribute("uid", user.uid);
-            return modelAndView
+            return "redirect:/"
         } else {
-            modelAndView = ModelAndView("login")
-            return modelAndView
+            return "login"
         }
     }
 
