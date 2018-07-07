@@ -1,6 +1,6 @@
 package com.sao.service.impl
 
-import com.sao.utils.NewsCrawler
+import com.sao.utils.NewsCrawler;
 import com.sao.domain.model.News
 import com.sao.domain.repository.NewsRepository
 import com.sao.service.NewsService
@@ -54,10 +54,15 @@ class NewsServiceimpl : NewsService{
 
     override fun findBannerNews(): Iterable<News> {
         val iterable = newsRepository.findAll()
-        var bannerNews  = ArrayList<News>()
-        for(news in iterable){
-            if(news.newsType == 1L)
+        var news = News()
+        var bannerNews  =ArrayList<News>()
+        var counter = 0
+        for(new in iterable){
+            if(news.newsType == 1L&& !news.newsContentTitle.equals("abcd")
+            && counter<3) {
+                counter ++
                 bannerNews.add(news)
+            }
         }
         return bannerNews.asIterable()
     }
@@ -68,8 +73,9 @@ class NewsServiceimpl : NewsService{
 
     override fun findPlainNews(): Iterable<News> {
         val iterable = newsRepository.findAll()
+        var news = News()
         var plainNews  =ArrayList<News>()
-        for(news in iterable){
+        for(new in iterable){
             if(news.newsType == 0L)
                 plainNews.add(news)
         }
