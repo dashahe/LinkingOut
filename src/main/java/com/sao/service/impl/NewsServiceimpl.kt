@@ -56,9 +56,13 @@ class NewsServiceimpl : NewsService{
         val iterable = newsRepository.findAll()
         var news = News()
         var bannerNews  =ArrayList<News>()
+        var counter = 0
         for(new in iterable){
-            if(news.newsType == 1L&&!new.contentUrl.equals("http://www.ccnu.com.cn/"))
+            if(news.newsType == 1L&& !news.newsContentTitle.equals("abcd")
+            && counter<3) {
+                counter ++
                 bannerNews.add(news)
+            }
         }
         return bannerNews.asIterable()
     }
