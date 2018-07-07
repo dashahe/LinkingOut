@@ -54,7 +54,7 @@ class UserServiceImpl : UserService {
 
     fun UserDetail.init(){
 
-        this.cid = null
+        this.university = null
         this.email = null
         this.image = "https://static.zhihu.com/heifetz/guide-cover-2.4c5018526e42872a056b.jpg"
         this.hobby = null

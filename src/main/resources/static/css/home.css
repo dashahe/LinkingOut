@@ -1,0 +1,69 @@
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.updating {
+    width: 800px;
+    height: 100px;
+    margin: 0 auto;
+}
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+.slide {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+}
+.nav {
+    width: 80%;
+    margin: 0 auto;
+}
+.nav a {
+    color: #404245;
+}
+.tab-content {
+    width: 80%;
+    margin: 0 auto;
+}
+#s_button_d {
+    text-align:center;
+}
+#s_button {
+    width: 100px;
+    height: 25px;
+    background-color: rgba(88, 88, 88, 0.582);
+    border: 0;
+    color: rgb(255, 255, 255);
+    margin-top: 5px;
+}
+.profile {
+    width: 80px;
+    text-align: center;
+}
+.activity-push {
+    text-align: center;
+    margin-top: 20px;
+}
+.card table {
+    margin: 0 auto;
+}
+.card {
+    width: 492px;
+    margin: 0 auto;
+}
+.top-panel{
+    width: 100%;
+    height: 50px;
+    background-color: #525457;
+}
