@@ -16,9 +16,6 @@ import javax.servlet.http.HttpServletResponse
 @RequestMapping("/login")
 class LoginController{
 
-
-    var cookieJar  = HashMap<Int,String>()
-
     var userService :UserService
 
     @Autowired

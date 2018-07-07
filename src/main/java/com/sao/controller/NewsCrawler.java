@@ -1,6 +1,6 @@
 package com.sao.controller;
 
-import com.sao.domain.model.News;
+import com.sao.domain.model.NewsWrapper;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 
 public class NewsCrawler {
 
-    public void getNews(){
+    public ArrayList<NewsWrapper> getNews(){
 
         String responseBody = new String();
         OkHttpClient client = new OkHttpClient();
@@ -39,11 +39,11 @@ public class NewsCrawler {
         Element rowElement = containElement.child(0);
 
         Elements  newsElemets = rowElement.children();
-        List<News> newsList = new ArrayList<>();
+        ArrayList<NewsWrapper> newsList = new ArrayList<>();
 
         for(Element element : newsElemets){
 
-            ArrayList<News.NewsContent> contentList = new ArrayList<>();
+            ArrayList<NewsWrapper.NewsContent> contentList = new ArrayList<>();
 
             String html = element.html();
             String columnTitleRegex = "((.*)<span>(.*)</span>(.*))";
@@ -72,7 +72,7 @@ public class NewsCrawler {
             //image may be not exist
             String newsContentImageUrl = "";
             String imageRegex = "(<img class=\"cover-image\" " +
-                    "alt=\"(.*)\" src=\"(.*)\">(.*))";
+                    "alt=\"(.*)\" src=\"(.*)\"></a> <a href=\"(.*))";
             Pattern imagePattern =  Pattern.compile(imageRegex);
             Matcher imageMatcher = imagePattern.matcher(html);
 
@@ -94,19 +94,18 @@ public class NewsCrawler {
 
             for(int i=0;i<newsContentTitleList.size();i++) {
                 if (i==0) {
-                    contentList.add(new News.NewsContent(newsContentTitleList.get(i),newsUrlImageList.get(i) , urls.get(i)));
+                    contentList.add(new NewsWrapper.NewsContent(newsContentTitleList.get(i),newsUrlImageList.get(i) , urls.get(i)));
                 }else{
-                    contentList.add(new News.NewsContent(newsContentTitleList.get(i),"" , urls.get(i)));
+                    contentList.add(new NewsWrapper.NewsContent(newsContentTitleList.get(i),"" , urls.get(i)));
                 }
             }
 
-            News news = new News(columnTitle,contentList);
+            NewsWrapper news = new NewsWrapper(columnTitle,contentList);
 
             newsList.add(news);
-
         }
 
-
+        return newsList;
     }
 
 }
