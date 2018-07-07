@@ -11,11 +11,13 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <script src="../static/js/url.js"></script>
+    <script src="../static/js/home.js"></script>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <title>Hello, world!</title>
-
+    <script src="../static/js/url.js"></script>
+    <script src="../static/js/home.js"></script>
 
 </head>
 
@@ -57,50 +59,56 @@
     </div>
 
     <!-- 动态发布 -->
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#home">日常</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#menu1">二手</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#menu2">求职</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#menu3">招聘</a>
-        </li>
-    </ul>
-    <form action="" method="post">
-        <div class="tab-content">
-            <div id="home" class="container tab-pane active"><br>
-                <div>
-                    <input class="updating" name="updating" type="text" required="" placeholder="">
-                </div>
-            </div>
-            <div id="menu1" class="container tab-pane fade"><br>
-                <input class="updating" name="updating" type="text" required="" placeholder="">
-            </div>
-            <div id="menu2" class="container tab-pane fade"><br>
-                <input class="updating" name="updating" type="text" required="" placeholder="">
-            </div>
-            <div id="menu3" class="container tab-pane fade"><br>
-                <input class="updating" name="updating" type="text" required="" placeholder="">
-            </div>
+    <div id="dropdown" class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            发送动态
+        </button>
+        <div id="dropdown-menu" class="dropdown-menu">
+            <button type="button" onclick="selectac('rc','日常')" class="btn btn-primary dropdown-item di"
+                    data-toggle="modal" data-target="#rc">
+                日常
+            </button>
+            <button type="button" onclick="selectac('rs', '二手')" class="btn btn-primary dropdown-item di"
+                    data-toggle="modal" data-target="#rs">
+                二手
+            </button>
+            <button type="button" onclick="selectac('zp', '招聘')" class="btn btn-primary dropdown-item di"
+                    data-toggle="modal" data-target="#zp">
+                招聘
+            </button>
+            <button type="button" onclick="selectac('jz', '兼职')" class="btn btn-primary dropdown-item di"
+                    data-toggle="modal" data-target="#jz">
+                兼职
+            </button>
         </div>
-        <div id="s_button_d">
-            <button id="s_button">submit</button>
-        </div>
-    </form>
-
-    <!--people-->
-    <div class="activity-push">
-        <div class="card bg-secondary text-white">
-
-        </div>
-
     </div>
+
+    <!-- 模态框 -->
+    <div class="modal fade" id="id">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h4 class="modal-title">日常</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- 模态框主体 -->
+                <form action="./home" method="post">
+                    <div class="modal-body">
+                        <textarea name="content" rows="10" cols="48"></textarea>
+                    </div>
+                    <!-- 模态框底部 -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">发送</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 </div>
+
 </body>
 
 </html>
