@@ -18,6 +18,7 @@
  */
 package com.sao;
 
+import com.sao.controller.NewsController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -30,6 +31,8 @@ public class Application {
 //		SMSUtil util = new SMSUtil("13385275715");
 //		util.exec();
 
+		NewsController controller = new NewsController();
+		controller.getNews();
 
 	}
 }
