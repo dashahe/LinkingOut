@@ -13,14 +13,13 @@
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <script> function updateUserDetail() {
-        xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-                document.getElementById("userdetail").innerHTML=xmlhttp.responseText;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("userdetail").innerHTML = xmlhttp.responseText;
                 alert("保存成功，点击确定返回个人主页");
             }
+
         }
         xmlhttp.open("POST", "./edit", true);
         xmlhttp.send();
