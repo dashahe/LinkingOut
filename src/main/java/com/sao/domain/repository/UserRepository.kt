@@ -1,6 +1,6 @@
-package com.sao.domain
+package com.sao.domain.repository
 
-import org.springframework.data.jpa.repository.Query
+import com.sao.domain.model.User
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 

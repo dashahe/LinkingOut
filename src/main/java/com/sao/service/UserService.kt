@@ -1,6 +1,6 @@
 package com.sao.service
 
-import com.sao.domain.User
+import com.sao.domain.model.User
 
 interface UserService {
 
@@ -11,10 +11,12 @@ interface UserService {
     fun findByUsername(userName :String) : User
 
     //find user by his uid
-    fun findByUid(uid :Long) :User
+    fun findByUid(uid :Long) : User
 
     //find all Users
     fun findAllUsers() : Iterable<User>
 
-    fun findByTel(tel:String):User
+    fun findByTel(tel:String): User
+
+    fun existByTel(tel:String):Boolean
 }

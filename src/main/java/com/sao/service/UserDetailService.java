@@ -1,6 +1,6 @@
 package com.sao.service;
 
-import com.sao.domain.UserDetail;
+import com.sao.domain.model.UserDetail;
 
 public interface UserDetailService {
 

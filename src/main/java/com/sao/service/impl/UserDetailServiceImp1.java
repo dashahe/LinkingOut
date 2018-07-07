@@ -1,7 +1,7 @@
 package com.sao.service.impl;
 
-import com.sao.domain.UserDetail;
-import com.sao.domain.UserDetailRepository;
+import com.sao.domain.model.UserDetail;
+import com.sao.domain.repository.UserDetailRepository;
 import com.sao.service.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,6 @@
 package com.sao.controller
 
-import com.sao.domain.User
+import com.sao.domain.model.User
 import com.sao.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
