@@ -18,6 +18,7 @@
  */
 package com.sao;
 
+import com.sao.utils.NewsCrawler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -40,6 +41,7 @@ public class Application extends SpringBootServletInitializer {
 	}
 
 	public static void main(String[] args) {
+		NewsCrawler newsCrawler = new NewsCrawler();
 		SpringApplication.run(Application.class, args);
 
 //		SMSUtil util = new SMSUtil("13385275715");
