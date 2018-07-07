@@ -11,19 +11,34 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <script> function updateUserDetail() {
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                document.getElementById("userdetail").innerHTML=xmlhttp.responseText;
+                alert("保存成功，点击确定返回个人主页");
+            }
+        }
+        xmlhttp.open("POST", "./edit", true);
+        xmlhttp.send();
+        Response.Write(response());
+    }</script>
     <title>Hello, world!</title>
 </head>
 
 
 <body>
 <div class="top-panel"></div>
-<div class="container">
-    <form id="form" action="./" method="post">
+<div id="userdetail" class="container">
+    <form id="form" method="post">
         <div>
             <img name="image" src="http://static.runoob.com/images/mix/img_mountains_wide.jpg">
         </div>
         <div>
-            <img name="photo" src="../static/favicon.ico">
+            <img name="photo" src="/favicon.ico">
         </div>
     <table>
         <tr>
@@ -32,7 +47,7 @@
         </tr>
         <tr>
             <th>introduction</th>
-            <th><input name="introduction" class="profile" th:value="${UserDetail.intoduction}"></th>
+            <th><input name="introduction" class="profile" th:value="${UserDetail.introduction}"></th>
         </tr>
         <tr>
             <th>email</th>
@@ -50,11 +65,8 @@
             <th>major</th>
             <th><input name="major" class="profile" th:value="${UserDetail.major}" </th>
         </tr>
-
-
-
     </table>
-        <button>submit</button>
+        <button onclick="updateUserDetail()">submit</button>
     </form>
 </div>
 

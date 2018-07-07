@@ -1,28 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="utf-8">
-    <title>personal page</title>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/css/people.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <title>myspace</title>
 </head>
+
 <body>
-<tr th:each="Activity: ${activities}">
-<div class="panel panel-default">
+<div class="top-panel"></div>
+<div class="container">
 
-    <div class="panel-body">
-        <p th:text="${UserDetail.hobby}"></p>
-        <p th:text="${UserDetail.major}"></p>
+    <div class="naa">
+        <div>
+            <img class="image" src="/2.jpg">
+            <div class="btnconrainer">
+                <a href="./edit" class="btn btn-info" role="button">编辑信息</a>
+            </div>
+        </div>
+        <div class="navv">
+            <u1 class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="myfollow.html">我的关注</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="follow.html">关注我的</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="star.html">我的收藏</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="hands.html">我的二手</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="job.html">我的兼职</a>
+                </li>
+            </u1>
+        </div>
     </div>
 
-    <div class="panel-body">
-            <p th:text="${Activity.aid}"></p>
-            <p th:text="${Activity.content}"></p>
-    </div>
 
+    <div class="action">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>个人动态</legend>
+        </fieldset>
+        <ul class="layui-timeline">
+
+            <li th:each="a:${activities}" class="layui-timeline-item">
+                <i class="layui-icon layui-timeline-axis"></i>
+                <div class="layui-timeline-content layui-text">
+                    <h3 class="layui-timeline-title" th:text="${a.created}"></h3>
+                    <div class="card  bg-light text-dark">
+                        <div class="card-body">
+                            <p th:text="${a.content}"></p>
+                            <p th:text="${a.likes}"></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="layui-timeline-item">
+                <i class="layui-icon layui-timeline-axis"></i>
+                <div class="layui-timeline-content layui-text">
+                    <div class="layui-timeline-title"><End></End></div>
+                </div>
+            </li>
+        </ul>
+        <script src="/layui/css/layui.css" charset="utf-8"></script>
+        <script>
+        </script>
+    </div>
 </div>
-</tr>
-
 </body>
+
 </html>

@@ -12,5 +12,8 @@ public interface ActivityService {
 
     LinkedList<Activity> findAllByUid(Long uid);
 
+    void addActivity(Activity activity);
+
+    Iterable<Activity> findAll();
 //    Page<Activity> findActivity(Integer page, Integer size);
 }
