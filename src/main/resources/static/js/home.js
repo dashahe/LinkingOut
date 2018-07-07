@@ -7,29 +7,18 @@ function selectac(i, j) {
 }
 
 function message() {
+    var xmlhttp;
     if(window.XMLHttpRequest) {
-        var xmlhttp = new XMLHttpRequest();
-    }
-    else {
+        xmlhttp = new XMLHttpRequest();
+    } else {
         xmlhttp = new ActiveXObject(" ");
     }
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             alert("发送成功");
         }
-        else {
-            alert("发送失败");
-        }
-    }
+    };
+    var form = new FormData($('form#form')[0]);
     xmlhttp.open("post", "/", true);
-    xmlhttp.send();
-}
-
-function getUrl() {
-    var uid = document.getElementById("uid").value;
-    document.getElementById("form").action = "/" + uid + "/edit";
-}
-
-function goto(url) {
-    window.open(url);
+    xmlhttp.send(form);
 }

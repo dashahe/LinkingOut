@@ -80,7 +80,7 @@ public class UserDetailServiceImp1 implements UserDetailService {
     public void updateSexByUid(Long uid, String sex) {
         UserDetail userDetail = findByUid(uid);
         if (userDetail != null) {
-            userDetail.setImage(sex);
+            userDetail.setSex(sex);
             userDetailRepository.save(userDetail);
         }
     }
@@ -89,7 +89,7 @@ public class UserDetailServiceImp1 implements UserDetailService {
     public void updateIntroductionByUid(Long uid, String introduction) {
         UserDetail userDetail = findByUid(uid);
         if (userDetail != null) {
-            userDetail.setImage(introduction);
+            userDetail.setIntroduction(introduction);
             userDetailRepository.save(userDetail);
         }
     }
