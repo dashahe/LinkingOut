@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/toppanel.css">
     <link rel="stylesheet" href="../static/css/edit.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -30,7 +31,31 @@
 
 
 <body>
-<div class="top-panel"></div>
+    <nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav link">
+        <li class="nav-item active">
+            <a class="nav-link text" href="#">专业</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text" href="#">兼职</a>
+        </li>
+        <li id="hp" class="nav-item active">
+            <div class="nav-link">
+                <div class="dropdown">
+                    <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
+                    <img class="btn btn-primary dropdown-toggle" data-toggle="dropdown" src="../static/2.jpg">
+                    <!--</button>-->
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">主页</a>
+                        <a class="dropdown-item" href="#">设置</a>
+                        <a class="dropdown-item" href="#">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</nav>
 <div class="container">
     <form id="form" action="./" method="post">
         <div>

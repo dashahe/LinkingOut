@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../static/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="../static/css/people.css">
+    <link rel="stylesheet" href="../static/css/toppanel.css">
+    <link rel="stylesheet" href="../static/css/toppanel.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
@@ -13,14 +15,37 @@
 </head>
 
 <body>
-<div class="top-panel"></div>
-<div class="container">
+<nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav link">
+        <li class="nav-item active">
+            <a class="nav-link text" href="#">专业</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text" href="#">兼职</a>
+        </li>
+        <li id="hp" class="nav-item active">
+            <div class="nav-link">
+                <div class="dropdown">
+                    <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
+                    <img class="btn btn-primary dropdown-toggle" data-toggle="dropdown" src="../static/2.jpg">
+                    <!--</button>-->
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">主页</a>
+                        <a class="dropdown-item" href="#">设置</a>
+                        <a class="dropdown-item" href="#">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </li>
 
+    </ul>
+</nav>
+<div class="container">
     <div class="naa">
         <div>
             <img class="image" src="../static/2.jpg">
             <div class="btnconrainer">
-                <a href="./edit" class="btn btn-info" role="button">编辑信息</a>
+                <a href="edit.html" class="btn btn-info" role="button">编辑信息</a>
             </div>
         </div>
         <div class="navv">
