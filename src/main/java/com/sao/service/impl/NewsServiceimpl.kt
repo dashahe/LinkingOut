@@ -37,7 +37,7 @@ class NewsServiceimpl : NewsService{
                     news.newsType = 0
                     news.imageUrl = ""
                 }else{
-                    news.imageUrl  = "http://www.ccnu.com.cn/${newsContent.imageUrl!!}"
+                    news.imageUrl  = "http://www.ccnu.com.cn${newsContent.imageUrl!!}"
                     news.newsType = 1
                 }
 
