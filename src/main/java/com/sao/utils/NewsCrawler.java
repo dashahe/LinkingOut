@@ -14,7 +14,6 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -115,40 +114,36 @@ public class NewsCrawler {
 
 
     private String getTranslation(String src){
-//        String url = TextUtil.Companion.formatUrl(src);
-//        System.out.println(TextUtil.Companion.formatUrl("中国"));
-//        OkHttpClient client = new OkHttpClient();
-//        Request request = new Request.Builder()
-//                .get()
-//                .url(url)
-//                .build();
-//
-//        String result = "";
-//        try {
-//            String json = client.newCall(request).execute().body().string();
-//            Gson gson = new Gson();
-//            TranslateObject object = new TranslateObject();
-//
-//            object = gson.fromJson(json,TranslateObject.class);
-//            result = object.getTrans_result().get(0).dst;
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        String url = TextUtil.Companion.formatUrl(src);
+        System.out.println(url);
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .get()
+                .url(url)
+                .build();
 
-        return getRandomString(10);
-    }
+        String result = "";
+        try {
+            String json = client.newCall(request).execute().body().string();
+            Gson gson = new Gson();
+            TranslateObject object = new TranslateObject();
 
-    public static String getRandomString(int length){
-        String str="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        Random random=new Random();
-        StringBuffer sb=new StringBuffer();
-        for(int i=0;i<length;i++){
-            int number=random.nextInt(62);
-            sb.append(str.charAt(number));
+            object = gson.fromJson(json,TranslateObject.class);
+
+            try {
+                result = object.getTrans_result().get(0).dst;
+            }catch (Exception e){
+                e.printStackTrace();
+                result = "abcd";
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return sb.toString();
+
+        return result;
     }
+
 
     static class TranslateObject{
 

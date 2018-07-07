@@ -1,18 +1,18 @@
 package com.sao.controller;
 
 import com.sao.domain.model.Activity;
+import com.sao.domain.model.News;
 import com.sao.domain.model.UserDetail;
 import com.sao.service.ActivityService;
+import com.sao.service.NewsService;
 import com.sao.service.UserDetailService;
 import com.sao.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -33,10 +33,15 @@ public class HomeController {
     @Autowired
     private UserDetailService userDetailService;
 
+    @Autowired
+    private NewsService newsService;
 
     @GetMapping
-    public String home() {
-        return "home";
+    @ResponseBody
+    public Iterable<News> home(Model model) {
+        Iterable<News> news = newsService.findBannerNews();
+        model.addAttribute("news", news);
+        return news;
     }
 
 //    @PostMapping
@@ -61,6 +66,7 @@ public class HomeController {
 //        logger.info("--------------------- add activity");
 //        logger.info("uid:" + uid);
 //        logger.info("content" + uid);
+
         return "home";
     }
 }

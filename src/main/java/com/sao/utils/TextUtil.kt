@@ -1,5 +1,6 @@
 package com.sao.utils
 
+import com.sao.utils.BASE64Encoder
 import java.math.BigInteger
 import java.net.URLEncoder
 import java.security.MessageDigest
@@ -17,26 +18,26 @@ class TextUtil{
             return "${simpledataformat.format(date)}"
         }
 
-//        fun formatUrl( src:String):String{
-//
-//            val APP_ID = "20180707000183560"
-//
-//            var q = converToUTF8(src)
-//
-//                val md5 = MessageDigest.getInstance("MD5")
-//                val base64en = BASE64Encoder()
-//                val salt = System.currentTimeMillis()/1000L
-//                val connect = "${APP_ID}${q}${salt}"
-//                val sign = getMD5Str(connect)
-//
-//                val srcEncoded = URLEncoder.encode(q,"utf-8")
-//
-//            val returnValue =  "http://api.fanyi.baidu.com/api/trans/vip/translate?q=${srcEncoded}&from=zh&to=en&appid=${APP_ID}" +
-//                    "&salt=${salt}&sign=${sign}"
-//
-//            return returnValue
-//
-//        }
+        fun formatUrl( src:String):String{
+
+            val APP_ID = "20180707000183560"
+            val SECRET_KEY = "fMf4uPDm0cnh5_Vq1efJ"
+            var q = converToUTF8(src)
+
+                val md5 = MessageDigest.getInstance("MD5")
+                val base64en = BASE64Encoder()
+                val salt = System.currentTimeMillis()/1000L
+                val connect = "${APP_ID}${q}${salt}${SECRET_KEY}"
+                val sign = getMD5Str(connect)
+
+                val srcEncoded = URLEncoder.encode(q,"utf-8")
+
+            val returnValue =  "http://api.fanyi.baidu.com/api/trans/vip/translate?q=${srcEncoded}&from=zh&to=en&appid=${APP_ID}" +
+                    "&salt=${salt}&sign=${sign}"
+
+            return returnValue
+
+        }
 
 
         @Throws(Exception::class)
