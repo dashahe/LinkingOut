@@ -1,7 +1,7 @@
 package com.sao.controller;
 
 
-import com.sao.domain.Activity;
+import com.sao.domain.model.Activity;
 import com.sao.domain.model.UserDetail;
 import com.sao.service.ActivityService;
 import com.sao.service.UserDetailService;
@@ -10,9 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
-import java.sql.Time;
-import java.util.HashMap;
 import java.util.LinkedList;
 
 

@@ -1,4 +1,4 @@
-package com.sao.domain;
+package com.sao.domain.model;
 
 import com.sao.utils.SaoDateTime;
 import org.hibernate.validator.constraints.Length;
