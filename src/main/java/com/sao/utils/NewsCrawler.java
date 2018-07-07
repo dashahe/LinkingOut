@@ -98,9 +98,9 @@ public class NewsCrawler {
 
             for(int i=0;i<newsContentTitleList.size();i++) {
                 if (i==0) {
-                    contentList.add(new NewsWrapper.NewsContent(newsContentTitleList.get(i),newsUrlImageList.get(i) , urls.get(i)));
+                    contentList.add(new NewsWrapper.NewsContent(newsContentTitleList.get(i),urls.get(i) , newsUrlImageList.get(i)));
                 }else{
-                    contentList.add(new NewsWrapper.NewsContent(newsContentTitleList.get(i),"" , urls.get(i)));
+                    contentList.add(new NewsWrapper.NewsContent(newsContentTitleList.get(i),urls.get(i) , ""));
                 }
             }
 

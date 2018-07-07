@@ -26,6 +26,7 @@ class NewsController{
         return newsService.findBannerNews()
     }
 
+    //todo
     @GetMapping("/retrieve")
     fun retrieveNews(){
         newsService.saveNews()
