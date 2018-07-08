@@ -50,14 +50,21 @@ public class PeopleController {
 
     @GetMapping("/activities/{uid}")
     public String getActivities(Model model,
-                               @PathVariable(name = "uid") Long uid) {
+                                HttpSession httpSession,
+                                @PathVariable(name = "uid") Long uid) {
         LinkedList<Activity> activities = activityService.findAllByUid(uid);
         UserDetail userDetail = userDetailService.findByUid(uid);
 
         //TODO(reverse List)
         model.addAttribute( "activities", activities);
         model.addAttribute("UserDetail", userDetail);
-        return "otherpeople";
+
+        Long uid1 = Long.valueOf(httpSession.getAttribute("uid").toString());
+        if (uid.equals(uid1)) {
+            return "people";
+        } else {
+            return "otherpeople";
+        }
     }
 
 //    @GetMapping("/{uid}/a")

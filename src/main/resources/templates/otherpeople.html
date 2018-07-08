@@ -29,9 +29,9 @@
                     <img class="btn btn-primary dropdown-toggle" data-toggle="dropdown" src="../static/2.jpg">
                     <!--</button>-->
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="people.html">主页</a>
-                        <a class="dropdown-item" href="edit.html">设置</a>
-                        <a class="dropdown-item" href="login.html">Log out</a>
+                        <a class="dropdown-item" href="/">主页</a>
+                        <a class="dropdown-item" href="/people/edit">设置</a>
+                        <a class="dropdown-item" href="/login">Log out</a>
                     </div>
                 </div>
             </div>
@@ -41,19 +41,18 @@
 </nav>
 <div class="container">
     <div class="naa">
+        <div>
+            <img class="image" src="${userDetail.image}">
+        </div>
         <div class="navv">
             <u1 class="nav nav-pills justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="myfollow">我的关注</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="follow">关注我的</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="star">我的收藏</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="second-hand">二手/兼职</a>
+                <li id="nav-item" class="nav-item">
+                    <p>Username:</p>
+                    <p th:text="${userDetail.username}"></p>
+                    <p>sex</p>
+                    <p th:text="${userDetail.sex}"></p>
+                    <p>Introduction:</p>
+                    <p th:text="${userDetail.introduction}"></p>
                 </li>
             </u1>
         </div>
@@ -88,8 +87,6 @@
         <script>
         </script>
     </div>
-
-
 </div>
 </body>
 
