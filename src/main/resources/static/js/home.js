@@ -18,7 +18,7 @@ function message() {
             alert("发送成功");
         }
     };
-    var form = new FormData($('form#form')[0]);
+        var form = new FormData($('form#form')[0]);
     xmlhttp.open("post", "/", true);
     xmlhttp.send(form);
 }
