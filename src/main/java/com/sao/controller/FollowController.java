@@ -65,7 +65,7 @@ public class FollowController {
      * @param staruid
      * @return
      */
-    @PostMapping("/process")
+    @PostMapping("/follow/process")
     @ResponseBody
     public HashMap<String, String> processFollow(HttpSession httpSession,
                                                  @RequestParam(name = "staruid") Long staruid) {
