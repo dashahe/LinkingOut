@@ -8,6 +8,7 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/second.css">
+    <link rel="stylesheet" href="../static/css/toppanel.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
@@ -16,6 +17,31 @@
 </head>
 
 <body>
+<nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav link">
+        <li class="nav-item active">
+            <a class="nav-link text" href="profession.html">专业</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text" href="job">兼职</a>
+        </li>
+        <li id="hp" class="nav-item active">
+            <div class="nav-link">
+                <div class="dropdown">
+                    <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
+                    <img class="btn btn-primary dropdown-toggle" data-toggle="dropdown" src="../static/2.jpg">
+                    <!--</button>-->
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="people.html">主页</a>
+                        <a class="dropdown-item" href="edit.html">设置</a>
+                        <a class="dropdown-item" href="login.html">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</nav>
 <div class="container">
     <br><br><br><br>
     <h1>二手/兼职</h1>

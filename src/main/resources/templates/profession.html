@@ -7,55 +7,81 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/profession.css">
+    <link rel="stylesheet" href="../static/css/people.css">
+    <link rel="stylesheet" href="../static/css/toppanel.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <script>
-            function backhome() {
-                window.location.href = "myspace.html";
-            }
-        </script>
+        function backhome() {
+            window.location.href = "myspace.html";
+        }
+    </script>
     <title>profession</title>
 </head>
 
 <body>
+<nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav link">
+        <li class="nav-item active">
+            <a class="nav-link text" href="profession.html">专业</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text" href="job">兼职</a>
+        </li>
+        <li id="hp" class="nav-item active">
+            <div class="nav-link">
+                <div class="dropdown">
+                    <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
+                    <img class="btn btn-primary dropdown-toggle" data-toggle="dropdown" src="../static/2.jpg">
+                    <!--</button>-->
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="people.html">主页</a>
+                        <a class="dropdown-item" href="edit.html">设置</a>
+                        <a class="dropdown-item" href="login.html">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</nav>
 <div class="container">
-    <br><br><br><br>
     <h1>专业</h1>
     <br>
-</div>
-<div>
-        <img class="image" src="2.jpg" onclick="backhome()">
+    <div>
+        <img class="image_pro" src="2.jpg" onclick="backhome()">
     </div>
-  <div class="card1" id="Q&A">
+    <div class="card1" id="Q&A">
         <h2>专业问答</h2>
-    <div class="card-header">问题:</div>
+        <div class="card-header">问题:</div>
         <p>回答1</p>
         <br>
-    <div class="card-body">问题：</div>
+        <div class="card-body">问题：</div>
         <p>回答2</p>
         <br>
-    <div class="card-footer">问题：</div>
+        <div class="card-footer">问题：</div>
         <p>回答3</p>
         <br>
-  </div>
-
-  <div class="container1">
-        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Resources</button>
-        <div id="demo" class="collapse">
-            <li class="nav-item">
-            <a class="resources" data-toggle="pill" href="" style="font-size:30px">资源1</a>
-            </li>
-            <li class="nav-item">
-            <a class="resources" data-toggle="pill" href="" style="font-size:30px">资源2</a>
-            </li>
-            <li class="nav-item">
-            <a class="resources" data-toggle="pill" href="" style="font-size:30px">资源3</a>
-            </li>
-        </div>
     </div>
+</div>
+
+
+<div class="container1">
+    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Resources</button>
+    <div id="demo" class="collapse">
+        <li class="nav-item">
+            <a class="resources" data-toggle="pill" href="" style="font-size:30px">资源1</a>
+        </li>
+        <li class="nav-item">
+            <a class="resources" data-toggle="pill" href="" style="font-size:30px">资源2</a>
+        </li>
+        <li class="nav-item">
+            <a class="resources" data-toggle="pill" href="" style="font-size:30px">资源3</a>
+        </li>
+    </div>
+</div>
 </body>
 
 </html>
