@@ -41,19 +41,18 @@
 </nav>
 <div class="container">
     <div class="naa">
+        <div>
+            <img class="image" src="../static/2.jpg">
+        </div>
         <div class="navv">
             <u1 class="nav nav-pills justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="myfollow.html">我的关注</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="follow.html">关注我的</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="star.html">我的收藏</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="second-hand.html">二手/兼职</a>
+                <li id="nav-item" class="nav-item">
+                    <p>Username:</p>
+                    <p th:text="${userDetail.uesrname}"></p>
+                    <p>sex</p>
+                    <p th:text="${userDetail.sex}"></p>
+                    <p>Introduction:</p>
+                    <p th:text="${userDetail.introduction}"></p>
                 </li>
             </u1>
         </div>
@@ -88,8 +87,6 @@
         <script>
         </script>
     </div>
-
-
 </div>
 </body>
 
