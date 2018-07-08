@@ -48,7 +48,7 @@ class UserServiceImpl : UserService {
         userRepository!!.save(user)
         var userDetail = UserDetail()
         userDetail.uid = user.uid
-
+        userDetail.username = user.username
         userDetail.init()
         userDetailRepository!!.save(userDetail)
     }

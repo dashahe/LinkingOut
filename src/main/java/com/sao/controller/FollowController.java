@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 @Controller
-@RequestMapping("/follow")
+@RequestMapping("/")
 public class FollowController {
     @Autowired
     private FollowRelationshipService followRelationshipService;

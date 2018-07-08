@@ -4,10 +4,15 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@IdClass(ActivityUserId.class)
 public class Activity {
 
-    @EmbeddedId
-    private ActivityUserId activityUserId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long aid;
+
+    @Id
+    private Long uid;
 
     private Date created;
 
@@ -17,19 +22,19 @@ public class Activity {
     private Long likes;
 
     public Long getAid() {
-        return activityUserId.getAid();
+        return aid;
     }
 
     public void setAid(Long aid) {
-        this.activityUserId.setAid(aid);
+        this.aid = aid;
     }
 
     public Long getUid() {
-        return activityUserId.getUid();
+        return uid;
     }
 
     public void setUid(Long uid) {
-        this.activityUserId.setUid(uid);
+        this.uid = uid;
     }
 
     public String getContent() {

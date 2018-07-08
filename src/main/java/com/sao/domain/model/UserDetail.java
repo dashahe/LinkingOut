@@ -49,9 +49,30 @@ public class UserDetail {
      */
     private String image;
 
+    /**
+     * sex of user
+     */
     private String sex;
 
+    /**
+     * introduction of user
+     */
     private String introduction;
+
+    /**
+     * usrename of user
+     */
+    private String username;
+
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
 
     public Long getUid() {
         return uid;

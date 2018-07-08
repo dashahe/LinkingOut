@@ -41,25 +41,29 @@ public class PeopleController {
         Long uid = Long.valueOf(httpSession.getAttribute("uid").toString());
         LinkedList<Activity> activities = activityService.findAllByUid(uid);
         UserDetail userDetail = userDetailService.findByUid(uid);
+
+        //TODO(reverse List)
         model.addAttribute( "activities", activities);
         model.addAttribute("UserDetail", userDetail);
         return "people";
     }
 
-    @GetMapping("/{uid}/activities")
+    @GetMapping("/activities/{uid}")
     public String getActivities(Model model,
                                @PathVariable(name = "uid") Long uid) {
         LinkedList<Activity> activities = activityService.findAllByUid(uid);
         UserDetail userDetail = userDetailService.findByUid(uid);
+
+        //TODO(reverse List)
         model.addAttribute( "activities", activities);
         model.addAttribute("UserDetail", userDetail);
-        return "people";
+        return "otherpeople";
     }
 
-    @GetMapping("/{uid}/a")
-    public @ResponseBody int getall(@PathVariable(name = "uid") Long uid) {
-        return activityService.findAllByUid(uid).size();
-    }
+//    @GetMapping("/{uid}/a")
+//    public @ResponseBody int getall(@PathVariable(name = "uid") Long uid) {
+//        return activityService.findAllByUid(uid).size();
+//    }
 
     @GetMapping("/edit")
     public String getEdit(Model model, HttpSession httpSession) {
@@ -69,37 +73,37 @@ public class PeopleController {
         return "edit";
     }
 
-    @GetMapping("/{uid}/edit")
-    public String getEdit(Model model, @PathVariable(name = "uid") Long uid) {
-        UserDetail userDetail = userDetailService.findByUid(uid);
-        model.addAttribute("UserDetail", userDetail);
-        return "edit";
-    }
-
-    //balabal.com/people/1
-    @PostMapping("/{uid}/edit")
-    public String postEdit(Model model,
-                            @PathVariable(name = "uid") Long uid,
-                            @RequestParam(name = "email", required = false) String email,
-                            @RequestParam(name = "university", required = false) String university,
-                            @RequestParam(name = "major", required = false) String major,
-                            @RequestParam(name = "hobby", required = false) String hobby,
-                            @RequestParam(name = "image", required = false) String image,
-                            @RequestParam(name = "sex", required = false) String sex,
-                            @RequestParam(name = "introduction", required = false) String introduction) {
-        userDetailService.updateEmailByUid(uid, email);
-        userDetailService.updateUniversityByUid(uid, university);
-        userDetailService.updateMajorByUid(uid, major);
-        userDetailService.updateHobbyByUid(uid, hobby);
-        userDetailService.updateImageByUid(uid, image);
-        userDetailService.updateSexByUid(uid, sex);
-        userDetailService.updateIntroductionByUid(uid, introduction);
-        LinkedList<Activity> activities = activityService.findAllByUid(uid);
-        UserDetail userDetail = userDetailService.findByUid(uid);
-        model.addAttribute( "activities", activities);
-        model.addAttribute("UserDetail", userDetail);
-        return "people";
-    }
+//    @GetMapping("/{uid}/edit")
+//    public String getEdit(Model model, @PathVariable(name = "uid") Long uid) {
+//        UserDetail userDetail = userDetailService.findByUid(uid);
+//        model.addAttribute("UserDetail", userDetail);
+//        return "edit";
+//    }
+//
+//    //balabal.com/people/1
+//    @PostMapping("/{uid}/edit")
+//    public String postEdit(Model model,
+//                            @PathVariable(name = "uid") Long uid,
+//                            @RequestParam(name = "email", required = false) String email,
+//                            @RequestParam(name = "university", required = false) String university,
+//                            @RequestParam(name = "major", required = false) String major,
+//                            @RequestParam(name = "hobby", required = false) String hobby,
+//                            @RequestParam(name = "image", required = false) String image,
+//                            @RequestParam(name = "sex", required = false) String sex,
+//                            @RequestParam(name = "introduction", required = false) String introduction) {
+//        userDetailService.updateEmailByUid(uid, email);
+//        userDetailService.updateUniversityByUid(uid, university);
+//        userDetailService.updateMajorByUid(uid, major);
+//        userDetailService.updateHobbyByUid(uid, hobby);
+//        userDetailService.updateImageByUid(uid, image);
+//        userDetailService.updateSexByUid(uid, sex);
+//        userDetailService.updateIntroductionByUid(uid, introduction);
+//        LinkedList<Activity> activities = activityService.findAllByUid(uid);
+//        UserDetail userDetail = userDetailService.findByUid(uid);
+//        model.addAttribute( "activities", activities);
+//        model.addAttribute("UserDetail", userDetail);
+//        return "people";
+//    }
 
     @PostMapping("/edit")
     public String postEdit(Model model,

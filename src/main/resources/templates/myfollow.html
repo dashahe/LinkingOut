@@ -1,6 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
-      lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <!-- Required meta tags -->
@@ -52,8 +51,8 @@
         <div class="onefan" th:each="userDetail:${userDetailList}">
             <!--粉丝列表头像-->
             <div class="action1">
-                <a id="fansimageurl" th:href="'/people' + ${userDetail.uid} + '/activities'">
-                    <img id="fansimage" src="../static/2.jpg">
+                <a id="fansimageurl" th:href="'/people/activities/' + ${userDetail.uid}">
+                    <img id="fansimage" th:src="${userDetail.image}">
                 </a>
             </div>
 
@@ -63,10 +62,11 @@
                 <div class="card  bg-light text-dark">
                     <ul class="card-body">
                         <li class="nav-item">
-                            <a class="username" th:text="${userDetail.username}" data-toggle="pill"></a>
+                            <a class="username" data-toggle="pill"> this is username </a>
+                            <!--<a class="username" th:text="${userDetail.username}" data-toggle="pill"></a>-->
                         </li>
                         <li class="nav-item">
-                            <a class="intoduction" th:text="${userDetail.introduction}" data-toggle="pill"></a>
+                            <a class="introduction" th:text="${userDetail.introduction}" data-toggle="pill"></a>
                         </li>
                     </ul>
                 </div>
