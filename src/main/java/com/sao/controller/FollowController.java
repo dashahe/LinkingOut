@@ -30,7 +30,7 @@ public class FollowController {
      * @param uid
      * @return
      */
-    @GetMapping("/{uid}/myfollow")
+    @GetMapping("/myfollow/{uid}")
     public String getAllFans(Model model, @PathVariable(name = "uid") Long uid) {
         Iterable<User> myFansList = followRelationshipService.findAllFansByUid(uid);
         LinkedList<UserDetail> userDetailLinkedList = new LinkedList<>();
@@ -47,7 +47,7 @@ public class FollowController {
      * @param uid
      * @return
      */
-    @GetMapping("/{uid}/follow")
+    @GetMapping("/follow/{uid}")
     public String getAllStars(Model model, @PathVariable(name = "uid") Long uid) {
         Iterable<User> myStarList = followRelationshipService.findAllStarByUid(uid);
         LinkedList<UserDetail> userDetailLinkedList = new LinkedList<>();
