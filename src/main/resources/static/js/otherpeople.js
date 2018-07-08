@@ -1,4 +1,4 @@
-function follow(uid) {
+function follow() {
     var xmlhttp;
     if(window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -10,8 +10,9 @@ function follow(uid) {
             alert("关注成功");
         }
     }
+    // var form = new FormData($('p#uid')[0]);
+    var form = new FormData();
+    form.append("staruid", document.getElementById("uid").innerText);
     xmlhttp.open("post", "/follow/process", true);
-    var formdata = new FormData();
-    formdata.append("staruid", document.getElementById(uid).type);
-    xmlhttp.send(formdata);
+    xmlhttp.send(form);
 }

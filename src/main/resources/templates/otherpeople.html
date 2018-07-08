@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../static/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="../static/css/people.css">
-    <link rel="stylesheet" href="../static/css/toppanel.css">
+    <link rel="stylesheet" href="../../static/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../static/css/people.css">
+    <link rel="stylesheet" href="../../static/css/toppanel.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <title>people</title>
-    <script src="../static/js/otherpeople.js"></script>
+    <script src="../../static/js/otherpeople.js"></script>
 </head>
 
 <body>
@@ -40,7 +40,6 @@
 
     </ul>
 </nav>
-<p id="uid" th:type="${userDetail.uid}"></p>
 <div class="container">
     <div class="naa">
         <div>
@@ -55,7 +54,8 @@
                     <p th:text="${userDetail.sex}"></p>
                     <p>Introduction:</p>
                     <p th:text="${userDetail.introduction}"></p>
-                    <button onclick="follow(uid)">关注他</button>
+                    <p id="uid" name="uid" hidden th:text="${userDetail.uid}"></p>
+                    <button onclick="follow()">关注他</button>
                 </li>
             </u1>
         </div>
@@ -86,11 +86,13 @@
                 </div>
             </li>
         </ul>
-        <script src="../static/layui/css/layui.css" charset="utf-8"></script>
+        <script src="../../static/layui/css/layui.css" charset="utf-8"></script>
         <script>
         </script>
     </div>
 </div>
+
+
 </body>
 
 </html>

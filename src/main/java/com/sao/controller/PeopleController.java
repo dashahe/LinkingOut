@@ -2,6 +2,7 @@ package com.sao.controller;
 
 
 import com.sao.domain.model.Activity;
+import com.sao.domain.model.User;
 import com.sao.domain.model.UserDetail;
 import com.sao.service.ActivityService;
 import com.sao.service.UserDetailService;
@@ -31,9 +32,10 @@ public class PeopleController {
     }
 
     @RequestMapping("/all")
-    @ResponseBody
-    public Iterable<UserDetail> all() {
-        return userDetailService.findAll();
+    public String all(Model model) {
+        Iterable<UserDetail> users = userDetailService.findAll();
+        model.addAttribute("users", users);
+        return "users";
     }
 
     @GetMapping("/activities")
