@@ -62,9 +62,9 @@ public class HomeController {
         activity.setLikes(new Long(0));
         activityService.addActivity(activity);
 
-//        logger.info("--------------------- add activity");
-//        logger.info("uid:" + uid);
-//        logger.info("content" + uid);
+        logger.info("--------------------- add activity");
+        logger.info("uid:" + uid);
+        logger.info("content" + uid);
 
         return "home";
     }
