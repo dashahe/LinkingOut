@@ -1,24 +1,13 @@
 package com.sao.domain.model;
 
-import com.sao.utils.SaoDateTime;
-import org.hibernate.validator.constraints.Length;
-import org.springframework.stereotype.Controller;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity
 public class Activity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long aid;
-
-    private Long uid;
+    @EmbeddedId
+    private ActivityUserId activityUserId;
 
     private Date created;
 
@@ -28,19 +17,19 @@ public class Activity {
     private Long likes;
 
     public Long getAid() {
-        return aid;
+        return activityUserId.getAid();
     }
 
     public void setAid(Long aid) {
-        this.aid = aid;
+        this.activityUserId.setAid(aid);
     }
 
     public Long getUid() {
-        return uid;
+        return activityUserId.getUid();
     }
 
     public void setUid(Long uid) {
-        this.uid = uid;
+        this.activityUserId.setUid(uid);
     }
 
     public String getContent() {
