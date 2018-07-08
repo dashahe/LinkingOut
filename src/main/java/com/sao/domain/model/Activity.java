@@ -1,23 +1,17 @@
-package com.sao.domain;
-
-import com.sao.utils.SaoDateTime;
-import org.hibernate.validator.constraints.Length;
-import org.springframework.stereotype.Controller;
+package com.sao.domain.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity
+@IdClass(ActivityUserId.class)
 public class Activity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long aid;
 
+    @Id
     private Long uid;
 
     private Date created;

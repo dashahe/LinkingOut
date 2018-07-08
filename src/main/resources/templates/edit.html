@@ -7,66 +7,133 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/toppanel.css">
     <link rel="stylesheet" href="../static/css/edit.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
     <script> function updateUserDetail() {
-        xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-                document.getElementById("userdetail").innerHTML=xmlhttp.responseText;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("userdetail").innerHTML = xmlhttp.responseText;
                 alert("保存成功，点击确定返回个人主页");
             }
+
         }
         xmlhttp.open("POST", "./edit", true);
         xmlhttp.send();
         Response.Write(response());
     }</script>
-    <title>Hello, world!</title>
+    <title>edit</title>
 </head>
 
 
 <body>
-<div class="top-panel"></div>
-<div id="userdetail" class="container">
-    <form id="form" method="post">
+    <nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav link">
+        <li class="nav-item active">
+            <a class="nav-link text" href="#">专业</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text" href="#">兼职</a>
+        </li>
+        <li id="hp" class="nav-item active">
+            <div class="nav-link">
+                <div class="dropdown">
+                    <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
+                    <img class="btn btn-primary dropdown-toggle" data-toggle="dropdown" src="../static/2.jpg">
+                    <!--</button>-->
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">主页</a>
+                        <a class="dropdown-item" href="#">设置</a>
+                        <a class="dropdown-item" href="#">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</nav>
+<div class="container">
+    <form id="form" action="./" method="post">
         <div>
             <img name="image" src="http://static.runoob.com/images/mix/img_mountains_wide.jpg">
         </div>
-        <div>
-            <img name="photo" src="/favicon.ico">
+        <br>
+        <div class="hp">
+            <img src="../static/hp.jpg" class="nowhp">
         </div>
-    <table>
-        <tr>
-            <th>sex</th>
-            <th><input name="sex" class="profile" th:value="${UserDetail.email}"></th>
-        </tr>
-        <tr>
-            <th>introduction</th>
-            <th><input name="introduction" class="profile" th:value="${UserDetail.introduction}"></th>
-        </tr>
-        <tr>
-            <th>email</th>
-            <th><input name="email" class="profile" th:value="${UserDetail.email}"></th>
-        </tr>
-        <tr>
-            <th>hobby</th>
-            <th><input name="hobby" class="profile" th:value="${UserDetail.hobby}" </th>
-        </tr>
-        <tr>
-            <th>university</th>
-            <th><input name="university" class="profile" th:value="${UserDetail.university}"> </th>
-        </tr>
-        <tr>
-            <th>major</th>
-            <th><input name="major" class="profile" th:value="${UserDetail.major}" </th>
-        </tr>
-    </table>
-        <button onclick="updateUserDetail()">submit</button>
+
+    </form>
+    <div class="edit-box">
+        <div class="container">
+            <h3>编辑信息</h3>
+            <br>
+            <form action="./edit" method="post">
+                <div class="card">
+                    <!--编辑信息请求数据-->
+
+                    <div class="card-body">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">sex</span>
+
+                            </div>
+                            <input type="text" class="form-control" name="sex" th:value="${UserDetail.sex}">
+                        </div>
+                        <br>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">introduction</span>
+                            </div>
+                            <input type="text" class="form-control" name="introduction"
+                                   th:value="${UserDetail.introduction}">
+                        </div>
+                        <br>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">email</span>
+                            </div>
+                            <input type="email" class="form-control" name="email" style="width: 100px"
+                                   th:value="${UserDetail.email}">
+                        </div>
+                        <br>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">hobby</span>
+                            </div>
+                            <input type="text" class="form-control" name="hobby" style="width: 100px"
+                                   th:value="${UserDetail.hobby}">
+                        </div>
+                        <br>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">university</span>
+                            </div>
+                            <input type="text" class="form-control" name="university" style="width: 100px"
+                                   th:value="${UserDetail.university}">
+                        </div>
+                        <br>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">major</span>
+                            </div>
+                            <input type="text" class="form-control" name="major" style="width: 100px"
+                                   th:value="${UserDetail.major}">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="subbutton">
+                    <br>
+                    <button type="submit" onclick="updateUserDetail()" class="btn">submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
     </form>
 </div>
 

@@ -13,16 +13,13 @@ import javax.servlet.http.HttpSession;
 
 public class UserSecurityInterceptor implements HandlerInterceptor {
 
-    Logger logger = LoggerFactory.getLogger(UserSecurityInterceptor.class);
+    private Logger logger = LoggerFactory.getLogger(UserSecurityInterceptor.class);
 
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response,
                              Object handler) throws Exception {
-        //获取session
         HttpSession session = request.getSession(true);
-        //判断用户ID是否存在，不存在就跳转到登录界面
-
         logger.info("---------------------preHandle----------------");
         logger.info("------- " + session.getAttribute("uid"));
 
@@ -41,11 +38,13 @@ public class UserSecurityInterceptor implements HandlerInterceptor {
                            HttpServletResponse response,
                            Object handler,
                            ModelAndView modelAndView) throws Exception {
+
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request,
                                 HttpServletResponse response,
                                 Object handler, Exception ex) throws Exception {
+
     }
 }

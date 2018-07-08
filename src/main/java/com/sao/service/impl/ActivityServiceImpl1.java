@@ -1,7 +1,7 @@
 package com.sao.service.impl;
 
-import com.sao.domain.Activity;
-import com.sao.domain.ActivityRepository;
+import com.sao.domain.model.Activity;
+import com.sao.domain.repository.ActivityRepository;
 import com.sao.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

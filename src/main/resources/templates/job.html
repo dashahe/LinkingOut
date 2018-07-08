@@ -1,85 +1,313 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../static/css/myspace.css">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <script>
-        function backhome() {
-            window.location.href = "myspace.html";
-        }
-    </script>
     <title>job</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/job.css">
+    <link rel="stylesheet" href="../static/css/toppanel.css">
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div>顶部栏</div>
-        <di class="naa">
-            <div>
-                <img class="image" src="2.jpg" onclick="backhome()">
+<nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav link">
+        <li class="nav-item active">
+            <a class="nav-link text" href="profession.html">专业</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text" href="job">兼职</a>
+        </li>
+        <li id="hp" class="nav-item active">
+            <div class="nav-link">
+                <div class="dropdown">
+                    <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
+                    <img class="btn btn-primary dropdown-toggle" data-toggle="dropdown" src="../static/2.jpg">
+                    <!--</button>-->
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="people.html">主页</a>
+                        <a class="dropdown-item" href="edit.html">设置</a>
+                        <a class="dropdown-item" href="login.html">Log out</a>
+                    </div>
+                </div>
             </div>
-            <div class="navv">
-                <u1 class="nav nav-pills justify-content-center">
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="myfollow.html">我的关注</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="follow.html">关注我的</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="star.html">我的收藏</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="hands.html">我的二手</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="job.html">我的兼职</a>
-                    </li>
-                </u1>
-            </div>
+        </li>
 
-    </div>
-    <div class="btnconrainer">
-        <a href="show3.html" class="btn btn-info" role="button">编辑信息</a>
-    </div>
-    <div class="action">
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                job
+    </ul>
+</nav>
+    <div class="box">
+        <div class="image">
+            <img class="im" src="2.jpg" onclick="backhome()">
+        </div>
+        <div class="btnconrainer">
+            <a href="second-hand.html" class="btn btn-info" role="button">我的兼职</a>
+        </div>
+        <div class="recommend">
+            <div class="re">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    推荐兼职一
+                </button>
+                <!-- 模态框 -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- 模态框头部 -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">模态框头部</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- 模态框主体 -->
+                            <div class="modal-body">
+                                模态框内容..
+                            </div>
+
+                            <!-- 模态框底部 -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="re">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    推荐兼职二
+                </button>
+                <!-- 模态框 -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- 模态框头部 -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">兼职</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- 模态框主体 -->
+                            <div class="modal-body">
+                                兼职内容..
+                            </div>
+
+                            <!-- 模态框底部 -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="re">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    推荐兼职三
+                </button>
+                <!-- 模态框 -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- 模态框头部 -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">模态框头部</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- 模态框主体 -->
+                            <div class="modal-body">
+                                模态框内容..
+                            </div>
+
+                            <!-- 模态框底部 -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="re">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                       推荐兼职四
+                    </button>
+                    <!-- 模态框 -->
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                
+                                <!-- 模态框头部 -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">模态框头部</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                
+                                <!-- 模态框主体 -->
+                                <div class="modal-body">
+                                    模态框内容..
+                                </div>
+                
+                                <!-- 模态框底部 -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                </div>
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="containerjob">
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                            兼职一
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
+                            #工作描述
+                            <br> # 地点
+                            <br> #工资
+                            <br> #联系电话
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                            兼职二
+                        </a>
+                    </div>
+                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            #工作描述
+                            <br> # 地点
+                            <br> #工资
+                            <br> #联系电话
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                            兼职三
+                        </a>
+                    </div>
+                    <div id="collapseThree" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            #工作描述
+                            <br> # 地点
+                            <br> #工资
+                            <br> #联系电话
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapsefour">
+                            兼职四
+                        </a>
+                    </div>
+                    <div id="collapsefour" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            #工作描述
+                            <br> # 地点
+                            <br> #工资
+                            <br> #联系电话
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapsefive">
+                            兼职五
+                        </a>
+                    </div>
+                    <div id="collapsefive" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            #工作描述
+                            <br> # 地点
+                            <br> #工资
+                            <br> #联系电话
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapsesix">
+                            兼职六
+                        </a>
+                    </div>
+                    <div id="collapsesix" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            #工作描述
+                            <br> # 地点
+                            <br> #工资
+                            <br> #联系电话
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseseven">
+                            兼职七
+                        </a>
+                    </div>
+                    <div id="collapseseven" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            #工作描述
+                            <br> # 地点
+                            <br> #工资
+                            <br> #联系电话
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseeight">
+                            兼职八
+                        </a>
+                    </div>
+                    <div id="collapseeight" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            #工作描述
+                            <br> # 地点
+                            <br> #工资
+                            <br> #联系电话
+                            <br>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                job
-            </div>
-        </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                job
-            </div>
-        </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                job
-            </div>
-        </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                job
-            </div>
-        </div>
-    </div>
+
     </div>
 </body>
 

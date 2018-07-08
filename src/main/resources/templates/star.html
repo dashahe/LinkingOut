@@ -7,83 +7,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="myspace.css">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/people.css">
+    <link rel="stylesheet" href="../static/css/toppanel.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
     <script>
         function backhome() {
             window.location.href = "myspace.html";
         }
     </script>
-    <title>myspace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <title>star</title>
 </head>
 
 <body>
-    <div class="container">
-        <div>顶部栏</div>
-        <di class="naa">
-            <div>
-                <img class="image" src="2.jpg" onclick="backhome()">
+<nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav link">
+        <li class="nav-item active">
+            <a class="nav-link text" href="profession.html">专业</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text" href="job">兼职</a>
+        </li>
+        <li id="hp" class="nav-item active">
+            <div class="nav-link">
+                <div class="dropdown">
+                    <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
+                    <img class="btn btn-primary dropdown-toggle" data-toggle="dropdown" src="../static/2.jpg">
+                    <!--</button>-->
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="people.html">主页</a>
+                        <a class="dropdown-item" href="edit.html">设置</a>
+                        <a class="dropdown-item" href="login.html">Log out</a>
+                    </div>
+                </div>
             </div>
-            <div class="navv">
-                <u1 class="nav nav-pills justify-content-center">
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="myfollow.html">我的关注</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="follow.html">关注我的</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="star.html">我的收藏</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="hands.html">我的二手</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="job.html">我的兼职</a>
-                    </li>
-                </u1>
-            </div>
-    </div>
-    <div>
-        <img class="myimage" src="2.jpg" onclick="backhome()">
-    </div>
+        </li>
 
-    <div class="btnconrainer">
-        <a href="#" class="btn btn-info" role="button">编辑信息</a>
+    </ul>
+</nav>
+<div class="container">
+    <div class="naa">
+        <div>
+            <img class="image" src="../static/2.jpg">
+            <div class="btnconrainer">
+                <a href="/people/edit" class="btn btn-info" role="button">编辑信息</a>
+            </div>
+        </div>
+        <div class="navv">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="myfollow.html">我的关注</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="follow.html">关注我的</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="star.html">我的收藏</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="second-hand.html">二手/兼职</a>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="action">
         <div class="card  bg-light text-dark">
             <div class="card-body">
-                star
+                <li class="nav-item">
+                    <a class="Q" data-toggle="pill" href="">我收藏的问题</a>
+                    <p>回答</p>
+                </li>
             </div>
         </div>
         <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                star
-            </div>
-        </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                star
-            </div>
-        </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                star
-            </div>
-        </div>
-        <br>
-        <div class="card  bg-light text-dark">
-            <div class="card-body">
-                star
-            </div>
-        </div>
+
     </div>
-    </div>
+</div>
 </body>
 
 </html>
