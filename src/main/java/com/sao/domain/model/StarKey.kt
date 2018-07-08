@@ -2,15 +2,18 @@ package com.sao.domain.model
 
 import java.io.Serializable
 import javax.persistence.Embeddable
+import javax.validation.constraints.NotEmpty
 import javax.validation.constraints.NotNull
 
 
 @Embeddable
-class  FollowIdentity : Serializable{
+class StarKey : Serializable{
+
 
     @NotNull
-    var fid:Long =0
+    var uid :Long? = null
 
-    @NotNull
-    var bfid:Long = 0
+
+    @NotEmpty
+    var starUrl :String? = null
 }

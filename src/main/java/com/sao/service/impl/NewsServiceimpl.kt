@@ -64,13 +64,11 @@ class NewsServiceimpl:NewsService {
 
         var a :Long = 1
         for(new in iterable){
-            println("ffdf"+new.newsType)
             if(compare(a,new.newsType)&&counter<3&&!new.newsColumn.equals("abcd")) {
                 counter ++
                 bannerNews.add(new)
             }
         }
-        println("ffdfd"+bannerNews.asIterable())
         return bannerNews.asIterable()
     }
 
