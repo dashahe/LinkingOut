@@ -8,6 +8,15 @@
 
 	<properties>
 		<kotlin.version>1.2.51</kotlin.version>
+
+		<system.java.version>1.8</system.java.version>
+		<!-- node & npm -->
+		<system.node.version>v8.2.1</system.node.version>
+		<system.npm.version>5.4.2</system.npm.version>
+		<dependency.springboot.version>1.5.6.RELEASE</dependency.springboot.version>
+		<plugin.springboot.version>1.5.9.RELEASE</plugin.springboot.version>
+		<!-- plugin -->
+		<plugin.frontend.version>0.0.27</plugin.frontend.version>
 	</properties>
 
 	<!--starter_parent-->
@@ -248,6 +257,107 @@
 					</execution>
 				</executions>
 			</plugin>
+
+
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>${plugin.frontend.version}</version>
+                <configuration>
+                    <!-- angular 源码根目录 angular -->
+                    <workingDirectory>src/main/angular</workingDirectory>
+                    <nodeDownloadRoot>https://npm.taobao.org/mirrors/node/</nodeDownloadRoot>
+                    <nodeVersion>${system.node.version}</nodeVersion>
+                    <npmVersion>${system.npm.version}</npmVersion>
+                    <installDirectory>target</installDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                            <installDirectory>target</installDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>angular cli build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <arguments>run build</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.8</source>
+                    <!--编译版本-->
+                    <target>1.8</target>
+                    <excludes>
+                        <exclude>ngapp/**</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <executions>
+                    <execution>
+                        <id>exec-npm-install</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <workingDirectory>${project.basedir}/src/main/ngapp</workingDirectory>
+                            <executable>cnpm.cmd</executable>
+                            <!--这里的cnpm是淘宝的镜像，在国内会快一点，也可以改为npm-->
+                            <arguments>
+                                <argument>install</argument>
+                            </arguments>
+                        </configuration>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>exec-npm-ng-build</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <workingDirectory>${project.basedir}/src/main/ngapp</workingDirectory>
+                            <executable>ng.cmd</executable>
+                            <arguments>
+                                <argument>build</argument>
+                                <argument>--base-href=/angular</argument>
+
+                                <!--这个是angulr中的base标签的href属性，所有路径都会加上这个/angulr-->
+                            </arguments>
+                        </configuration>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
 		</plugins>
 	</build>
 
