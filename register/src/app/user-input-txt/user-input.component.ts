@@ -13,6 +13,5 @@ export class UserInputComponent implements OnInit {
   ngOnInit() {
   }
 
-  getUsername
 
 }
