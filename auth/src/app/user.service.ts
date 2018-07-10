@@ -17,7 +17,7 @@ export class UserService {
     this.user.password = user.password;
     this.user.tel = user.tel;
 
-    var data = this.http.post("http://120.79.175.191/login",this.user)
+    var data = this.http.post("http://localhost:8888/login",this.user)
       .subscribe(next => console.log(next));
 
   }
