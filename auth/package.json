@@ -1,5 +1,5 @@
 {
-  "name": "register",
+  "name": "auth",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
