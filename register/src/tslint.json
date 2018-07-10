@@ -1,17 +1,27 @@
 {
-    "extends": "../tslint.json",
-    "rules": {
-        "directive-selector": [
-            true,
-            "attribute",
-            "app",
-            "camelCase"
-        ],
-        "component-selector": [
-            true,
-            "element",
-            "app",
-            "kebab-case"
-        ]
-    }
+  "extends": "../tslint.json",
+  "rules": {
+    "import-spacing": false,
+    "prefer-const": false,
+    "no-var-keyword": false,
+    "variable-name": false,
+    "whitespace": false,
+    "semicolon": false,
+    "comment-format": false,
+    "quotemark": false ,
+    "trailing-comma": false,
+    "no-trailing-whitespace": false,
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "app",
+      "kebab-case"
+    ]
+  }
 }
