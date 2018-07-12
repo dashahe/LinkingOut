@@ -28,18 +28,59 @@ public class FollowController {
      * 处理我的粉丝界面，查询所有的粉丝的user detail保存在list中。
      * 使用userDetailList渲染thymeleaf模板。
      * @param model
-     * @param uid
      * @return
      */
-    @GetMapping("/myfollow/{uid}")
-    public String getAllFans(Model model, @PathVariable(name = "uid") Long uid) {
+    @GetMapping("/fans")
+    public String getAllFans(Model model, HttpSession httpSession) {
+        Long uid = Long.valueOf(httpSession.getAttribute("uid").toString());
         Iterable<User> myFansList = followRelationshipService.findAllFansByUid(uid);
+        UserDetail userDetail = userDetailService.findByUid(uid);
         LinkedList<UserDetail> userDetailLinkedList = new LinkedList<>();
         for (User user : myFansList) {
             userDetailLinkedList.add(userDetailService.findByUid(user.getUid()));
         }
-        model.addAttribute("userDetailList", userDetailLinkedList);
-        return "myfollow";
+        model.addAttribute("fans", userDetailLinkedList);
+        model.addAttribute("userDetail", userDetail);
+        return "fans";
+    }
+
+    /**
+     * 处理我的关注界面，查询所有的关注的user detail保存在list中。
+     * 使用userDetailList渲染thymeleaf模板。
+     * @return
+     */
+    @GetMapping("/follow")
+    public String getAllStars(Model model, HttpSession httpSession) {
+        Long uid = Long.valueOf(httpSession.getAttribute("uid").toString());
+        Iterable<User> myStarList = followRelationshipService.findAllStarByUid(uid);
+        UserDetail userDetail = userDetailService.findByUid(uid);
+        LinkedList<UserDetail> userDetailLinkedList = new LinkedList<>();
+        for (User user : myStarList) {
+            userDetailLinkedList.add(userDetailService.findByUid(user.getUid()));
+        }
+        model.addAttribute("stars", userDetailLinkedList);
+        model.addAttribute("userDetail", userDetail);
+        return "follow_";
+    }
+
+    /**
+     * 处理我的粉丝界面，查询所有的粉丝的user detail保存在list中。
+     * 使用userDetailList渲染thymeleaf模板。
+     * @param model
+     * @param uid
+     * @return
+     */
+    @GetMapping("/fans/{uid}")
+    public String getAllFans(Model model, @PathVariable(name = "uid") Long uid) {
+        Iterable<User> myFansList = followRelationshipService.findAllFansByUid(uid);
+        LinkedList<UserDetail> userDetailLinkedList = new LinkedList<>();
+        UserDetail userDetail = userDetailService.findByUid(uid);
+        for (User user : myFansList) {
+            userDetailLinkedList.add(userDetailService.findByUid(user.getUid()));
+        }
+        model.addAttribute("fans", userDetailLinkedList);
+        model.addAttribute("userDetail", userDetail);
+        return "fans";
     }
 
     /**
@@ -52,11 +93,13 @@ public class FollowController {
     public String getAllStars(Model model, @PathVariable(name = "uid") Long uid) {
         Iterable<User> myStarList = followRelationshipService.findAllStarByUid(uid);
         LinkedList<UserDetail> userDetailLinkedList = new LinkedList<>();
+        UserDetail userDetail = userDetailService.findByUid(uid);
         for (User user : myStarList) {
             userDetailLinkedList.add(userDetailService.findByUid(user.getUid()));
         }
-        model.addAttribute("userDetailList", userDetailLinkedList);
-        return "follow";
+        model.addAttribute("stars", userDetailLinkedList);
+        model.addAttribute("userDetail", userDetail);
+        return "follow_";
     }
 
     /**
