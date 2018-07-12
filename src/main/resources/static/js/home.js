@@ -3,10 +3,39 @@ function selectac(i, j) {
     a.id = i;
     var b = document.getElementsByClassName("modal-title")[0];
     b.innerText = j;
+    var c;
+    if(i === "rc") {
+        c = 1;
+    }
+    if(i === "es") {
+        c = 2;
+    }
+    if(i === "zp") {
+        c = 3;
+    }
+    if(i === "jz") {
+        c = 4;
+    }
 
+
+    switch (c) {
+        case 1:
+            document.getElementsByName("content")[0].innerHTML = "#Daily# ";
+            break;
+        case 2:
+            document.getElementsByName("content")[0].innerHTML = "#Second Hand# ";
+            break;
+        case 3:
+            document.getElementsByName("content")[0].innerHTML = "#Hire# ";
+            break;
+        case 4:
+            document.getElementsByName("content")[0].innerHTML = "#Part-time Job# ";
+            break;
+
+    }
 }
 
-function message() {
+function message(id) {
     var xmlhttp;
     if(window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -21,20 +50,7 @@ function message() {
     var content = new FormData();
     content.append("content", document.getElementsByName("content")[0].value);
     var type = document.getElementsByClassName("fade")[0].id;
-    switch (type) {
-        case "rc":
-            content.append("type", "rc");
-            break;
-        case "es":
-            content.append("type", "es");
-            break;
-        case "zp":
-            content.append("type", "zp");
-            break;
-        case "jz":
-            content.append("type", "jz");
-            break;
-    }
+    content.append("type", type);
     xmlhttp.open("post", "/", true);
     xmlhttp.send(content);
 }
