@@ -1,21 +1,3 @@
-function selectac(i, j) {
-    var a = document.getElementsByClassName("fade")[0];
-    a.id = i;
-    var b = document.getElementsByClassName("modal-title")[0];
-    b.innerText = j;
-    var c;
-    if(i === "rc") {
-        c = 1;
-    }
-    if(i === "es") {
-        c = 2;
-    }
-    if(i === "zp") {
-        c = 3;
-    }
-    if(i === "jz") {
-        c = 4;
-    }
 
 
     switch (c) {
