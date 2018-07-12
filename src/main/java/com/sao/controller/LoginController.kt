@@ -1,5 +1,6 @@
 package com.sao.controller
 
+import com.sao.exception.CException
 import com.sao.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -93,7 +94,7 @@ class LoginController {
             session.setAttribute("uid", user.uid);
             return "redirect:/"
         } else {
-            return "login"
+            throw  CException(403,"username and password mismatch")
         }
     }
 
