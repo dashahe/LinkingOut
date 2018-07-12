@@ -13,4 +13,6 @@ public interface ActivityService {
 
     Iterable<Activity> findAll();
 //    Page<Activity> findActivity(Integer page, Integer size);
+
+    Iterable<Activity> findByType(String type);
 }
