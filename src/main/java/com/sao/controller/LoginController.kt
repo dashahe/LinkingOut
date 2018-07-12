@@ -1,5 +1,6 @@
 package com.sao.controller
 
+import com.sao.exception.CException
 import com.sao.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -74,7 +75,10 @@ class LoginController {
     }
 
 
-    //todo should be send to homepage
+    /**
+     * reponse code 403: password and username mismatches
+     */
+
     @PostMapping
     fun login(@RequestParam(name="tel") tel:String,
               @RequestParam(name="password") password:String,
@@ -83,17 +87,12 @@ class LoginController {
         val user = userService.findByTel(tel)
 
         val date = System.currentTimeMillis()
-        //val cookieGenerator = CookieGenerator(name="login_cookie")
-        //val cookie = cookieGenerator.makeCookie(user)
 
-
-//        System.out.print("-------------------login function  ");
-//        System.out.print("----- " + tel + password);
         if (user.password.equals(password)) {
             session.setAttribute("uid", user.uid);
             return "redirect:/"
         } else {
-            return "login"
+            throw CException(403,"password and username mismatch")
         }
     }
 
