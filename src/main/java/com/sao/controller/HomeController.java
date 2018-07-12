@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.LinkedList;
 
 @Controller
 @RequestMapping("/")
@@ -39,7 +40,18 @@ public class HomeController {
     @GetMapping
     public String home(Model model) {
         Iterable<News> news = newsService.findBannerNews();
+        LinkedList<Activity> activities = new LinkedList<>();
+        for (Activity activity : activityService.findAll()) {
+            activities.add(activity);
+        }
+
+        LinkedList<Activity> activitiesReverse = new LinkedList<>();
+        while (activities.size() != 0) {
+            activitiesReverse.push(activities.pop());
+        }
+
         model.addAttribute("news", news);
+        model.addAttribute("activities", activitiesReverse);
         return "home";
     }
 
@@ -52,14 +64,16 @@ public class HomeController {
 //    }
 
     @PostMapping
-    public String addActivity(@RequestParam(name = "content") String content,
-                       HttpSession session) {
+    public String addActivity(HttpSession session,
+                              @RequestParam(name = "content") String content,
+                              @RequestParam(name = "type") String type) {
         Long uid = Long.valueOf(session.getAttribute("uid").toString());
         Activity activity = new Activity();
         activity.setUid(uid);
         activity.setContent(content);
         activity.setCreated(new Date());
         activity.setLikes(new Long(0));
+        activity.setType(type);
         activityService.addActivity(activity);
 
         logger.info("--------------------- add activity");

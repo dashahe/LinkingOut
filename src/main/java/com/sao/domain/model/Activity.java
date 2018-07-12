@@ -21,6 +21,9 @@ public class Activity {
 
     private Long likes;
 
+    private String type;
+
+
     public Long getAid() {
         return aid;
     }
@@ -61,4 +64,11 @@ public class Activity {
         this.created = created;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

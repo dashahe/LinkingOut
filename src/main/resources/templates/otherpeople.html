@@ -11,6 +11,7 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <title>people</title>
+    <script src="../../static/js/otherpeople.js"></script>
 </head>
 
 <body>
@@ -53,6 +54,8 @@
                     <p th:text="${userDetail.sex}"></p>
                     <p>Introduction:</p>
                     <p th:text="${userDetail.introduction}"></p>
+                    <p id="uid" name="uid" hidden th:text="${userDetail.uid}"></p>
+                    <button onclick="follow()">关注他</button>
                 </li>
             </u1>
         </div>
@@ -88,6 +91,8 @@
         </script>
     </div>
 </div>
+
+
 </body>
 
 </html>
