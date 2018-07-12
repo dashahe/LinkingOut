@@ -44,8 +44,12 @@ public class PeopleController {
         LinkedList<Activity> activities = activityService.findAllByUid(uid);
         UserDetail userDetail = userDetailService.findByUid(uid);
 
-        //TODO(reverse List)
-        model.addAttribute( "activities", activities);
+        LinkedList<Activity> activitiesReverse = new LinkedList<>();
+        while (activities.size() != 0) {
+            activitiesReverse.push(activities.pop());
+        }
+
+        model.addAttribute( "activities", activitiesReverse);
         model.addAttribute("userDetail", userDetail);
         return "people";
     }
@@ -57,8 +61,13 @@ public class PeopleController {
         LinkedList<Activity> activities = activityService.findAllByUid(uid);
         UserDetail userDetail = userDetailService.findByUid(uid);
 
-        //TODO(reverse List)
-        model.addAttribute( "activities", activities);
+
+        LinkedList<Activity> activitiesReverse = new LinkedList<>();
+        while (activities.size() != 0) {
+            activitiesReverse.push(activities.pop());
+        }
+
+        model.addAttribute( "activities", activitiesReverse);
         model.addAttribute("userDetail", userDetail);
 
         Long uid1 = Long.valueOf(httpSession.getAttribute("uid").toString());
