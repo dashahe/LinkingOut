@@ -41,6 +41,16 @@ public class ActivityServiceImpl1 implements ActivityService {
         return activityRepository.findAll();
     }
 
+    @Override
+    public Iterable<Activity> findAllByType(String type) {
+        LinkedList<Activity> result = new LinkedList<>();
+        for (Activity activity : activityRepository.findAll()) {
+            if (activity.getType().equals(type)) {
+                result.add(activity);
+            }
+        }
+        return result;
+    }
 
 //    @Override
 //    public Page<Activity> findActivity(Integer page, Integer size) {
