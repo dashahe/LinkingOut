@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../static/css/home.css">
     <link rel="stylesheet" href="../static/css/people.css">
     <link rel="stylesheet" href="../static/css/toppanel.css">
+    <link rel="stylesheet" href="../static/layui/css/layui.css" media="all">
+    <script src="../static/layui/css/layui.css" charset="utf-8"></script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -38,7 +41,7 @@
                     <!--</button>-->
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="/people/activities">主页</a>
-                        <a class="dropdown-item" href="#">设置</a>
+                        <a class="dropdown-item" href="/people/edit">设置</a>
                         <a class="dropdown-item" href="#">Log out</a>
                     </div>
                 </div>
@@ -52,37 +55,8 @@
 </nav>
 <div class="container">
 
-    <!--轮播-->
-    <div id="top" class="carousel slide" data-ride="carousel">
-
-        <!-- 指示符 -->
-        <ul class="carousel-indicators">
-            <li data-target="#top" data-slide-to="0" class="active"></li>
-            <li data-target="#top" data-slide-to="1"></li>
-            <li data-target="#top" data-slide-to="2"></li>
-        </ul>
-
-        <!-- 轮播图片 -->
-        <div class="carousel-inner">
-            <div th:each="a:${news}" class="carousel-item active">
-                <a th:href="${a.contentUrl}"> <img class="news-image" th:src="${a.imageUrl}"></a>
-                <div class="carousel-caption">
-                    <h2 class="topic" th:text="${a.newsContentTitle}"></h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- 左右切换按钮 -->
-        <a class="carousel-control-prev" href="#top" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#top" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </a>
-
-    </div>
-
     <!-- 动态发布 -->
+
     <div id="dropdown" class="dropdown">
         <button id="btn" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
             发送动态
@@ -92,7 +66,7 @@
                     data-toggle="modal" data-target="#rc">
                 日常
             </button>
-            <button type="button" onclick="selectac('rs', '二手')" class="btn btn-primary dropdown-item di"
+            <button type="button" onclick="selectac('es', '二手')" class="btn btn-primary dropdown-item di"
                     data-toggle="modal" data-target="#rs">
                 二手
             </button>
@@ -118,9 +92,7 @@
                 </div>
                 <!-- 模态框主体 -->
                 <div class="modal-body">
-                    <form id="form" name="form">
-                        <textarea name="content" rows="10" cols="48">input here</textarea>
-                    </form>
+                        <textarea name="content" rows="10" cols="48" value=""></textarea>
                 </div>
                 <!-- 模态框底部 -->
                 <div class="modal-footer">
@@ -131,38 +103,33 @@
             </div>
         </div>
     </div>
-
-
-</div>
-
-
-<div class="action">
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
-        <legend>动态</legend>
-    </fieldset>
-    <ul class="layui-timeline">
-        <li th:each="a:${activities}" class="layui-timeline-item">
-            <i class="layui-icon layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <h3 class="layui-timeline-title" th:text="${a.created}"></h3>
-                <div class="card  bg-light text-dark">
-                    <div class="card-body">
-                        <p th:text="${a.content}"></p>
-                        <p th:text="${a.likes}"></p>
+    <div class="action">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>动态</legend>
+        </fieldset>
+        <ul class="layui-timeline">
+            <li th:each="a:${activities}" class="layui-timeline-item">
+                <i class="layui-icon layui-timeline-axis"></i>
+                <div class="layui-timeline-content layui-text">
+                    <h3 class="layui-timeline-title" th:text="${a.created}"></h3>
+                    <div class="card  bg-light text-dark">
+                        <div class="card-body">
+                            <p th:text="${a.content}"></p>
+                            <p th:text="${a.likes}"></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </li>
-        <li class="layui-timeline-item">
-            <i class="layui-icon layui-timeline-axis"></i>
-            <div class="layui-timeline-content layui-text">
-                <div class="layui-timeline-title">End</div>
-            </div>
-        </li>
-    </ul>
-    <script src="../static/layui/css/layui.css" charset="utf-8"></script>
-
+            </li>
+            <li class="layui-timeline-item">
+                <i class="layui-icon layui-timeline-axis"></i>
+                <div class="layui-timeline-content layui-text">
+                    <div class="layui-timeline-title">End</div>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
+
 
 </body>
 

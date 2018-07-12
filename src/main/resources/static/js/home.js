@@ -18,7 +18,23 @@ function message() {
             alert("发送成功");
         }
     };
-    var form = new FormData($('form#form')[0]);
+    var content = new FormData();
+    content.append("content", document.getElementsByName("content")[0].value);
+    var type = document.getElementsByClassName("fade")[0].id;
+    switch (type) {
+        case "rc":
+            content.append("type", "rc");
+            break;
+        case "es":
+            content.append("type", "es");
+            break;
+        case "zp":
+            content.append("type", "zp");
+            break;
+        case "jz":
+            content.append("type", "jz");
+            break;
+    }
     xmlhttp.open("post", "/", true);
-    xmlhttp.send(form);
+    xmlhttp.send(content);
 }
