@@ -39,7 +39,9 @@ public class HomeController {
     @GetMapping
     public String home(Model model) {
         Iterable<News> news = newsService.findBannerNews();
+        Iterable<Activity> activities = activityService.findAll();
         model.addAttribute("news", news);
+        model.addAttribute("activities", activities);
         return "home";
     }
 

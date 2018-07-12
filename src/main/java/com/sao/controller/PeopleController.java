@@ -2,6 +2,7 @@ package com.sao.controller;
 
 
 import com.sao.domain.model.Activity;
+import com.sao.domain.model.User;
 import com.sao.domain.model.UserDetail;
 import com.sao.service.ActivityService;
 import com.sao.service.UserDetailService;
@@ -31,9 +32,10 @@ public class PeopleController {
     }
 
     @RequestMapping("/all")
-    @ResponseBody
-    public Iterable<UserDetail> all() {
-        return userDetailService.findAll();
+    public String all(Model model) {
+        Iterable<UserDetail> users = userDetailService.findAll();
+        model.addAttribute("users", users);
+        return "users";
     }
 
     @GetMapping("/activities")
@@ -44,7 +46,7 @@ public class PeopleController {
 
         //TODO(reverse List)
         model.addAttribute( "activities", activities);
-        model.addAttribute("UserDetail", userDetail);
+        model.addAttribute("userDetail", userDetail);
         return "people";
     }
 
@@ -57,7 +59,7 @@ public class PeopleController {
 
         //TODO(reverse List)
         model.addAttribute( "activities", activities);
-        model.addAttribute("UserDetail", userDetail);
+        model.addAttribute("userDetail", userDetail);
 
         Long uid1 = Long.valueOf(httpSession.getAttribute("uid").toString());
         if (uid.equals(uid1)) {
@@ -76,7 +78,7 @@ public class PeopleController {
     public String getEdit(Model model, HttpSession httpSession) {
         Long uid = Long.valueOf(httpSession.getAttribute("uid").toString());
         UserDetail userDetail = userDetailService.findByUid(uid);
-        model.addAttribute("UserDetail", userDetail);
+        model.addAttribute("userDetail", userDetail);
         return "edit";
     }
 
@@ -133,7 +135,7 @@ public class PeopleController {
         LinkedList<Activity> activities = activityService.findAllByUid(uid);
         UserDetail userDetail = userDetailService.findByUid(uid);
         model.addAttribute( "activities", activities);
-        model.addAttribute("UserDetail", userDetail);
+        model.addAttribute("userDetail", userDetail);
         return "people";
     }
 }

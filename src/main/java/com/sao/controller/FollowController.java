@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Collection.*;
 
 @Controller
 @RequestMapping("/")
@@ -65,7 +66,7 @@ public class FollowController {
      * @param staruid
      * @return
      */
-    @PostMapping("/process")
+    @PostMapping("/follow/process")
     @ResponseBody
     public HashMap<String, String> processFollow(HttpSession httpSession,
                                                  @RequestParam(name = "staruid") Long staruid) {

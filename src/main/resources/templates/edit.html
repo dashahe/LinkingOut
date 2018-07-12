@@ -13,19 +13,6 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <script> function updateUserDetail() {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("userdetail").innerHTML = xmlhttp.responseText;
-                alert("保存成功，点击确定返回个人主页");
-            }
-
-        }
-        xmlhttp.open("POST", "./edit", true);
-        xmlhttp.send();
-        Response.Write(response());
-    }</script>
     <title>edit</title>
 </head>
 
@@ -82,7 +69,7 @@
                                 <span class="input-group-text">sex</span>
 
                             </div>
-                            <input type="text" class="form-control" name="sex" th:value="${UserDetail.sex}">
+                            <input type="text" class="form-control" name="sex" th:value="${userDetail.sex}">
                         </div>
                         <br>
                         <div class="input-group mb-3">
@@ -90,7 +77,7 @@
                                 <span class="input-group-text">introduction</span>
                             </div>
                             <input type="text" class="form-control" name="introduction"
-                                   th:value="${UserDetail.introduction}">
+                                   th:value="${userDetail.introduction}">
                         </div>
                         <br>
                         <div class="input-group mb-3">
@@ -98,7 +85,7 @@
                                 <span class="input-group-text">email</span>
                             </div>
                             <input type="email" class="form-control" name="email" style="width: 100px"
-                                   th:value="${UserDetail.email}">
+                                   th:value="${userDetail.email}">
                         </div>
                         <br>
                         <div class="input-group mb-3">
@@ -106,7 +93,7 @@
                                 <span class="input-group-text">hobby</span>
                             </div>
                             <input type="text" class="form-control" name="hobby" style="width: 100px"
-                                   th:value="${UserDetail.hobby}">
+                                   th:value="${userDetail.hobby}">
                         </div>
                         <br>
                         <div class="input-group mb-3">
@@ -114,7 +101,7 @@
                                 <span class="input-group-text">university</span>
                             </div>
                             <input type="text" class="form-control" name="university" style="width: 100px"
-                                   th:value="${UserDetail.university}">
+                                   th:value="${userDetail.university}">
                         </div>
                         <br>
                         <div class="input-group mb-3">
@@ -122,14 +109,14 @@
                                 <span class="input-group-text">major</span>
                             </div>
                             <input type="text" class="form-control" name="major" style="width: 100px"
-                                   th:value="${UserDetail.major}">
+                                   th:value="${userDetail.major}">
                         </div>
                     </div>
 
                 </div>
                 <div class="subbutton">
                     <br>
-                    <button type="submit" onclick="updateUserDetail()" class="btn">submit</button>
+                    <button type="submit" class="btn">submit</button>
                 </div>
             </form>
         </div>
