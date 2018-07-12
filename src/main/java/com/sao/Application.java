@@ -43,10 +43,6 @@ public class Application extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		NewsCrawler newsCrawler = new NewsCrawler();
 		SpringApplication.run(Application.class, args);
-
-//		SMSUtil util = new SMSUtil("13385275715");
-//		util.exec();
-
 	}
 
 	/**

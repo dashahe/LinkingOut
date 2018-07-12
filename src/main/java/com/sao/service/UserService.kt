@@ -18,5 +18,6 @@ interface UserService {
 
     fun findByTel(tel:String): User
 
+    //return true if the tel is duplicated
     fun existByTel(tel:String):Boolean
 }
