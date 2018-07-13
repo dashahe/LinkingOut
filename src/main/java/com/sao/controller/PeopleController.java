@@ -2,7 +2,6 @@ package com.sao.controller;
 
 
 import com.sao.domain.model.Activity;
-import com.sao.domain.model.User;
 import com.sao.domain.model.UserDetail;
 import com.sao.service.ActivityService;
 import com.sao.service.UserDetailService;
@@ -51,7 +50,7 @@ public class PeopleController {
 
         model.addAttribute( "activities", activitiesReverse);
         model.addAttribute("userDetail", userDetail);
-        return "people";
+        return "users";
     }
 
 

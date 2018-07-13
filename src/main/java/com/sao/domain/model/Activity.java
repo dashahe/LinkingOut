@@ -19,6 +19,8 @@ public class Activity {
     @Column(length = 300)
     private String content;
 
+    private String title;
+
     private Long likes;
 
     private String type;
@@ -69,6 +71,14 @@ public class Activity {
 
     public void setCreated(Date created) {
         this.created = created;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 }
