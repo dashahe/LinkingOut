@@ -5,6 +5,7 @@
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Material Design Lite</title>
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.8/css/uikit.min.css"/>
     <script src="../static/js/home.js"></script>
@@ -67,14 +68,14 @@
                     <span class="visuallyhidden">Add</span>
                 </button>
 
-                <div uk-dropdown="pos: bottom-justify;" style="width: 50px;">
+                <div uk-dropdown="pos: bottom-justify;mode: click" style="width: 50px;">
                     <ul class="uk-nav uk-dropdown-nav">
                         <li>
                             <div class="uk-inline">
                                 <button class="uk-button uk-button-default" type="button"
                                         style="width: 150px;border: 0; font-size: 15px;">发日常
                                 </button>
-                                <div uk-drop="pos: left-center">
+                                <div uk-drop="pos: left-center;mode: click">
                                     <div style="width: 350px; padding: 20px;"
                                          class="uk-card uk-card-body uk-card-default">
                                         <input name="rc" type="text" style="width: 310px;height: 50px;margin-bottom: 10px;font-size: 20px;" placeholder="Title Here">
@@ -94,7 +95,7 @@
                                 <button class="uk-button uk-button-default" type="button"
                                         style="width: 150px;border: 0; font-size: 15px;">发二手
                                 </button>
-                                <div uk-drop="pos: left-center">
+                                <div uk-drop="pos: left-center;mode: click">
                                     <div style="width: 350px; padding: 20px;"
                                          class="uk-card uk-card-body uk-card-default">
                                         <input name="es" type="text" style="width: 310px;height: 50px;margin-bottom: 10px;font-size: 20px;" placeholder="Title Here">
@@ -114,7 +115,7 @@
                                 <button class="uk-button uk-button-default" type="button"
                                         style="width: 150px;border: 0; font-size: 15px;">发招聘
                                 </button>
-                                <div uk-drop="pos: left-center">
+                                <div uk-drop="pos: left-center;mode: click">
                                     <div style="width: 350px; padding: 20px;"
                                          class="uk-card uk-card-body uk-card-default">
                                         <input name="zp" type="text" style="width: 310px;height: 50px;margin-bottom: 10px;font-size: 20px;" placeholder="Title Here">
@@ -134,7 +135,7 @@
                                 <button class="uk-button uk-button-default" type="button"
                                         style="width: 150px;border: 0; font-size: 15px;">发兼职
                                 </button>
-                                <div uk-drop="pos: left-center">
+                                <div uk-drop="pos: left-center;mode: click">
                                     <div style="width: 350px; padding: 20px;"
                                          class="uk-card uk-card-body uk-card-default">
                                         <input name="jz" type="text" style="width: 310px;height: 50px;margin-bottom: 10px;font-size: 20px;" placeholder="Title Here">
@@ -163,6 +164,7 @@
 
             <!--这里是个人动态-->
             <section th:each="activity:${activities}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <p id="star" th:text="${activity.aid}" style="display: none;"></p>
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
 
@@ -178,7 +180,16 @@
                          mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                             <h3 th:text="${activity.title}">我是标题</h3>
                             <h4 th:text="${activity.content}">我是内容</h4>
+                            <!--收藏图标-->
+
+                            <button onclick="star()" th:if="${activity.isStarred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;display: none;" onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate" style="font-size: 30px;"></i>
+                            </button>
+                            <button onclick="star()" th:if="not ${activity.isStarred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
+                            </button>
                         </div>
+
                     </div>
                 </div>
 
