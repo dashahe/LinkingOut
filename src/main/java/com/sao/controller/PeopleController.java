@@ -143,6 +143,6 @@ public class PeopleController {
         UserDetail userDetail = userDetailService.findByUid(uid);
         model.addAttribute( "activities", activities);
         model.addAttribute("userDetail", userDetail);
-        return "people";
+        return "redirect:/people/activities";
     }
 }

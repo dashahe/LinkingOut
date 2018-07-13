@@ -576,7 +576,7 @@
 
                         <a href="/"><li class="mdl-menu__item">返回首页</li></a>
 
-                        <a href="/people/star"><li class="mdl-menu__item">我的收藏</li></a>
+                        <a href="/star"><li class="mdl-menu__item">我的收藏</li></a>
                         <!--<li class="mdl-menu__item">Search</li>-->
                     </ul>
                     <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
@@ -587,7 +587,7 @@
 
                 <!--user avatar-->
                 <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
-                    <img src="http://www.gaoxa.com/upfile/20161202/20161202071234ip3vy0ve0em.jpg">
+                    <img th:src="${userDetail.image}">
 
                     <br>
                     <a href="/follow">
