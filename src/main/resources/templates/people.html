@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../static/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../static/css/people.css">
+    <link rel="stylesheet" href="../static/css/toppanel.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <title>people</title>
+</head>
+
+<body>
+<nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav link">
+        <li class="nav-item active">
+            <a class="nav-link text" href="profession.html">专业</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text" href="job">兼职</a>
+        </li>
+        <li id="hp" class="nav-item active">
+            <div class="nav-link">
+                <div class="dropdown">
+                    <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
+                    <img class="btn btn-primary dropdown-toggle" data-toggle="dropdown" src="../static/2.jpg">
+                    <!--</button>-->
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="people.html">主页</a>
+                        <a class="dropdown-item" href="edit.html">设置</a>
+                        <a class="dropdown-item" href="login.html">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</nav>
+<div class="container">
+    <div class="naa">
+        <div>
+            <img class="image" th:src="${userDetail.image}">
+            <div class="btnconrainer">
+                <a href="/people/edit" class="btn btn-info" role="button">编辑信息</a>
+            </div>
+        </div>
+        <div class="navv">
+            <u1 class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" th:href="'/myfollow/' + ${userDetail.uid}">我的关注</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" th:href="'/follow/' + ${userDetail.uid}">关注我的</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="'/star/' + ${userDetail.uid}">我的收藏</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="'/myfollow' + ${userDetail.uid}">二手/兼职</a>
+                </li>
+            </u1>
+        </div>
+    </div>
+
+    <div class="action">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>个人动态</legend>
+        </fieldset>
+        <ul class="layui-timeline">
+
+            <li th:each="a:${activities}" class="layui-timeline-item">
+                <i class="layui-icon layui-timeline-axis"></i>
+                <div class="layui-timeline-content layui-text">
+                    <h3 class="layui-timeline-title" th:text="${a.created}"></h3>
+                    <div class="card  bg-light text-dark">
+                        <div class="card-body">
+                            <p th:text="${a.content}"></p>
+                            <p th:text="${a.likes}"></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="layui-timeline-item">
+                <i class="layui-icon layui-timeline-axis"></i>
+                <div class="layui-timeline-content layui-text">
+                    <div class="layui-timeline-title">End</div>
+                </div>
+            </li>
+        </ul>
+        <script src="../static/layui/css/layui.css" charset="utf-8"></script>
+        <script>
+        </script>
+    </div>
+
+
+</div>
+</body>
+
+</html>

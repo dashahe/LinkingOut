@@ -1,0 +1,143 @@
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.top-panel{
+    width: 100%;
+    height: 50px;
+    background-color: #525457;
+}
+
+
+.naa {
+    position: relative;
+    height: 300px;
+    font-size: 25px;
+}
+.image{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top:60px;
+    left: 10px;
+    z-index: 1;
+    filter: brightness(90%);
+    border-radius: 30%;
+}
+.navv{
+    color: darkgrey;
+    position: relative;
+    top: 20%;
+}
+#nav-item {
+    position: absolute;
+    top: 15px;
+    left: 200px;
+    font-size: 20px;
+}
+.btnconrainer{
+    left:40px;
+    top: 220px;
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    z-index: 1;
+}
+
+.container {
+    height: 100%;
+}
+.btn-toolbar{
+    background-color: blue;
+    width: 50px;
+    height: 100px;
+    position: relative;
+}
+.form-control{
+    width:70%;
+    height: 60px;
+}
+.card-body{
+    height: 80px;
+}
+.top-panel{
+    width: 100%;
+    height: 50px;
+    background-color: #525457;
+}
+
+
+#fansimage {
+    width: 80px;
+    height: 80px;
+}
+#fansimageurl {
+    display: block;
+}
+
+
+
+/*profession*/
+
+.image_pro{
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top:200px;
+    left: 100px;
+    z-index: 1;
+    filter: brightness(70%);
+}
+#Q\&A {
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+.card1-header{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 20%;
+    border-radius: 5px;
+}
+.card1-body{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 20%;
+    border-radius: 5px;
+}
+.card1-footer{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 20%;
+    border-radius: 5px;
+}
+
+.container1{
+    position: absolute;
+    top: 200px;
+    right: 250px;
+    width: 100px;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+}

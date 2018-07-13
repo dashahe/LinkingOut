@@ -1,0 +1,391 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.8/css/uikit.min.css"/>
+    <script src="../static/js/home.js"></script>
+
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.8/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.8/js/uikit-icons.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+
+    <link rel="canonical" href="http://www.example.com/">
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
+    <link rel="stylesheet" href="../static/css/home.css">
+
+
+</head>
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+            <h3 style="color: white;">Name &amp; Title</h3>
+        </div>
+
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+            <div class="uk-inline">
+                <button style="width: 90px;left: 1750px;"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    我的
+                </button>
+                <div uk-drop="mode: click">
+                    <div class="uk-card uk-card-body uk-card-default" style="text-align: center;">
+                        <a href="/people/activities">
+                            <p style="font-size: 18px;">我的主页</p>
+                        </a>
+                        <form action="/logout" , method="post">
+                            <br>
+                            <button type="submit" style="border: 0;font-size: 18px;" onfocus="this.blur()">log out</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <a href="/recommend">
+                <button style="width: 90px;left: 1550px;"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    好友推荐
+                </button>
+            </a>
+
+
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+
+            <!--jump to corespond id-->
+            <a href="#daily" class="mdl-layout__tab is-active">日常</a>
+            <a href="#second_hand" class="mdl-layout__tab">二手</a>
+            <a href="#hire" class="mdl-layout__tab">招聘</a>
+            <a href="#part_time" class="mdl-layout__tab">兼职</a>
+
+
+            <!--发动态的button-->
+            <div class="uk-inline">
+                <button style="position: relative;left: 1000px;"
+                        class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent uk-button uk-button-default"
+                        id="add">
+                    <i class="material-icons" role="presentation">add</i>
+                    <span class="visuallyhidden">Add</span>
+                </button>
+                <div uk-dropdown="pos: bottom-justify;mode: click" style="width: 50px;">
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li>
+                            <div class="uk-inline">
+                                <button class="uk-button uk-button-default" type="button"
+                                        style="width: 150px;border: 0; font-size: 15px;">发日常
+                                </button>
+                                <div uk-drop="pos: left-center;mode: click">
+                                    <div style="width: 350px; padding: 20px;"
+                                         class="uk-card uk-card-body uk-card-default">
+                                        <input name="rc" type="text"
+                                               style="width: 310px;height: 50px;margin-bottom: 10px;font-size: 20px;"
+                                               placeholder="Title Here">
+                                        <br>
+                                        <textarea name="rc" style="width: 310px;height: 310px;font-size: 20px;"
+                                                  placeholder="Content Here"></textarea>
+                                        <div style="position: relative;left: 130px;">
+                                            <button class="submit_btn" type="submit" onclick="message('rc')">
+                                                submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="uk-inline">
+                                <button class="uk-button uk-button-default" type="button"
+                                        style="width: 150px;border: 0; font-size: 15px;">发二手
+                                </button>
+                                <div uk-drop="pos: left-center;mode: click">
+                                    <div style="width: 350px; padding: 20px;"
+                                         class="uk-card uk-card-body uk-card-default">
+                                        <input name="es" type="text"
+                                               style="width: 310px;height: 50px;margin-bottom: 10px;font-size: 20px;"
+                                               placeholder="Title Here">
+                                        <br>
+                                        <textarea name="es" style="width: 310px;height: 310px;font-size: 20px;"
+                                                  placeholder="Content Here"></textarea>
+                                        <div style="position: relative;left: 130px;">
+                                            <button class="submit_btn" type="submit" onclick="message('es')">
+                                                submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="uk-inline">
+                                <button class="uk-button uk-button-default" type="button"
+                                        style="width: 150px;border: 0; font-size: 15px;">发招聘
+                                </button>
+                                <div uk-drop="pos: left-center;mode: click">
+                                    <div style="width: 350px; padding: 20px;"
+                                         class="uk-card uk-card-body uk-card-default">
+                                        <input name="zp" type="text"
+                                               style="width: 310px;height: 50px;margin-bottom: 10px;font-size: 20px;"
+                                               placeholder="Title Here">
+                                        <br>
+                                        <textarea name="zp" style="width: 310px;height: 310px;font-size: 20px;"
+                                                  placeholder="Content Here"></textarea>
+                                        <div style="position: relative;left: 130px;">
+                                            <button class="submit_btn" type="submit" onclick="message('zp')">
+                                                submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="uk-inline">
+                                <button class="uk-button uk-button-default" type="button"
+                                        style="width: 150px;border: 0; font-size: 15px;">发兼职
+                                </button>
+                                <div uk-drop="pos: left-center;mode: click">
+                                    <div style="width: 350px; padding: 20px;"
+                                         class="uk-card uk-card-body uk-card-default">
+                                        <input name="jz" type="text"
+                                               style="width: 310px;height: 50px;margin-bottom: 10px;font-size: 20px;"
+                                               placeholder="Title Here">
+                                        <br>
+                                        <textarea name="jz" style="width: 310px;height: 310px;font-size: 20px;"
+                                                  placeholder="Content Here"></textarea>
+                                        <div style="position: relative;left: 130px;">
+                                            <button class="submit_btn" type="submit" onclick="message('jz')">
+                                                submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="mdl-layout__content">
+
+
+        <!--overview here-->
+<<<<<<< HEAD
+        <!--这里是个人动态-->
+        <div class="uk-child-width-1-3@m" uk-grid
+             uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-card; delay: 1000; repeat: true">
+
+            <section th:each="activityRC:${activitiesRC}"
+                     class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+=======
+        <div class="mdl-layout__tab-panel is-active" id="daily">
+            <!--这里是个人动态-->
+            <section th:each="activityRC:${activitiesRC}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+>>>>>>> abdc4504d4597eb37485b763d434a2607a3ca1fc
+                <div class="mdl-card mdl-cell mdl-cell--12-col">
+                    <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+
+                        <!--姓名-->
+                        <!--<h4 class="mdl-cell mdl-cell&#45;&#45;12-col" th:text="${activity.uid}">szy</h4>-->
+
+                        <!--这里是头像-->
+                        <div style="margin-top: 20px;"
+                             class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                            <div class="section__circle-container__circle mdl-color--primary"></div>
+                        </div>
+                        <div class="section__text mdl-cell
+                         mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                            <h3 th:text="${activityRC.title}">我是标题</h3>
+                            <h4 th:text="${activityRC.content}">我是内容</h4>
+                            <!--收藏图标-->
+                            <!--<p th:name="'aid' + ${activityRC.aid}" th:text="${activityRC.aid}" style="display: none;"></p>-->
+                            <button name="unstar" th:onclick="'star(' + ${activityRC.aid} + ')'"
+                                    th:if="not ${activityRC.starred}" type="submit"
+                                    style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px; "
+                                    onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate" style="font-size: 30px;"></i>
+                            </button>
+                            <button name="star" th:onclick="'star(' + ${activityRC.aid} + ')'"
+                                    th:if="${activityRC.starred}" type="submit"
+                                    style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;"
+                                    onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+            </div>
+
+
+        <!--overview here-->
+        <div class="mdl-layout__tab-panel" id="part_time">
+
+            <!--这里是个人动态-->
+            <section th:each="activityJZ:${activitiesJZ}"
+                     class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <div class="mdl-card mdl-cell mdl-cell--12-col">
+                    <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+
+                        <!--这里是头像-->
+                        <div style="margin-top: 20px;"
+                             class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                            <div class="section__circle-container__circle mdl-color--primary"></div>
+                        </div>
+
+                        <div class="section__text mdl-cell
+                         mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                            <h3 th:text="${activityJZ.title}">我是标题</h3>
+                            <h4 th:text="${activityJZ.content}">我是内容</h4>
+                            <button th:onclick="'star(' + ${activityJZ.aid} + ')'" th:if="not ${activityJZ.starred}"
+                                    type="submit"
+                                    style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px; "
+                                    onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate" style="font-size: 30px;"></i>
+                            </button>
+                            <button th:onclick="'star(' + ${activityJZ.aid} + ')'" th:if="${activityJZ.starred}"
+                                    type="submit"
+                                    style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;"
+                                    onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!--overview here-->
+        <div class="mdl-layout__tab-panel" id="second_hand">
+
+            <!--这里是个人动态-->
+            <section th:each="activityES:${activitiesES}"
+                     class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <div class="mdl-card mdl-cell mdl-cell--12-col">
+                    <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                        <!--这里是头像-->
+                        <div style="margin-top: 20px;"
+                             class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                            <div class="section__circle-container__circle mdl-color--primary"></div>
+                        </div>
+
+                        <div class="section__text mdl-cell
+                         mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                            <h3 th:text="${activityES.title}">我是标题</h3>
+                            <h4 th:text="${activityES.content}">我是内容</h4>
+
+                            <!--收藏图标-->
+                            <button th:onclick="'star(' + ${activityES.aid} + ')'" th:if="not ${activityES.starred}"
+                                    type="submit"
+                                    style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px; "
+                                    onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate" style="font-size: 30px;"></i>
+                            </button>
+                            <button th:onclick="'star(' + ${activityES.aid} + ')'" th:if="${activityES.starred}"
+                                    type="submit"
+                                    style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;"
+                                    onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!--overview here-->
+        <div class="mdl-layout__tab-panel" id="hire">
+
+            <!-这里是个人动态-->
+            <section th:each="activityZP:${activitiesZP}"
+                     class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <div class="mdl-card mdl-cell mdl-cell--12-col">
+                    <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+
+                        <!--姓名-->
+                        <!--<h4 class="mdl-cell mdl-cell&#45;&#45;12-col" th:text="${activity.uid}">szy</h4>-->
+
+                        <!--这里是头像-->
+                        <div style="margin-top: 20px;"
+                             class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                            <div class="section__circle-container__circle mdl-color--primary"></div>
+                        </div>
+
+                        <div class="section__text mdl-cell
+                         mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                            <h3 th:text="${activityZP.title}">我是标题</h3>
+                            <h4 th:text="${activityZP.content}">我是内容</h4>
+
+                            <!--收藏图标-->
+                            <p th:text="${activityZP.aid}" style="display: none;"></p>
+                            <button th:onclick="'star(' + ${activityZP.aid} + ')'" th:if="not ${activityZP.starred}"
+                                    type="submit"
+                                    style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px; "
+                                    onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate" style="font-size: 30px;"></i>
+                            </button>
+                            <button th:onclick="'star(' + ${activityZP.aid} + ')'" th:if="${activityZP.starred}"
+                                    type="submit"
+                                    style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;"
+                                    onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+
+        <footer class="mdl-mega-footer">
+            <div style="text-align: center;" class="mdl-mega-footer--bottom-section">
+                powered by SAO
+            </div>
+        </footer>
+    </main>
+</div>
+
+
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+</html>

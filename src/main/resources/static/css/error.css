@@ -1,0 +1,27 @@
+body {
+    background-image: url("../error.png");
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+  }     
+
+  .btn {
+      background-color: rgba(100, 148, 237, 0);
+      color: white;
+      position: absolute;
+      left: 46%;
+      top: 65%;
+      width: 200px;
+      font-family:Arial,Helvetica,sans-serif;
+
+  }
+
+  .btn:hover {
+      background-color: rgb(100, 148, 237);
+  }
+  

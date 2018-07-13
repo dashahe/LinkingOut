@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/toppanel.css">
+    <link rel="stylesheet" href="../static/css/edit.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>edit</title>
+
+    <style>
+
+    </style>
+</head>
+
+
+<body>
+    <nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav link">
+        <li class="nav-item active">
+            <a class="nav-link text" href="#">专业</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text" href="#">兼职</a>
+        </li>
+        <li id="hp" class="nav-item active">
+            <div class="nav-link">
+                <div class="dropdown">
+                    <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
+                    <img class="btn btn-primary dropdown-toggle" data-toggle="dropdown" src="../static/2.jpg">
+                    <!--</button>-->
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">主页</a>
+                        <a class="dropdown-item" href="#">设置</a>
+                        <a class="dropdown-item" href="#">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>
+<div class="container">
+        <div><img name="image" src="http://static.runoob.com/images/mix/img_mountains_wide.jpg"></div>
+        <div class="hp">
+            <form action="/upload" enctype="multipart/form-data" method="POST">
+                <img th:src="${userDetail.image}" class="nowhp">
+                <input id="fileupload" name="file" type="file" />
+                <input type="submit" value="submit" id="submit" />
+            </form>
+        </div>
+
+    <div class="edit-box">
+        <div class="container">
+            <h3>编辑信息</h3>
+            <br>
+            <form action="./edit" method="post">
+                    <!--编辑信息请求数据-->
+                <div align="center" >
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
+                            <input class="mdl-textfield__input" name="sex" type="text" id="sex"  th:value="${userDetail.sex}" >
+                            <label class="mdl-textfield__label" for="sex">Sex</label>
+                    </div>
+                        <br>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
+                        <input class="mdl-textfield__input form-control" name="sex" type="text" id="introduction"  th:value="${userDetail.introduction}" >
+                            <label class="mdl-textfield__label" for="introduction">Introduction</label>
+                        </div>
+                        <br>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
+                    <input class="mdl-textfield__input form-control" name="sex" type="text" id="email"  th:value="${userDetail.email}" >
+                        <label class="mdl-textfield__label" for="email">Email</label>
+                    </div>
+                        <br>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
+                    <input class="mdl-textfield__input form-control" name="sex" type="text" id="hobby"  th:value="${userDetail.hobby}" >
+                            <label class="mdl-textfield__label" for="hobby">Hobby</label>
+                        </div>
+                        <br>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
+                    <input class="mdl-textfield__input form-control" name="sex" type="text" id="university"  th:value="${userDetail.university}" >
+                        <label class="mdl-textfield__label" for="university">University</label>
+                    </div>
+                    <br>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
+                    <input class="mdl-textfield__input form-control" name="sex" type="text" id="major"  th:value="${userDetail.major}" >
+                        <label class="mdl-textfield__label" for="major">Majorx</label>
+                </div>
+                <br >
+                <div align="center">
+                    <button type="submit"
+                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn">
+                        submit
+                    </button>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </form>
+</div>
+
+</body>
+</html>
