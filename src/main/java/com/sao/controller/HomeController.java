@@ -73,6 +73,9 @@ public class HomeController {
         LinkedList<Activity> activitiesJZ = new LinkedList<>();
 
         for (Activity activity : activitiesReverse) {
+            if (activity.getType() == null) {
+                continue;
+            }
             if (activity.getType().equals("rc")) {
                 activitiesRC.add(activity);
             } else if (activity.getType().equals("es")) {

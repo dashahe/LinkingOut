@@ -92,8 +92,10 @@ class LoginController {
 
 //        System.out.print("-------------------login function  ");
 //        System.out.print("----- " + tel + password);
+
         if (user.password.equals(password)) {
             session.setAttribute("uid", user.uid);
+            System.out.println(tel + "login" + " uid:" + user.uid);
             return "redirect:/"
         } else {
             throw  CException(403,"username and password mismatch")
