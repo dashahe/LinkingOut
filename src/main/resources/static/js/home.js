@@ -17,13 +17,12 @@ function message(id) {
     content.append("title", document.getElementsByName(id)[0].value);
     content.append("content", document.getElementsByName(id)[1].value);
     content.append("type", id);
-    console.log(id);
     xmlhttp.open("post", "/", true);
     xmlhttp.send(content);
 }
 
 
-function star() {
+function star(aid) {
     var xmlhttp;
     if(window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -34,11 +33,10 @@ function star() {
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             location.reload(true);
         }
-
     };
-    var node = this.parentNode.parentNode.parentNode.previousSibling;
     var star = new FormData();
-    star.append("aid", node.innerHTML);
+    star.append("aid", aid);
     xmlhttp.open("post", "/star", true);
     xmlhttp.send(star);
 }
+

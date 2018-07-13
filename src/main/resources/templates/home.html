@@ -161,10 +161,8 @@
 
         <!--overview here-->
         <div class="mdl-layout__tab-panel is-active" id="daily">
-
             <!--这里是个人动态-->
             <section th:each="activityRC:${activitiesRC}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-                <p th:text="${activityRC.aid}" style="display: none;"></p>
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
 
@@ -175,20 +173,18 @@
                         <div style="margin-top: 20px;" class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
                             <div class="section__circle-container__circle mdl-color--primary"></div>
                         </div>
-
                         <div class="section__text mdl-cell
                          mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                             <h3 th:text="${activityRC.title}">我是标题</h3>
                             <h4 th:text="${activityRC.content}">我是内容</h4>
                             <!--收藏图标-->
-
-                            <button onclick="star()" th:if="not ${activity.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
+                            <!--<p th:name="'aid' + ${activityRC.aid}" th:text="${activityRC.aid}" style="display: none;"></p>-->
+                            <button name="unstar" th:onclick="'star(' + ${activityRC.aid} + ')'" th:if="not ${activityRC.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px; " onfocus="this.blur()">
                                 <i class="layui-icon layui-icon-rate" style="font-size: 30px;"></i>
                             </button>
-                            <button onclick="star()" th:if="${activity.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
+                            <button name="star" th:onclick="'star(' + ${activityRC.aid} + ')'" th:if="${activityRC.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
                                 <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
                             </button>
-
                         </div>
 
                     </div>
@@ -204,12 +200,8 @@
 
             <!--这里是个人动态-->
             <section th:each="activityJZ:${activitiesJZ}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-                <p th:text="${activityJZ.aid}" style="display: none;"></p>
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-
-                        <!--姓名-->
-                        <!--<h4 class="mdl-cell mdl-cell&#45;&#45;12-col" th:text="${activity.uid}">szy</h4>-->
 
                         <!--这里是头像-->
                         <div style="margin-top: 20px;" class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
@@ -220,14 +212,12 @@
                          mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                             <h3 th:text="${activityJZ.title}">我是标题</h3>
                             <h4 th:text="${activityJZ.content}">我是内容</h4>
-                            <!--收藏图标-->
-
-                                <button onclick="star()" th:if="not ${activityJZ.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
-                                    <i class="layui-icon layui-icon-rate" style="font-size: 30px;"></i>
-                                </button>
-                                    <button onclick="star()" th:if="${activityJZ.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
-                                        <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
-                                    </button>
+                            <button th:onclick="'star(' + ${activityJZ.aid} + ')'" th:if="not ${activityJZ.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px; " onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate" style="font-size: 30px;"></i>
+                            </button>
+                            <button th:onclick="'star(' + ${activityJZ.aid} + ')'" th:if="${activityJZ.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -242,7 +232,6 @@
 
             <!--这里是个人动态-->
             <section th:each="activityES:${activitiesES}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-                <p th:text="${activityES.aid}" style="display: none;"></p>
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
 
@@ -258,6 +247,14 @@
                          mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                             <h3 th:text="${activityES.title}">我是标题</h3>
                             <h4 th:text="${activityES.content}">我是内容</h4>
+
+                            <!--收藏图标-->
+                            <button th:onclick="'star(' + ${activityES.aid} + ')'" th:if="not ${activityES.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px; " onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate" style="font-size: 30px;"></i>
+                            </button>
+                            <button th:onclick="'star(' + ${activityES.aid} + ')'" th:if="${activityES.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -272,7 +269,6 @@
 
             <!-这里是个人动态-->
             <section th:each="activityZP:${activitiesZP}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-                <p th:text="${activityZP.aid}" style="display: none;"></p>
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
 
@@ -288,6 +284,15 @@
                          mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                             <h3 th:text="${activityZP.title}">我是标题</h3>
                             <h4 th:text="${activityZP.content}">我是内容</h4>
+
+                            <!--收藏图标-->
+                            <p th:text="${activityZP.aid}" style="display: none;"></p>
+                            <button th:onclick="'star(' + ${activityZP.aid} + ')'" th:if="not ${activityZP.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px; " onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate" style="font-size: 30px;"></i>
+                            </button>
+                            <button th:onclick="'star(' + ${activityZP.aid} + ')'" th:if="${activityZP.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
