@@ -183,12 +183,13 @@
                             <h4 th:text="${activity.content}">我是内容</h4>
                             <!--收藏图标-->
 
-                            <button onclick="star()" th:if="${activity.isStarred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;display: none;" onfocus="this.blur()">
+                            <button onclick="star()" th:if="not ${activity.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
                                 <i class="layui-icon layui-icon-rate" style="font-size: 30px;"></i>
                             </button>
-                            <button onclick="star()" th:if="not ${activity.isStarred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
+                            <button onclick="star()" th:if="${activity.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
                                 <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
                             </button>
+
                         </div>
 
                     </div>

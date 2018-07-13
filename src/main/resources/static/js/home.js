@@ -32,15 +32,11 @@ function star() {
     }
     xmlhttp.onreadystatechange = function () {
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            xmlhttp.open("get", "/star", true);
-            xmlhttp.send();
+            location.reload(true);
         }
-
-    }
+    };
     var star = new FormData();
-    star.append("aid", document.getElementById(id).value);
+    star.append("aid", document.getElementById("star").innerHTML);
     xmlhttp.open("post", "/star", true);
     xmlhttp.send(star);
-
-
 }

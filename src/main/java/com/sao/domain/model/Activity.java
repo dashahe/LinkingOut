@@ -25,6 +25,8 @@ public class Activity {
 
     private String type;
 
+    private Boolean isStarred;
+
     public String getType() {
         return type;
     }
@@ -81,4 +83,11 @@ public class Activity {
         this.title = title;
     }
 
+    public Boolean getStarred() {
+        return isStarred;
+    }
+
+    public void setStarred(Boolean starred) {
+        isStarred = starred;
+    }
 }
