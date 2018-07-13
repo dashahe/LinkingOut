@@ -11,6 +11,7 @@ function message(id) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             alert("发送成功");
+            location.reload(true);
         }
     };
     var content = new FormData();

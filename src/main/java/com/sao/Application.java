@@ -19,6 +19,7 @@
 package com.sao;
 
 import com.sao.utils.NewsCrawler;
+import com.sao.utils.QiniuUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -28,6 +29,8 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.filter.CharacterEncodingFilter;
+
+import java.io.File;
 
 
 @SpringBootApplication
@@ -46,6 +49,8 @@ public class Application extends SpringBootServletInitializer {
 
 //		SMSUtil util = new SMSUtil("13385275715");
 //		util.exec();
+
+//		System.out.print(QiniuUtil.Companion.generateUrl(new File("/home/kolibreath/图片/2018-07-13 15-19-05 的屏幕截图.png"),"fick"));
 
 	}
 
