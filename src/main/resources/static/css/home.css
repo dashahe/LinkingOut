@@ -221,3 +221,17 @@ html, body {
 .mdl-demo .mdl-menu__container {
     z-index: 99;
 }
+
+.submit_btn {
+    font-size: 20px;
+    margin-top: 5px;
+    background-color: white;
+    color: #404245;
+    border: 0;
+    font-weight: lighter;
+}
+.submit_btn:hover {
+    background-color: #555555;
+    color: white;
+    transition-duration: 0.4s;
+}
