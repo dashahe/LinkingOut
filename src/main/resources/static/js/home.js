@@ -1,24 +1,23 @@
-function selectac(i, j) {
-    var a = document.getElementsByClassName("fade")[0];
-    a.id = i;
-    var b = document.getElementsByClassName("modal-title")[0];
-    b.innerText = j;
 
-}
 
-function message() {
+
+function message(id) {
     var xmlhttp;
     if(window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
     } else {
-        xmlhttp = new ActiveXObject(" ");
+        xmlhttp = new ActiveXObject("");
     }
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             alert("发送成功");
         }
     };
-    var form = new FormData($('form#form')[0]);
+    var content = new FormData();
+    content.append("title", document.getElementsByName(id)[0].value);
+    content.append("content", document.getElementsByName(id)[1].value);
+    content.append("type", id);
+    console.log(id);
     xmlhttp.open("post", "/", true);
-    xmlhttp.send(form);
+    xmlhttp.send(content);
 }
