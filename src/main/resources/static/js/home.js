@@ -36,9 +36,10 @@ function star() {
             xmlhttp.send();
         }
 
-    }
+    };
+    var node = this.parentNode.parentNode.parentNode.previousSibling;
     var star = new FormData();
-    star.append("aid", document.getElementById(id).value);
+    star.append("aid", node.innerHTML);
     xmlhttp.open("post", "/star", true);
     xmlhttp.send(star);
 
