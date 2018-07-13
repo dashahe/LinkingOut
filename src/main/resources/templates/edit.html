@@ -18,6 +18,10 @@
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>edit</title>
+
+    <style>
+
+    </style>
 </head>
 
 
@@ -64,49 +68,51 @@
             <h3>编辑信息</h3>
             <br>
 
+
             <form action="./edit" method="post">
 
-                <div class="card">
                     <!--编辑信息请求数据-->
 
+                <div align="center" >
 
-                        <div class="input-group mb-3">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
 
-                            <input class="mdl-textfield__input form-control" name="sex" type="text" id="sex"  th:value="${userDetail.sex}" >
+                            <input class="mdl-textfield__input" name="sex" type="text" id="sex"  th:value="${userDetail.sex}" >
 
-                            <label class="mdl-textfield__label" for="sex">Text...</label>
-
-                        </div>
-
-
-                        <br>
-
-                        <div class="input-group mb-3">
-
-                            <input class="mdl-textfield__input form-control" name="sex" type="text" id="introduction"  th:value="${userDetail.introduction}" >
-
-                            <label class="mdl-textfield__label" for="introduction">Text...</label>
-
-                        </div>
-
-                        <br>
-
-
-                    <div class="input-group mb-3">
-
-                        <input class="mdl-textfield__input form-control" name="sex" type="text" id="email"  th:value="${userDetail.email}" >
-
-                        <label class="mdl-textfield__label" for="email">Text...</label>
+                            <label class="mdl-textfield__label" for="sex">Sex</label>
 
                     </div>
 
 
                         <br>
-                        <div class="input-group mb-3">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
 
-                            <input class="mdl-textfield__input form-control" name="sex" type="text" id="hobby"  th:value="${userDetail.hobby}" >
+                            <input class="mdl-textfield__input form-control" name="sex" type="text" id="introduction"  th:value="${userDetail.introduction}" >
 
-                            <label class="mdl-textfield__label" for="hobby">Text...</label>
+                            <label class="mdl-textfield__label" for="introduction">Introduction</label>
+
+                        </div>
+
+                        <br>
+
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
+
+
+                    <input class="mdl-textfield__input form-control" name="sex" type="text" id="email"  th:value="${userDetail.email}" >
+
+                        <label class="mdl-textfield__label" for="email">Email</label>
+
+                    </div>
+
+
+                        <br>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
+
+                    <input class="mdl-textfield__input form-control" name="sex" type="text" id="hobby"  th:value="${userDetail.hobby}" >
+
+                            <label class="mdl-textfield__label" for="hobby">Hobby</label>
 
                         </div>
 
@@ -114,11 +120,12 @@
                         <br>
 
 
-                    <div class="input-group mb-3">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
 
-                        <input class="mdl-textfield__input form-control" name="sex" type="text" id="university"  th:value="${userDetail.university}" >
 
-                        <label class="mdl-textfield__label" for="university">Text...</label>
+                    <input class="mdl-textfield__input form-control" name="sex" type="text" id="university"  th:value="${userDetail.university}" >
+
+                        <label class="mdl-textfield__label" for="university">University</label>
 
                     </div>
 
@@ -126,13 +133,14 @@
 
                     <br>
 
-                    <div class="input-group mb-3">
 
-                        <input class="mdl-textfield__input form-control" name="sex" type="text" id="major"  th:value="${userDetail.major}" >
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
 
-                        <label class="mdl-textfield__label" for="major">Text...</label>
 
-                    </div>
+                    <input class="mdl-textfield__input form-control" name="sex" type="text" id="major"  th:value="${userDetail.major}" >
+
+                        <label class="mdl-textfield__label" for="major">Majorx</label>
+
 
 
                 </div>
@@ -151,6 +159,7 @@
                     <!--<button type="submit" class="btn">submit</button>-->
                 <!--</div>-->
 
+                </div>
             </form>
 
 
