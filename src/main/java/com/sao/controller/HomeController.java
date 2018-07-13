@@ -55,14 +55,6 @@ public class HomeController {
         return "home";
     }
 
-//    @PostMapping
-//    public String addActivity(HttpSession session) {
-//        Long uid = Long.valueOf(session.getAttribute("uid").toString());
-//        logger.info("--------------------- add activity");
-//        logger.info("uid:" + uid);
-//        return "home";
-//    }
-
     @PostMapping
     public String addActivity(@RequestParam(name = "content") String content,
                        HttpSession session) {
