@@ -53,14 +53,9 @@
 </nav>
 <div class="container">
     <form id="form" action="./" method="post">
-        <div>
-            <img name="image" src="http://static.runoob.com/images/mix/img_mountains_wide.jpg">
-        </div>
+        <div><img name="image" src="http://static.runoob.com/images/mix/img_mountains_wide.jpg"></div>
         <br>
-        <div class="hp">
-            <img src="../static/hp.jpg" class="nowhp">
-        </div>
-
+        <div class="hp"><img th:src="${userDetail.image}" class="nowhp"></div>
     </form>
     
     <div class="edit-box">
@@ -77,64 +72,31 @@
                 <div align="center" >
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
-
                             <input class="mdl-textfield__input" name="sex" type="text" id="sex"  th:value="${userDetail.sex}" >
-
                             <label class="mdl-textfield__label" for="sex">Sex</label>
-
                     </div>
-
 
                         <br>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
-
-                            <input class="mdl-textfield__input form-control" name="sex" type="text" id="introduction"  th:value="${userDetail.introduction}" >
-
+                        <input class="mdl-textfield__input form-control" name="sex" type="text" id="introduction"  th:value="${userDetail.introduction}" >
                             <label class="mdl-textfield__label" for="introduction">Introduction</label>
-
                         </div>
-
                         <br>
-
-
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
-
-
                     <input class="mdl-textfield__input form-control" name="sex" type="text" id="email"  th:value="${userDetail.email}" >
-
                         <label class="mdl-textfield__label" for="email">Email</label>
-
                     </div>
-
-
                         <br>
-
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
-
                     <input class="mdl-textfield__input form-control" name="sex" type="text" id="hobby"  th:value="${userDetail.hobby}" >
-
                             <label class="mdl-textfield__label" for="hobby">Hobby</label>
-
                         </div>
-
-
                         <br>
-
-
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
-
-
                     <input class="mdl-textfield__input form-control" name="sex" type="text" id="university"  th:value="${userDetail.university}" >
-
                         <label class="mdl-textfield__label" for="university">University</label>
-
                     </div>
-
-
-
                     <br>
-
-
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label container_form">
 
 
