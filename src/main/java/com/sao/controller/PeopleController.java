@@ -50,7 +50,7 @@ public class PeopleController {
 
         model.addAttribute( "activities", activitiesReverse);
         model.addAttribute("userDetail", userDetail);
-        return "people";
+        return "users";
     }
 
 
