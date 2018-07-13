@@ -21,36 +21,34 @@ import java.io.IOException;
 public class UpLoadController {
 
     private UserDetailService userDetailService;
+
     public static final String ROOT = "upload-dir";
 
     @Autowired
     public UpLoadController(UserDetailService userDetailService){
         this.userDetailService = userDetailService;
     }
+
     @PostMapping("/upload")
     public void handleFileUpload(@RequestParam(name = "file") MultipartFile file,
                                    HttpSession httpSession,
-                                   RedirectAttributes redirectAttributes, HttpServletRequest request) {
+                                   RedirectAttributes redirectAttributes) {
         if (!file.isEmpty()) {
             try {
                 String dest = ";";
                 try {
                     File f = convert(file);
-                    dest = QiniuUtil.Companion.generateUrl(f,"xxxx");
-                }catch (Exception e){
+                    dest = QiniuUtil.Companion.generateUrl(f,file.getOriginalFilename());
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                userDetailService.updateImageByUid(Long.valueOf(
-                        httpSession.getAttribute("uid").toString()),dest);
-
+                userDetailService.updateImageByUid(Long.valueOf(httpSession.getAttribute("uid").toString()),dest);
             } catch ( Exception e) {
                 e.printStackTrace();
             }
         } else {
             redirectAttributes.addFlashAttribute("message", "Failed to upload " + file.getOriginalFilename() + " because it was empty");
         }
-
     }
 
     public File convert(MultipartFile file) throws IOException {
@@ -62,10 +60,4 @@ public class UpLoadController {
         fos.close();
         return convFile;
     }
-
-    @GetMapping
-    public String getPage(){
-        return "test";
-    }
-
 }
