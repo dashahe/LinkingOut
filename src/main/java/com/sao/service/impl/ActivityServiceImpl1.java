@@ -57,4 +57,24 @@ public class ActivityServiceImpl1 implements ActivityService {
 //        Pageable pageable = PageRequest.of(page, size, Sort.Direction.DESC, "aid");
 //        return activityRepository.findAll(pageable);
 //    }
+
+    @Override
+    public Boolean existByAid(Long aid) {
+        for (Activity activity : activityRepository.findAll()) {
+            if (activity.getAid().equals(aid)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public Activity findByAid(Long aid) {
+        for (Activity activity : activityRepository.findAll()) {
+            if (activity.getAid().equals(aid)) {
+                return activity;
+            }
+        }
+        return null;
+    }
 }

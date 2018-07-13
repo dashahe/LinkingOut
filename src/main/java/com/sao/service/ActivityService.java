@@ -15,4 +15,8 @@ public interface ActivityService {
 //    Page<Activity> findActivity(Integer page, Integer size);
 
     Iterable<Activity> findAllByType(String type);
+
+    Activity findByAid(Long aid);
+
+    Boolean existByAid(Long aid);
 }

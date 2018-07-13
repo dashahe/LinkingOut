@@ -55,16 +55,9 @@ public class HomeController {
         return "home";
     }
 
-//    @PostMapping
-//    public String addActivity(HttpSession session) {
-//        Long uid = Long.valueOf(session.getAttribute("uid").toString());
-//        logger.info("--------------------- add activity");
-//        logger.info("uid:" + uid);
-//        return "home";
-//    }
-
     @PostMapping
     public String addActivity(@RequestParam(name = "content") String content,
+                       @RequestParam(name = "title") String title,
                        HttpSession session) {
         Long uid = Long.valueOf(session.getAttribute("uid").toString());
         Activity activity = new Activity();
@@ -72,6 +65,7 @@ public class HomeController {
         activity.setContent(content);
         activity.setCreated(new Date());
         activity.setLikes(new Long(0));
+        activity.setTitle(title);
         activityService.addActivity(activity);
 
         logger.info("--------------------- add activity");
