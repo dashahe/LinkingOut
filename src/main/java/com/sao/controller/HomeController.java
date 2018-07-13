@@ -67,6 +67,9 @@ public class HomeController {
             }
         }
 
+        System.out.println("login");
+
+
         LinkedList<Activity> activitiesRC = new LinkedList<>();
         LinkedList<Activity> activitiesES = new LinkedList<>();
         LinkedList<Activity> activitiesZP = new LinkedList<>();

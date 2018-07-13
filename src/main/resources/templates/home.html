@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Material Design Lite</title>
+    <title>首页</title>
     <link rel="stylesheet" href="../static/layui/css/layui.css">
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.8/css/uikit.min.css"/>
@@ -40,7 +40,6 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
     <link rel="stylesheet" href="../static/css/home.css">
 </head>
-
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
@@ -164,8 +163,8 @@
         <div class="mdl-layout__tab-panel is-active" id="daily">
 
             <!--这里是个人动态-->
-            <section th:each="activity:${activities}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-                <p id="star" th:text="${activity.aid}" style="display: none;"></p>
+            <section th:each="activityRC:${activitiesRC}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <p th:text="${activityRC.aid}" style="display: none;"></p>
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
 
@@ -179,13 +178,15 @@
 
                         <div class="section__text mdl-cell
                          mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                            <h3 th:text="${activity.title}">我是标题</h3>
-                            <h4 th:text="${activity.content}">我是内容</h4>
+                            <h3 th:text="${activityRC.title}">我是标题</h3>
+                            <h4 th:text="${activityRC.content}">我是内容</h4>
                             <!--收藏图标-->
 
+                            <button onclick="star()" th:if="${activityRC.isStarred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;display: none;" onfocus="this.blur()">
                             <button onclick="star()" th:if="not ${activity.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
                                 <i class="layui-icon layui-icon-rate" style="font-size: 30px;"></i>
                             </button>
+                            <button onclick="star()" th:if="not ${activityRC.isStarred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
                             <button onclick="star()" th:if="${activity.starred}" type="submit" style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;" onfocus="this.blur()">
                                 <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
                             </button>
@@ -204,7 +205,8 @@
         <div class="mdl-layout__tab-panel" id="part_time">
 
             <!--这里是个人动态-->
-            <section th:each="activity:${activities}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <section th:each="activityJZ:${activitiesJZ}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <p th:text="${activityJZ.aid}" style="display: none;"></p>
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
 
@@ -218,8 +220,8 @@
 
                         <div class="section__text mdl-cell
                          mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                            <h3 th:text="${activity.title}">我是标题</h3>
-                            <h4 th:text="${activity.content}">我是内容</h4>
+                            <h3 th:text="${activityJZ.title}">我是标题</h3>
+                            <h4 th:text="${activityJZ.content}">我是内容</h4>
                         </div>
                     </div>
                 </div>
@@ -233,7 +235,8 @@
         <div class="mdl-layout__tab-panel" id="second_hand">
 
             <!--这里是个人动态-->
-            <section th:each="activity:${activities}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <section th:each="activityES:${activitiesES}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <p th:text="${activityES.aid}" style="display: none;"></p>
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
 
@@ -247,8 +250,8 @@
 
                         <div class="section__text mdl-cell
                          mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                            <h3 th:text="${activity.title}">我是标题</h3>
-                            <h4 th:text="${activity.content}">我是内容</h4>
+                            <h3 th:text="${activityES.title}">我是标题</h3>
+                            <h4 th:text="${activityES.content}">我是内容</h4>
                         </div>
                     </div>
                 </div>
@@ -262,7 +265,8 @@
         <div class="mdl-layout__tab-panel" id="hire">
 
             <!-这里是个人动态-->
-            <section th:each="activity:${activities}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <section th:each="activityZP:${activitiesZP}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <p th:text="${activityZP.aid}" style="display: none;"></p>
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
 
@@ -276,8 +280,8 @@
 
                         <div class="section__text mdl-cell
                          mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                            <h3 th:text="${activity.title}">我是标题</h3>
-                            <h4 th:text="${activity.content}">我是内容</h4>
+                            <h3 th:text="${activityZP.title}">我是标题</h3>
+                            <h4 th:text="${activityZP.content}">我是内容</h4>
                         </div>
                     </div>
                 </div>

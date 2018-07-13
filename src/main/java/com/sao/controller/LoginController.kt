@@ -81,11 +81,9 @@ class LoginController {
     @PostMapping
     fun login(@RequestParam(name="tel") tel:String,
               @RequestParam(name="password") password:String,
-              response: HttpServletResponse,
               session: HttpSession):String{
         val user = userService.findByTel(tel)
-
-        val date = System.currentTimeMillis()
+//        val date = System.currentTimeMillis()
         //val cookieGenerator = CookieGenerator(name="login_cookie")
         //val cookie = cookieGenerator.makeCookie(user)
 
