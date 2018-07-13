@@ -14,6 +14,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
         ModelAndView mav = new ModelAndView();
+        e.printStackTrace();
         int code = 404;
         String message = "";
         if(e instanceof CException){

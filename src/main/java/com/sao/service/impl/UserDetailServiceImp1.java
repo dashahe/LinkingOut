@@ -93,4 +93,13 @@ public class UserDetailServiceImp1 implements UserDetailService {
             userDetailRepository.save(userDetail);
         }
     }
+
+    @Override
+    public void updateAvatartByUid(Long uid, String avatarUrl) {
+        UserDetail userDetail = findByUid(uid);
+        if (userDetail != null) {
+            userDetail.setImage(avatarUrl);
+            userDetailRepository.save(userDetail);
+        }
+    }
 }
