@@ -14,7 +14,8 @@ function message(id) {
         }
     };
     var content = new FormData();
-    content.append("content", document.getElementsByName(id)[0].value);
+    content.append("title", document.getElementsByName(id)[0].value);
+    content.append("content", document.getElementsByName(id)[1].value);
     content.append("type", id);
     console.log(id);
     xmlhttp.open("post", "/", true);
