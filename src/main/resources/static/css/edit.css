@@ -40,3 +40,7 @@ body {
     position: relative;
     text-align:center
 }
+
+.container_form{
+    width: 100px
+}
