@@ -21,4 +21,6 @@ public interface UserDetailService {
     void updateSexByUid(Long uid, String sex);
 
     void updateIntroductionByUid(Long uid, String introduction);
+
+    void updateAvatartByUid(Long uid,String avatarUrl);
 }

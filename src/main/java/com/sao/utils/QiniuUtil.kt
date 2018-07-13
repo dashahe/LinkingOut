@@ -20,12 +20,12 @@ class QiniuUtil{
          * if the qiniu generate key failed, the function will return "
          * for result of the key
          */
-        fun generateUrl(file: File, destFileName:String,bucket:String):String{
+        fun generateUrl(file: File, destFileName:String):String{
             if(!file.exists()) {
                 throw Exception("no local file found")
             }
 
-            val token :String = auth.uploadToken(bucket)
+            val token :String = auth.uploadToken("android")
             val z = Zone.zone0()
             val c = Configuration(z)
 

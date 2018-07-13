@@ -19,4 +19,5 @@ interface UserService {
     fun findByTel(tel:String): User
 
     fun existByTel(tel:String):Boolean
+
 }
