@@ -162,14 +162,15 @@
 
 
         <!--overview here-->
+        <div class="mdl-layout__tab-panel is-active" id="daily">
             <!--这里是个人动态-->
-            <div class="uk-child-width-1-3@m" uk-grid uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-card; delay: 1000; repeat: true">
-
             <section th:each="activityRC:${activitiesRC}" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+
                         <!--姓名-->
                         <!--<h4 class="mdl-cell mdl-cell&#45;&#45;12-col" th:text="${activity.uid}">szy</h4>-->
+
                         <!--这里是头像-->
                         <div style="margin-top: 20px;" class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
                             <div class="section__circle-container__circle mdl-color--primary"></div>
@@ -187,10 +188,12 @@
                                 <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
                             </button>
                         </div>
+
                     </div>
                 </div>
+
             </section>
-        </div>
+            </div>
 
 
         <!--overview here-->
