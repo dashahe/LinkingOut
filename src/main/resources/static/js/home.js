@@ -49,7 +49,7 @@ function changeColor(obj){
             header_color_value = "blue-500";
             tab_color_value    = "blue-800";
             break;
-        case "parttim   e_job_tab":
+        case "parttime_job_tab":
             header_color_value = "green-500";
             tab_color_value    = "green-800";
             break;
