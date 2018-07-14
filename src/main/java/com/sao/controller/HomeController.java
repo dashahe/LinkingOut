@@ -43,7 +43,10 @@ public class HomeController {
     @GetMapping
     public String home(Model model, HttpSession httpSession) {
         Long uid = Long.valueOf(httpSession.getAttribute("uid").toString());
-        Iterable<News> news = newsService.findBannerNews();
+        Iterable<News> news = newsService.findAllNews();
+        for(News a : news) {
+            System.out.println(a.getContentUrl());
+        }
         LinkedList<Activity> activities = new LinkedList<>();
         for (Activity activity : activityService.findAll()) {
             activities.add(activity);
