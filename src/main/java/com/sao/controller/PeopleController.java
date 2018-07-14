@@ -2,8 +2,10 @@ package com.sao.controller;
 
 
 import com.sao.domain.model.Activity;
+import com.sao.domain.model.User;
 import com.sao.domain.model.UserDetail;
 import com.sao.service.ActivityService;
+import com.sao.service.FollowRelationshipService;
 import com.sao.service.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,9 @@ public class PeopleController {
 
     @Autowired
     private ActivityService activityService;
+
+    @Autowired
+    private FollowRelationshipService followRelationshipService;
 
     public PeopleController(UserDetailService userDetailService,
                             ActivityService activityService) {
@@ -70,8 +75,15 @@ public class PeopleController {
 
         Long uid1 = Long.valueOf(httpSession.getAttribute("uid").toString());
         if (uid.equals(uid1)) {
-            return "people";
+            return "users";
         } else {
+            for (User user : followRelationshipService.findAllFansByUid(uid)) {
+                if (user.getUid().equals(uid1)) {
+                    model.addAttribute("isFollowing", true);
+                    return "otherpeople";
+                }
+            }
+            model.addAttribute("isFollowing", false);
             return "otherpeople";
         }
     }
