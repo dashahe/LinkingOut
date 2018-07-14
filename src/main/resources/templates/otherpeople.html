@@ -602,11 +602,11 @@
                 <!--</div>-->
 
                 <div class="mdl-card__supporting-text meta">
-                    <button th:if="${isFollowing}" th:onclick="'follow(' + ${userDetail.uid} + ')'"
+                    <button th:if="not ${isFollowing}" th:onclick="'follow(' + ${userDetail.uid} + ')'"
                             class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
                         关注
                     </button>
-                    <button th:if="not ${isFollowing}" th:onclick="'follow(' + ${userDetail.uid} + ')'"
+                    <button th:if="${isFollowing}" th:onclick="'follow(' + ${userDetail.uid} + ')'"
                             class="mdl-button mdl-js-button mdl-button--raised" disabled>
                         已关注
                     </button>
