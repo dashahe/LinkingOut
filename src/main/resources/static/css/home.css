@@ -242,3 +242,7 @@ html, body {
 .header_color{
     color: #1E9FFF;
 }
+
+.navigate_icon{
+    margin-left: 1000px;
+}
