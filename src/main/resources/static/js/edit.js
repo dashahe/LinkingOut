@@ -9,3 +9,4 @@ function request() {
     xmlhttp.open("get", "./edit", true);
     xmlhttp.send();
 }
+

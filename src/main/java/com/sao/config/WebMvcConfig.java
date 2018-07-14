@@ -49,7 +49,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
                 .excludePathPatterns("/**/*.jpeg")
                 .excludePathPatterns("/**/*.png")
                 .excludePathPatterns("/upload")
-                .excludePathPatterns("/news/retrieve");
+                .excludePathPatterns("/news/**");
 
 
 

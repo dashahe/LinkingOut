@@ -67,9 +67,20 @@
         <h2 class="mdl-card__title-text">编辑资料</h2>
         <div class="hp">
             <form action="/upload" enctype="multipart/form-data" method="POST">
-                <img th:src="${userDetail.image}" class="nowhp">
-                <input id="fileupload" name="file" type="file"/>
-                <input type="submit" value="submit" id="submit"/>
+                <input type="image"
+                    src="https://p.upyun.com/docs/cloud/demo.jpg"
+                        class="nowhp">
+
+                <div id="input-file">
+                    <span id="text">点击上传</span>
+                    <input id="file" type="file" />
+                </div>
+
+                <a href="javascript:;">
+                    <input type="submit" value="submit" id="avatar_submit" class="file"/>
+                </a>
+                
+                        <!--th:src="${userDetail.image}"-->
             </form>
         </div>
     </div>
