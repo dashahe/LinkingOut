@@ -29,8 +29,41 @@ function message(id) {
     xmlhttp.send(content);
 }
 
-function changeColor(){
-    document.getElementById("header").className = "mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--blue-50";
+function changeColor(obj){
+    var id = obj.id;
+
+    var tab_color_value ;
+    var header_color_value;
+
+    switch (id){
+        case "daily_tab":
+            header_color_value = "purple-500";
+            tab_color_value    = "purple-800";
+            console.log(header_color_value +"\n"+tab_color_value);
+            break;
+        case "second_hand_tab":
+            header_color_value = "indigo-500";
+            tab_color_value    = "indigo-800";
+            break;
+        case "hire_tab":
+            header_color_value = "blue-500";
+            tab_color_value    = "blue-800";
+            break;
+        case "parttim   e_job_tab":
+            header_color_value = "green-500";
+            tab_color_value    = "green-800";
+            break;
+        case"news_tab":
+            header_color_value = "teal-500";
+            tab_color_value    = "teal-800";
+            break;
+    }
+    var tabs_color =  "mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--"+tab_color_value;
+    var header_color = "mdl-layout__header mdl-layout__header--scroll mdl-color--"+header_color_value;
+
+    // console.log(tabs_color + "\n"+header_color);
+    document.getElementById("header_tabs").className = tabs_color;
+    document.getElementById("header_container").className = header_color;
 }
 
 
