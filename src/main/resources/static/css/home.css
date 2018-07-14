@@ -24,6 +24,7 @@ html, body {
     height: 64px;
 }
 .mdl-demo .mdl-layout__tab-bar {
+    color: #01AAED;
     padding: 0;
     padding-left: 16px;
     box-sizing: border-box;
@@ -222,6 +223,8 @@ html, body {
     z-index: 99;
 }
 
+
+
 .submit_btn {
     font-size: 20px;
     margin-top: 5px;
@@ -234,4 +237,8 @@ html, body {
     background-color: #555555;
     color: white;
     transition-duration: 0.4s;
+}
+
+.header_color{
+    color: #1E9FFF;
 }

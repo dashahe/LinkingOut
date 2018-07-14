@@ -29,6 +29,10 @@ function message(id) {
     xmlhttp.send(content);
 }
 
+function changeColor(){
+    document.getElementById("header").className = "mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--blue-50";
+}
+
 
 function star(aid) {
     var xmlhttp;

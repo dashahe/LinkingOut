@@ -31,7 +31,7 @@
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
 
-    <!--nice alter-->
+    <!--nice alert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.25.0/dist/sweetalert2.all.min.js"></script>
 
     <link rel="canonical" href="http://www.example.com/">
@@ -46,7 +46,7 @@
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--blue">
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
@@ -82,17 +82,21 @@
 
 
         </div>
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
 
-            <!--jump to corespond id-->
-            <a href="#daily" class="mdl-layout__tab is-active">日常</a>
-            <a href="#second_hand" class="mdl-layout__tab">二手</a>
-            <a href="#hire" class="mdl-layout__tab">招聘</a>
-            <a href="#part_time" class="mdl-layout__tab">兼职</a>
-            <a href="#news" class="mdl-layout__tab">新闻</a>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--blue-800" id="header">
 
-            <!--发动态的button-->
-            <div class="uk-inline">
+            <div>
+
+                <!--jump to corespond id-->
+                <a href="#daily" class="mdl-layout__tab is-active" onclick="changeColor()">日常</a>
+                <a href="#second_hand" class="mdl-layout__tab">二手</a>
+                <a href="#hire" class="mdl-layout__tab">招聘</a>
+                <a href="#part_time" class="mdl-layout__tab">兼职</a>
+                <a href="#news" class="mdl-layout__tab">新闻</a>
+
+
+                <!--发动态的button-->
+                <div class="uk-inline">
                 <button style="position: relative;left: 1000px;"
                         class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent uk-button uk-button-default"
                         id="add">
@@ -197,6 +201,7 @@
                 </div>
             </div>
 
+            </div>
         </div>
     </header>
 
@@ -217,7 +222,7 @@
                         <!--这里是头像-->
                         <div style="margin-top: 20px;"
                              class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                            <div class="section__circle-container__circle mdl-color--primary"></div>
+                            <div class="section__circle-container__circle mdl-color--blue"></div>
                         </div>
                         <div class="section__text mdl-cell
                          mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
