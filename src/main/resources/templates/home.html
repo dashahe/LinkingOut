@@ -51,7 +51,9 @@
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-            <h3 style="color: white;">Name &amp; Title</h3>
+            <a href="/">
+                <h2 style="color: white;">Linking<span>Out</span></h2>
+            </a>
         </div>
 
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
@@ -209,7 +211,6 @@
     <main class="mdl-layout__content">
 
 
-        <!--overview here-->
         <!--这里是个人动态-->
         <div class="mdl-layout__tab-panel is-active" id="daily">
 
@@ -219,7 +220,6 @@
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
                         <!--姓名-->
-                        <!--<h4 class="mdl-cell mdl-cell&#45;&#45;12-col" th:text="${activity.uid}">szy</h4>-->
                         <!--这里是头像-->
                         <div style="margin-top: 20px;"
                              class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
@@ -230,7 +230,6 @@
                             <h3 th:text="${activityRC.title}">我是标题</h3>
                             <h4 th:text="${activityRC.content}">我是内容</h4>
                             <!--收藏图标-->
-                            <!--<p th:name="'aid' + ${activityRC.aid}" th:text="${activityRC.aid}" style="display: none;"></p>-->
                             <button name="unstar" th:onclick="'star(' + ${activityRC.aid} + ')'"
                                     th:if="not ${activityRC.starred}" type="submit"
                                     style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px; "

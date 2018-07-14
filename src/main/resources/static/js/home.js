@@ -13,9 +13,9 @@ function message(id) {
             swal({
                 position: 'center',
                 type: 'success',
-                title: 'Your work has been saved',
+                title: 'Your moment has been posted',
                 showConfirmButton: false,
-                timer: 3000
+                timer: 2000
             });
             setTimeout("location.reload(true)",3000)
             ;

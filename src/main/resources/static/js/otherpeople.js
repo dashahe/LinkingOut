@@ -3,7 +3,7 @@ function follow() {
     if(window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
     } else {
-        xmlhttp = new ActiveXObject();
+        xmlhttp = new ActiveXObject("");
     }
     xmlhttp.onreadystatechange = function() {
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
