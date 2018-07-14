@@ -18,6 +18,10 @@ class TextUtil{
             return "${simpledataformat.format(date)}"
         }
 
+        fun getFullUrl(dest:String):String{
+            return "http://${dest}"
+        }
+
         fun formatUrl( src:String):String{
 
             val APP_ID = "20180707000183560"

@@ -1,0 +1,11 @@
+# home
+- title
+- 他人界面/编辑个人界面的header去掉 xb
+- 编辑加http 
+- 个人界面的背景更换  
+- 头像上传还有问题                 szy                         
+- 主页 点击不同tab更换颜色
+- 好友推荐顶部header
+- 各种界面添加以下返回的navigation
+- alert 改成snackbar
+- 域名 

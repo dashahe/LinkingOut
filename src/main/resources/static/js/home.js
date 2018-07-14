@@ -10,8 +10,15 @@ function message(id) {
     }
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            alert("发送成功");
-            location.reload(true);
+            swal({
+                position: 'center',
+                type: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 3000
+            });
+            setTimeout("location.reload(true)",3000)
+            ;
         }
     };
     var content = new FormData();
