@@ -30,4 +30,6 @@ class News {
 
     @NotNull
     var newsColumn :String = ""
+
+
 }
