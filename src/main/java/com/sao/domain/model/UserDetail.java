@@ -137,4 +137,5 @@ public class UserDetail {
     public void setIntroduction(String introduction) {
         this.introduction = introduction;
     }
+
 }

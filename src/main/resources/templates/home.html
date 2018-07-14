@@ -31,6 +31,8 @@
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
 
+    <!--nice alter-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.25.0/dist/sweetalert2.all.min.js"></script>
 
     <link rel="canonical" href="http://www.example.com/">
 
@@ -89,7 +91,7 @@
             <a href="#second_hand" class="mdl-layout__tab">二手</a>
             <a href="#hire" class="mdl-layout__tab">招聘</a>
             <a href="#part_time" class="mdl-layout__tab">兼职</a>
-
+            <a href="#news" class="mdl-layout__tab">新闻</a>
 
             <!--发动态的button-->
             <div class="uk-inline">
@@ -196,6 +198,7 @@
                     </ul>
                 </div>
             </div>
+
         </div>
     </header>
 
@@ -239,7 +242,6 @@
             </section>
         </div>
 
-
         <!--overview here-->
         <div class="mdl-layout__tab-panel" id="part_time">
 
@@ -278,7 +280,6 @@
             </section>
 
         </div>
-
 
         <!--overview here-->
         <div class="mdl-layout__tab-panel" id="second_hand">
@@ -319,7 +320,6 @@
             </section>
 
         </div>
-
 
         <!--overview here-->
         <div class="mdl-layout__tab-panel" id="hire">
@@ -365,6 +365,50 @@
 
         </div>
 
+
+        <!--overview here-->
+        <div class="mdl-layout__tab-panel" id="news">
+
+            <!-这里新闻-->
+            <section th:each="activityZP:${activitiesZP}"
+                     class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <div class="mdl-card mdl-cell mdl-cell--12-col">
+                    <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+
+                        <!--姓名-->
+                        <!--<h4 class="mdl-cell mdl-cell&#45;&#45;12-col" th:text="${activity.uid}">szy</h4>-->
+
+                        <!--这里是头像-->
+                        <div style="margin-top: 20px;"
+                             class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                            <div class="section__circle-container__circle mdl-color--primary"></div>
+                        </div>
+
+                        <div class="section__text mdl-cell
+                         mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                            <h3 th:text="${activityZP.title}">我是标题</h3>
+                            <h4 th:text="${activityZP.content}">我是内容</h4>
+
+                            <!--收藏图标-->
+                            <p th:text="${activityZP.aid}" style="display: none;"></p>
+                            <button th:onclick="'star(' + ${activityZP.aid} + ')'" th:if="not ${activityZP.starred}"
+                                    type="submit"
+                                    style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px; "
+                                    onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate" style="font-size: 30px;"></i>
+                            </button>
+                            <button th:onclick="'star(' + ${activityZP.aid} + ')'" th:if="${activityZP.starred}"
+                                    type="submit"
+                                    style="border: 0;background-color: transparent;position: relative;left: 600px;bottom: 20px;"
+                                    onfocus="this.blur()">
+                                <i class="layui-icon layui-icon-rate-solid" style="font-size: 30px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
 
         <footer class="mdl-mega-footer">
             <div style="text-align: center;" class="mdl-mega-footer--bottom-section">

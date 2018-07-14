@@ -3,6 +3,7 @@ package com.sao.controller;
 
 import com.sao.service.UserDetailService;
 import com.sao.utils.QiniuUtil;
+import com.sao.utils.TextUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +31,7 @@ public class UpLoadController {
     }
 
     @PostMapping("/upload")
-    public void handleFileUpload(@RequestParam(name = "file") MultipartFile file,
+    public String handleFileUpload(@RequestParam(name = "file") MultipartFile file,
                                    HttpSession httpSession,
                                    RedirectAttributes redirectAttributes) {
         if (!file.isEmpty()) {
@@ -42,13 +43,16 @@ public class UpLoadController {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                userDetailService.updateImageByUid(Long.valueOf(httpSession.getAttribute("uid").toString()),dest);
+                userDetailService.updateImageByUid(Long.valueOf(httpSession.getAttribute("uid").toString()),TextUtil.Companion.getFullUrl
+                        (dest));
+                return "home";
             } catch ( Exception e) {
                 e.printStackTrace();
             }
         } else {
             redirectAttributes.addFlashAttribute("message", "Failed to upload " + file.getOriginalFilename() + " because it was empty");
         }
+        return "error";
     }
 
     public File convert(MultipartFile file) throws IOException {
