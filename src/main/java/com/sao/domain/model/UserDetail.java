@@ -64,6 +64,11 @@ public class UserDetail {
      */
     private String username;
 
+    private String loginImage;
+
+    private String cardImage;
+
+    private String backgroundImage;
 
     public String getUsername() {
         return username;
@@ -136,6 +141,30 @@ public class UserDetail {
 
     public void setIntroduction(String introduction) {
         this.introduction = introduction;
+    }
+
+    public String getLoginImage() {
+        return loginImage;
+    }
+
+    public void setLoginImage(String loginImage) {
+        this.loginImage = loginImage;
+    }
+
+    public String getCardImage() {
+        return cardImage;
+    }
+
+    public void setCardImage(String cardImage) {
+        this.cardImage = cardImage;
+    }
+
+    public String getBackgroundImage() {
+        return backgroundImage;
+    }
+
+    public void setBackgroundImage(String backgroundImage) {
+        this.backgroundImage = backgroundImage;
     }
 
 }

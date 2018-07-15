@@ -4,6 +4,7 @@ import com.sao.exception.CException
 import com.sao.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
 import javax.servlet.http.HttpServletResponse
 import javax.servlet.http.HttpSession;
@@ -70,7 +71,10 @@ class LoginController {
 
 
     @GetMapping
-    fun getLoginPage():String{
+    fun getLoginPage(model: Model):String{
+        //todo
+//        loginImage =
+//        model.addAttribute("loginImage", loginImage);
         return "login"
     }
 
@@ -90,6 +94,7 @@ class LoginController {
 
 //        System.out.print("-------------------login function  ");
 //        System.out.print("----- " + tel + password);
+
 
         if (user.password.equals(password)) {
             session.setAttribute("uid", user.uid);

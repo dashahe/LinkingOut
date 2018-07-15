@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -45,7 +46,6 @@ public class HomeController {
         Long uid = Long.valueOf(httpSession.getAttribute("uid").toString());
         Iterable<News> news = newsService.findAllNews();
         Iterable<Question> questions = questionService.getQuestion();
-
 
         LinkedList<Activity> activities = new LinkedList<>();
         for (Activity activity : activityService.findAll()) {
