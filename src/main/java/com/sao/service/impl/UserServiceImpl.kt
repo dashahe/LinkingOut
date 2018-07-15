@@ -57,7 +57,7 @@ class UserServiceImpl : UserService {
 
         this.university = "Peking University"
         this.email = "test@test.com"
-        this.image = "https://n1image.hjfile.cn/mh/2017/09/16/159e71b005c449a40470fd07c9dd56fe.jpg"
+        this.image = "http://img.zcool.cn/community/0180bd55dd4f366ac7251df8a0391a.jpg"
         this.hobby = "default: coding"
         this.major = "computer science"
         this.introduction = "xvvx is so cool"

@@ -43,8 +43,8 @@ public class UpLoadController {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                userDetailService.updateImageByUid(Long.valueOf(httpSession.getAttribute("uid").toString()),TextUtil.Companion.getFullUrl
-                        (dest));
+                userDetailService.updateImageByUid(Long.valueOf(httpSession.getAttribute("uid").toString()),
+                        TextUtil.Companion.getFullUrl(dest));
                 return "home";
             } catch ( Exception e) {
                 e.printStackTrace();
