@@ -1,9 +1,6 @@
 package com.sao.controller;
 
-import com.sao.domain.model.Activity;
-import com.sao.domain.model.News;
-import com.sao.domain.model.StarRelationship;
-import com.sao.domain.model.UserDetail;
+import com.sao.domain.model.*;
 import com.sao.service.*;
 import org.hibernate.criterion.LikeExpression;
 import org.slf4j.Logger;
@@ -40,13 +37,15 @@ public class HomeController {
     @Autowired
     private StarRelationshipService starRelationshipService;
 
+    @Autowired
+    private QuesionService questionService;
+
     @GetMapping
     public String home(Model model, HttpSession httpSession) {
         Long uid = Long.valueOf(httpSession.getAttribute("uid").toString());
         Iterable<News> news = newsService.findAllNews();
-        for(News a : news) {
-            System.out.println(a.getContentUrl());
-        }
+        Iterable<Question> questions = questionService.getQuestion();
+
         LinkedList<Activity> activities = new LinkedList<>();
         for (Activity activity : activityService.findAll()) {
             activities.add(activity);
@@ -93,6 +92,7 @@ public class HomeController {
             }
         }
 
+        model.addAttribute("question", questions);
         model.addAttribute("news", news);
         model.addAttribute("activitiesRC", activitiesRC);
         model.addAttribute("activitiesES", activitiesES);

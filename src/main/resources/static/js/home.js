@@ -57,6 +57,12 @@ function changeColor(obj){
             header_color_value = "teal-500";
             tab_color_value    = "teal-800";
             break;
+            //todo change color
+        case"question_tab":
+            header_color_value = "teal-500";
+            tab_color_value    = "teal-800";
+            break;
+
     }
     var tabs_color =  "mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--"+tab_color_value;
     var header_color = "mdl-layout__header mdl-layout__header--scroll mdl-color--"+header_color_value;
