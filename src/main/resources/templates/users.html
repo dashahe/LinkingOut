@@ -560,8 +560,8 @@
             <!--entry html-->
             <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
                 <div class="mdl-card__media mdl-color-text--grey-50">
-                    <h1 th:text="${userDetail.username}"></h1>
-                    <h3 th:text="${userDetail.introduction}"></h3>
+                    <h1 th:text="${userDetail.username}" style="color: white;"></h1>
+                    <h3 th:text="${userDetail.introduction}" style="color: white;"></h3>
                 </div>
                 <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
                     <!--<div class="minilogo"></div>-->
@@ -597,11 +597,11 @@
                     <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531674459457&di=bc863e76ca7b4f2ab12740071ace3652&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201408%2F24%2F20140824154236_W5ArH.png">
 
                     <br>
-                    <a href="/follow">
+                    <a href="/follow" style="font-size: 15px;">
                         关注列表
                     </a>
                     <br>
-                    <a href="/fans">
+                    <a href="/fans" style="font-size: 15px;">
                         粉丝列表
                     </a>
                 </div>
@@ -617,8 +617,7 @@
             <div th:each="activity:${activities}">
                 <div class="mdl-card amazing mdl-cell mdl-cell--12-col">
                     <div class="mdl-card__title mdl-color-text--grey-50">
-                        <h3 class="quote" th:text="${activity.title}">
-                        </h3>
+                        <h3 class="quote" th:text="${activity.title}"></h3>
                     </div>
 
                     <div class="mdl-card__supporting-text mdl-color-text--grey-600">
