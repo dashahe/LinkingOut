@@ -59,8 +59,8 @@ function changeColor(obj){
             break;
             //todo change color
         case"question_tab":
-            header_color_value = "teal-500";
-            tab_color_value    = "teal-800";
+            header_color_value = "blue-500";
+            tab_color_value    = "blue-800";
             break;
 
     }
@@ -72,7 +72,16 @@ function changeColor(obj){
     document.getElementById("header_container").className = header_color;
 }
 
-
+function showError(){
+    swal({
+        position: 'center',
+        type: 'Error',
+        title: 'Refresh Time out!',
+        showConfirmButton: false,
+        timer: 3000
+    });
+    setTimeout("location.reload(true)",3000);
+}
 function star(aid) {
     var xmlhttp;
     if(window.XMLHttpRequest) {

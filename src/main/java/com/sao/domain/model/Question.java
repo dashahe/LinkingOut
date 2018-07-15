@@ -17,11 +17,18 @@ public class Question {
     long qid;
 
     @NotEmpty
-    String questionName;
+    public  String questionName;
 
 
     @NotNull
-    String questionDetail;
+    public String questionDetail;
 
 
+    public String getQuestionName(){
+        return questionName;
+    }
+
+    public String getQuestionDetail(){
+        return questionDetail;
+    }
 }

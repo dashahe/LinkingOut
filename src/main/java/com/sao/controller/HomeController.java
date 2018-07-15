@@ -46,6 +46,7 @@ public class HomeController {
         Iterable<News> news = newsService.findAllNews();
         Iterable<Question> questions = questionService.getQuestion();
 
+
         LinkedList<Activity> activities = new LinkedList<>();
         for (Activity activity : activityService.findAll()) {
             activities.add(activity);
@@ -92,7 +93,7 @@ public class HomeController {
             }
         }
 
-        model.addAttribute("question", questions);
+        model.addAttribute("questions", questions);
         model.addAttribute("news", news);
         model.addAttribute("activitiesRC", activitiesRC);
         model.addAttribute("activitiesES", activitiesES);

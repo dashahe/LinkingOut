@@ -403,30 +403,29 @@
 
         </div>
 
-        <!--<div class="mdl-layout__tab-panel" id="question">-->
+        <div class="mdl-layout__tab-panel" id="question" >
 
-            <!--<!-这里新闻&ndash;&gt;-->
-            <!--<section th:each="a:${question}"-->
-                     <!--class="section&#45;&#45;center mdl-grid mdl-grid&#45;&#45;no-spacing mdl-shadow&#45;&#45;2dp">-->
-                <!--<div class="mdl-card mdl-cell mdl-cell&#45;&#45;12-col">-->
-                    <!--<div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid&#45;&#45;no-spacing">-->
-                        <!--<div style="margin-top: 20px;"-->
-                             <!--class="section__circle-container mdl-cell mdl-cell&#45;&#45;2-col mdl-cell&#45;&#45;1-col-phone">-->
-                            <!--<div class="section__circle-container__circle mdl-color&#45;&#45;primary"></div>-->
-                        <!--</div>-->
+            <!-这里新闻-->
+            <section th:each="question:${questions}"
+                     class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <div class="mdl-card mdl-cell mdl-cell--12-col" onclick="showError()">
+                    <div style="margin: 20px" class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                        <div style="margin-top: 20px;"
+                             class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                            <div class="section__circle-container__circle mdl-color--primary"></div>
+                        </div>
 
-                        <!--<div class="section__text mdl-cell-->
-                         <!--mdl-cell&#45;&#45;10-col-desktop mdl-cell&#45;&#45;6-col-tablet mdl-cell&#45;&#45;3-col-phone">-->
-                            <!--<a th:href="${a.questionName}" >-->
-                                <!--<h4 th:text="${a.questionDetail}">我是标题</h4>-->
-                            <!--</a>-->
+                        <div class="section__text mdl-cell
+                         mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                            <h3 th:text="${question.questionName}"  ></h3>
+                            <h4 th:text="${question.questionDetail}">我是标题</h4>
 
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</section>-->
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <!--</div>-->
+        </div>
         <!---->
         <footer class="mdl-mega-footer">
             <div style="text-align: center;" class="mdl-mega-footer--bottom-section">
